@@ -1,0 +1,181 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-orange: #FF6E14;
+  --color-brand-red: #EE534F;
+  --color-brand-yellow: #FDD835;
+  --color-brand-blue: #64B5F6;
+  --color-brand-purple: #CE93D8;
+  --color-brand-dark: #0A0A0A;
+  --color-brand-darker: #050505;
+  --color-brand-gray: #1F1F1F;
+  --color-brand-peach: #FFEDE1;
+
+  --font-sans: 'Outfit', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+}
+
+@layer base {
+  body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+/* Custom Scrollbar styled after upsynk.in */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1f1f1f;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF6E14;
+}
+
+/* Animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes floatElement {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes spinSlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 12s infinite ease-in-out;
+}
+
+.animate-float {
+  animation: floatElement 6s infinite ease-in-out;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 20s infinite linear;
+}
+
+.logo-font {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Grid background pattern with interactive orange grid tracking */
+.bg-grid-pattern {
+  position: relative;
+  background-color: #000000;
+}
+
+.bg-grid-pattern::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  /* Dark gray grid always visible */
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+}
+
+.bg-grid-pattern::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  /* Orange grid only visible near mouse */
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 110, 20, 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 110, 20, 0.25) 1px, transparent 1px);
+  /* Mask it with radial gradient at mouse coordinates */
+  -webkit-mask-image: radial-gradient(circle 180px at var(--mouse-x, -1000px) var(--mouse-y, -1000px), black 30%, transparent 100%);
+  mask-image: radial-gradient(circle 180px at var(--mouse-x, -1000px) var(--mouse-y, -1000px), black 30%, transparent 100%);
+  transition: opacity 0.3s ease;
+}
+
+/* Glassmorphism panel (for cards, headers, etc) */
+.glass-panel {
+  background: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Premium Glass Cards with orange glows on hover */
+.glass-card {
+  background: rgba(15, 15, 15, 0.55);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 110, 20, 0.25);
+  background: rgba(20, 20, 20, 0.85);
+  box-shadow: 
+    0 20px 40px -15px rgba(0, 0, 0, 0.7),
+    0 0 50px -10px rgba(255, 110, 20, 0.1);
+  transform: translateY(-4px);
+}
+
+/* Accent border highlights for dashboards */
+.glow-border-orange {
+  border: 1px solid rgba(255, 110, 20, 0.2);
+  box-shadow: 0 0 20px -5px rgba(255, 110, 20, 0.15);
+}
+
+.glow-border-yellow {
+  border: 1px solid rgba(253, 216, 53, 0.2);
+  box-shadow: 0 0 20px -5px rgba(253, 216, 53, 0.15);
+}
+
+/* Infinite slider marquee animations */
+@keyframes infiniteScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-infinite-scroll {
+  animation: infiniteScroll 35s linear infinite;
+}
+
+.animate-infinite-scroll:hover {
+  animation-play-state: paused;
+}
