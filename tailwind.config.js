@@ -12,15 +12,15 @@ export default {
       },
       colors: {
         brand: {
-          orange: '#FF6E14',
-          red: '#EE534F',
-          yellow: '#FDD835',
-          blue: '#64B5F6',
-          purple: '#CE93D8',
+          orange: '#8B5CF6',
+          red: '#3B82F6',
+          yellow: '#0EA5E9',
+          blue: '#3B82F6',
+          purple: '#8B5CF6',
           dark: '#0A0A0A',
           darker: '#050505',
           gray: '#1F1F1F',
-          peach: '#FFEDE1',
+          peach: '#EEF2F6',
         }
       }
     },

@@ -1,15 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-orange: #FF6E14;
-  --color-brand-red: #EE534F;
-  --color-brand-yellow: #FDD835;
-  --color-brand-blue: #64B5F6;
-  --color-brand-purple: #CE93D8;
+  --color-brand-purple: #8B5CF6;
+  --color-brand-blue: #3B82F6;
+  --color-brand-cyan: #0EA5E9;
+  --color-brand-indigo: #6366F1;
   --color-brand-dark: #0A0A0A;
   --color-brand-darker: #050505;
   --color-brand-gray: #1F1F1F;
-  --color-brand-peach: #FFEDE1;
+  --color-brand-peach: #EEF2F6;
+
+  /* Aliases for safety and backward-compatibility with orange theme classes */
+  --color-brand-orange: #8B5CF6;
+  --color-brand-red: #3B82F6;
+  --color-brand-yellow: #0EA5E9;
 
   --font-sans: 'Outfit', sans-serif;
   --font-serif: 'Playfair Display', serif;
@@ -40,7 +44,7 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #FF6E14;
+  background: var(--color-brand-purple);
 }
 
 /* Animations */
@@ -91,7 +95,7 @@
   letter-spacing: -0.02em;
 }
 
-/* Grid background pattern with interactive orange grid tracking */
+/* Grid background pattern with interactive purple/blue grid tracking */
 .bg-grid-pattern {
   position: relative;
   background-color: #000000;
@@ -116,11 +120,11 @@
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  /* Orange grid only visible near mouse */
+  /* Purple-blue grid only visible near mouse */
   background-size: 50px 50px;
   background-image: 
-    linear-gradient(to right, rgba(255, 110, 20, 0.25) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 110, 20, 0.25) 1px, transparent 1px);
+    linear-gradient(to right, rgba(139, 92, 246, 0.2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(139, 92, 246, 0.2) 1px, transparent 1px);
   /* Mask it with radial gradient at mouse coordinates */
   -webkit-mask-image: radial-gradient(circle 180px at var(--mouse-x, -1000px) var(--mouse-y, -1000px), black 30%, transparent 100%);
   mask-image: radial-gradient(circle 180px at var(--mouse-x, -1000px) var(--mouse-y, -1000px), black 30%, transparent 100%);
@@ -134,7 +138,7 @@
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* Premium Glass Cards with orange glows on hover */
+/* Premium Glass Cards with purple & blue glows on hover */
 .glass-card {
   background: rgba(15, 15, 15, 0.55);
   backdrop-filter: blur(12px);
@@ -143,23 +147,34 @@
 }
 
 .glass-card:hover {
-  border-color: rgba(255, 110, 20, 0.25);
+  border-color: rgba(139, 92, 246, 0.35);
   background: rgba(20, 20, 20, 0.85);
   box-shadow: 
     0 20px 40px -15px rgba(0, 0, 0, 0.7),
-    0 0 50px -10px rgba(255, 110, 20, 0.1);
+    0 0 50px -10px rgba(59, 130, 246, 0.15);
   transform: translateY(-4px);
 }
 
 /* Accent border highlights for dashboards */
+.glow-border-purple {
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  box-shadow: 0 0 20px -5px rgba(139, 92, 246, 0.15);
+}
+
+.glow-border-blue {
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  box-shadow: 0 0 20px -5px rgba(59, 130, 246, 0.15);
+}
+
+/* Legacy aliases for orange & yellow glows */
 .glow-border-orange {
-  border: 1px solid rgba(255, 110, 20, 0.2);
-  box-shadow: 0 0 20px -5px rgba(255, 110, 20, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  box-shadow: 0 0 20px -5px rgba(139, 92, 246, 0.15);
 }
 
 .glow-border-yellow {
-  border: 1px solid rgba(253, 216, 53, 0.2);
-  box-shadow: 0 0 20px -5px rgba(253, 216, 53, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  box-shadow: 0 0 20px -5px rgba(59, 130, 246, 0.15);
 }
 
 /* Infinite slider marquee animations */

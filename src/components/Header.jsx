@@ -14,7 +14,7 @@ export default function Header() {
   // Watch for auth changes
   useEffect(() => {
     const checkAuth = () => {
-      const user = getDbItem('digivibe_current_user', null);
+      const user = getDbItem('beyondskills_current_user', null);
       setCurrentUser(user);
     };
     checkAuth();
@@ -29,7 +29,7 @@ export default function Header() {
   }, [location.pathname]);
 
   const handleLogout = () => {
-    localStorage.removeItem('digivibe_current_user');
+    localStorage.removeItem('beyondskills_current_user');
     window.dispatchEvent(new Event('auth_change'));
     navigate('/');
   };
@@ -47,23 +47,28 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center space-x-2">
-              <span className="logo-font text-3xl font-extrabold tracking-tight bg-gradient-to-r from-white via-orange-200 to-brand-orange bg-clip-text text-transparent">
-                digivibe
-              </span>
-              <span className="bg-brand-orange text-[9px] font-bold text-black uppercase px-1.5 py-0.5 rounded tracking-widest">
-                Agency & Academy
+            <Link to="/" className="flex flex-col items-start leading-none group">
+              <div className="flex items-center">
+                <span className="logo-font text-2xl sm:text-[26px] font-extrabold tracking-tight text-white transition-colors duration-300 group-hover:text-gray-200">
+                  Beyond
+                </span>
+                <span className="logo-font text-2xl sm:text-[26px] font-extrabold tracking-tight bg-gradient-to-r from-brand-purple to-brand-blue bg-clip-text text-transparent transition-all duration-300 group-hover:brightness-110">
+                  Skills
+                </span>
+              </div>
+              <span className="text-[7px] font-bold text-gray-400 uppercase tracking-[0.16em] mt-1 select-none leading-none">
+                Digital Services • Upskilling • Future-Ready
               </span>
             </Link>
           </div>
 
           {/* Desktop Navigation Capsule Bar */}
-          <nav className="hidden lg:flex items-center bg-white/5 border border-white/10 rounded-full px-2 py-1.5 shadow-lg backdrop-blur-md hover:border-brand-orange/20 transition-all duration-300">
-            <Link to="/" className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 hover:scale-105 active:scale-95 ${location.pathname === '/' ? 'text-black bg-brand-orange shadow-md shadow-brand-orange/20 font-semibold' : 'text-gray-300 hover:text-white hover:bg-white/5'}`}>
+          <nav className="hidden lg:flex items-center bg-white/5 border border-white/10 rounded-full px-2 py-1.5 shadow-lg backdrop-blur-md hover:border-brand-purple/20 transition-all duration-300">
+            <Link to="/" className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 hover:scale-105 active:scale-95 ${location.pathname === '/' ? 'text-black bg-brand-purple shadow-md shadow-brand-purple/20 font-semibold' : 'text-gray-300 hover:text-white hover:bg-white/5'}`}>
               Home
             </Link>
             
-            <Link to="/about" className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 hover:scale-105 active:scale-95 ${location.pathname === '/about' ? 'text-black bg-brand-orange shadow-md shadow-brand-orange/20 font-semibold' : 'text-gray-300 hover:text-white hover:bg-white/5'}`}>
+            <Link to="/about" className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 hover:scale-105 active:scale-95 ${location.pathname === '/about' ? 'text-black bg-brand-purple shadow-md shadow-brand-purple/20 font-semibold' : 'text-gray-300 hover:text-white hover:bg-white/5'}`}>
               About Us
             </Link>
 
@@ -71,7 +76,7 @@ export default function Header() {
             <div className="relative" 
                  onMouseEnter={() => setAgencyDropdown(true)}
                  onMouseLeave={() => setAgencyDropdown(false)}>
-              <button className={`flex items-center space-x-1 px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none ${location.pathname.startsWith('/services') ? 'text-black bg-brand-orange shadow-md shadow-brand-orange/20 font-semibold' : 'text-gray-300 hover:text-white hover:bg-white/5'}`}>
+              <button className={`flex items-center space-x-1 px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none ${location.pathname.startsWith('/services') ? 'text-black bg-brand-purple shadow-md shadow-brand-purple/20 font-semibold' : 'text-gray-300 hover:text-white hover:bg-white/5'}`}>
                 <span>Agency</span>
                 <ChevronDown className="w-3.5 h-3.5" />
               </button>
@@ -79,14 +84,14 @@ export default function Header() {
               {agencyDropdown && (
                 <div className="absolute left-0 w-64 mt-2 bg-brand-dark border border-white/10 rounded-xl shadow-2xl p-2 animate-fade-in backdrop-blur-xl">
                   <Link to="/services/website-development" className="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-colors">
-                    <Code className="w-5 h-5 text-brand-orange mt-0.5" />
+                    <Code className="w-5 h-5 text-brand-purple mt-0.5" />
                     <div>
                       <p className="text-sm font-semibold text-white">Website Development</p>
                       <p className="text-xs text-gray-400">Custom web apps & ecommerce</p>
                     </div>
                   </Link>
                   <Link to="/services/digital-marketing" className="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-colors">
-                    <Megaphone className="w-5 h-5 text-brand-orange mt-0.5" />
+                    <Megaphone className="w-5 h-5 text-brand-purple mt-0.5" />
                     <div>
                       <p className="text-sm font-semibold text-white">Digital Marketing</p>
                       <p className="text-xs text-gray-400">Google, Meta Ads & Strategy</p>
@@ -100,44 +105,44 @@ export default function Header() {
             <div className="relative"
                  onMouseEnter={() => setCoursesDropdown(true)}
                  onMouseLeave={() => setCoursesDropdown(false)}>
-              <button className={`flex items-center space-x-1 px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none ${location.pathname.startsWith('/courses') ? 'text-black bg-brand-orange shadow-md shadow-brand-orange/20 font-semibold' : 'text-gray-300 hover:text-white hover:bg-white/5'}`}>
+              <button className={`flex items-center space-x-1 px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none ${location.pathname.startsWith('/courses') ? 'text-black bg-brand-purple shadow-md shadow-brand-purple/20 font-semibold' : 'text-gray-300 hover:text-white hover:bg-white/5'}`}>
                 <span>Academy</span>
                 <ChevronDown className="w-3.5 h-3.5" />
               </button>
               
               {coursesDropdown && (
                 <div className="absolute left-0 w-72 mt-2 bg-brand-dark border border-white/10 rounded-xl shadow-2xl p-2 animate-fade-in backdrop-blur-xl">
-                  <div className="px-3 py-1 text-[10px] font-bold text-brand-orange tracking-widest uppercase border-b border-white/5 mb-1 pb-1">
+                  <div className="px-3 py-1 text-[10px] font-bold text-brand-purple tracking-widest uppercase border-b border-white/5 mb-1 pb-1">
                     Certification Programs
                   </div>
                   <Link to="/courses" className="flex items-start space-x-3 p-2.5 rounded-lg hover:bg-white/5 transition-colors">
-                    <GraduationCap className="w-5 h-5 text-brand-orange mt-0.5" />
+                    <GraduationCap className="w-5 h-5 text-brand-purple mt-0.5" />
                     <div>
                       <p className="text-xs font-semibold text-white">All Courses</p>
                       <p className="text-[11px] text-gray-400">Browse academy programs</p>
                     </div>
                   </Link>
-                  <Link to="/courses?cat=AI/ML/DS/DA" className="block px-3 py-1.5 text-xs text-gray-300 hover:text-brand-orange rounded hover:bg-white/5">
+                  <Link to="/courses?cat=AI/ML/DS/DA" className="block px-3 py-1.5 text-xs text-gray-300 hover:text-brand-purple rounded hover:bg-white/5">
                     Artificial Intelligence & Data Science
                   </Link>
-                  <Link to="/courses?cat=Full Stack Development" className="block px-3 py-1.5 text-xs text-gray-300 hover:text-brand-orange rounded hover:bg-white/5">
+                  <Link to="/courses?cat=Full Stack Development" className="block px-3 py-1.5 text-xs text-gray-300 hover:text-brand-purple rounded hover:bg-white/5">
                     Full Stack Web Dev (MERN)
                   </Link>
-                  <Link to="/courses?cat=Digital Marketing" className="block px-3 py-1.5 text-xs text-gray-300 hover:text-brand-orange rounded hover:bg-white/5">
+                  <Link to="/courses?cat=Digital Marketing" className="block px-3 py-1.5 text-xs text-gray-300 hover:text-brand-purple rounded hover:bg-white/5">
                     Performance Ads & SEO
                   </Link>
-                  <Link to="/courses?cat=HR" className="block px-3 py-1.5 text-xs text-gray-300 hover:text-brand-orange rounded hover:bg-white/5">
+                  <Link to="/courses?cat=HR" className="block px-3 py-1.5 text-xs text-gray-300 hover:text-brand-purple rounded hover:bg-white/5">
                     HR Management
                   </Link>
                 </div>
               )}
             </div>
 
-            <Link to="/blog" className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 hover:scale-105 active:scale-95 ${location.pathname === '/blog' ? 'text-black bg-brand-orange shadow-md shadow-brand-orange/20 font-semibold' : 'text-gray-300 hover:text-white hover:bg-white/5'}`}>
+            <Link to="/blog" className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 hover:scale-105 active:scale-95 ${location.pathname === '/blog' ? 'text-black bg-brand-purple shadow-md shadow-brand-purple/20 font-semibold' : 'text-gray-300 hover:text-white hover:bg-white/5'}`}>
               Blogs
             </Link>
 
-            <Link to="/contact" className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 hover:scale-105 active:scale-95 ${location.pathname === '/contact' ? 'text-black bg-brand-orange shadow-md shadow-brand-orange/20 font-semibold' : 'text-gray-300 hover:text-white hover:bg-white/5'}`}>
+            <Link to="/contact" className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 hover:scale-105 active:scale-95 ${location.pathname === '/contact' ? 'text-black bg-brand-purple shadow-md shadow-brand-purple/20 font-semibold' : 'text-gray-300 hover:text-white hover:bg-white/5'}`}>
               Contact
             </Link>
           </nav>
@@ -150,12 +155,12 @@ export default function Header() {
                   ID: {currentUser.studentId || 'Admin'}
                 </span>
                 
-                {currentUser.email === 'admin@digivibe.in' ? (
-                  <Link to="/admin" className="text-xs font-semibold uppercase tracking-wider text-brand-yellow hover:text-white bg-brand-yellow/10 border border-brand-yellow/30 px-4 py-2 rounded-full transition-all">
+                {currentUser.email === 'admin@beyondskills.in' ? (
+                  <Link to="/admin" className="text-xs font-semibold uppercase tracking-wider text-brand-cyan hover:text-white bg-brand-cyan/10 border border-brand-cyan/30 px-4 py-2 rounded-full transition-all">
                     Admin Portal
                   </Link>
                 ) : (
-                  <Link to="/dashboard" className="text-xs font-semibold uppercase tracking-wider text-brand-orange hover:text-white bg-brand-orange/10 border border-brand-orange/30 px-4 py-2 rounded-full transition-all">
+                  <Link to="/dashboard" className="text-xs font-semibold uppercase tracking-wider text-brand-purple hover:text-white bg-brand-purple/10 border border-brand-purple/30 px-4 py-2 rounded-full transition-all">
                     Dashboard
                   </Link>
                 )}
@@ -169,7 +174,7 @@ export default function Header() {
                 <Link to="/verify" className="text-xs text-gray-400 hover:text-white px-3 py-2">
                   Verify Certificate
                 </Link>
-                <Link to="/auth" className="bg-white text-black hover:bg-brand-orange hover:text-white px-5 py-2 rounded-full font-bold text-xs uppercase tracking-widest transition-all duration-300 transform hover:scale-105">
+                <Link to="/auth" className="bg-white text-black hover:bg-brand-purple hover:text-white px-5 py-2 rounded-full font-bold text-xs uppercase tracking-widest transition-all duration-300 transform hover:scale-105">
                   Student Login
                 </Link>
               </div>
@@ -188,37 +193,37 @@ export default function Header() {
       {/* Mobile Drawer menu */}
       {isOpen && (
         <div className="lg:hidden border-t border-white/10 bg-brand-dark px-4 pt-2 pb-6 space-y-3">
-          <Link to="/" className="block px-3 py-2 text-base font-semibold hover:text-brand-orange border-b border-white/5">
+          <Link to="/" className="block px-3 py-2 text-base font-semibold hover:text-brand-purple border-b border-white/5">
             Home
           </Link>
-          <Link to="/about" className="block px-3 py-2 text-base font-semibold hover:text-brand-orange border-b border-white/5">
+          <Link to="/about" className="block px-3 py-2 text-base font-semibold hover:text-brand-purple border-b border-white/5">
             About Us
           </Link>
           
-          <div className="px-3 py-1 text-[11px] font-bold text-brand-orange tracking-widest uppercase">
+          <div className="px-3 py-1 text-[11px] font-bold text-brand-purple tracking-widest uppercase">
             Agency Services
           </div>
-          <Link to="/services/website-development" className="block px-6 py-1.5 text-sm hover:text-brand-orange text-gray-300">
+          <Link to="/services/website-development" className="block px-6 py-1.5 text-sm hover:text-brand-purple text-gray-300">
             Website Development
           </Link>
-          <Link to="/services/digital-marketing" className="block px-6 py-1.5 text-sm hover:text-brand-orange text-gray-300">
+          <Link to="/services/digital-marketing" className="block px-6 py-1.5 text-sm hover:text-brand-purple text-gray-300">
             Digital Marketing
           </Link>
 
-          <div className="px-3 py-1 text-[11px] font-bold text-brand-orange tracking-widest uppercase">
+          <div className="px-3 py-1 text-[11px] font-bold text-brand-purple tracking-widest uppercase">
             Academy Programs
           </div>
-          <Link to="/courses" className="block px-6 py-1.5 text-sm hover:text-brand-orange text-gray-300">
+          <Link to="/courses" className="block px-6 py-1.5 text-sm hover:text-brand-purple text-gray-300">
             All Certification Courses
           </Link>
 
-          <Link to="/blog" className="block px-3 py-2 text-base font-semibold hover:text-brand-orange border-b border-white/5">
+          <Link to="/blog" className="block px-3 py-2 text-base font-semibold hover:text-brand-purple border-b border-white/5">
             Blogs
           </Link>
-          <Link to="/contact" className="block px-3 py-2 text-base font-semibold hover:text-brand-orange border-b border-white/5">
+          <Link to="/contact" className="block px-3 py-2 text-base font-semibold hover:text-brand-purple border-b border-white/5">
             Contact
           </Link>
-          <Link to="/verify" className="block px-3 py-2 text-base font-semibold hover:text-brand-orange border-b border-white/5">
+          <Link to="/verify" className="block px-3 py-2 text-base font-semibold hover:text-brand-purple border-b border-white/5">
             Verify Certificate
           </Link>
 
@@ -227,12 +232,12 @@ export default function Header() {
               <span className="text-xs text-gray-400 font-mono">
                 Student ID: {currentUser.studentId || 'Admin'}
               </span>
-              {currentUser.email === 'admin@digivibe.in' ? (
-                <Link to="/admin" className="text-center bg-brand-yellow text-black font-bold py-2 rounded-lg">
+              {currentUser.email === 'admin@beyondskills.in' ? (
+                <Link to="/admin" className="text-center bg-brand-cyan text-black font-bold py-2 rounded-lg">
                   Admin Panel
                 </Link>
               ) : (
-                <Link to="/dashboard" className="text-center bg-brand-orange text-white font-bold py-2 rounded-lg">
+                <Link to="/dashboard" className="text-center bg-brand-purple text-white font-bold py-2 rounded-lg">
                   Student Dashboard
                 </Link>
               )}

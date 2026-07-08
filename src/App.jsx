@@ -68,8 +68,8 @@ export default function App() {
       return () => clearTimeout(timer);
     };
 
-    window.addEventListener('digivibe_toast', handleToast);
-    return () => window.removeEventListener('digivibe_toast', handleToast);
+    window.addEventListener('beyondskills_toast', handleToast);
+    return () => window.removeEventListener('beyondskills_toast', handleToast);
   }, []);
 
   return (
@@ -78,21 +78,21 @@ export default function App() {
       
       {/* Toast Notification for email simulated alert / SLA responses */}
       {toast && (
-        <div className="fixed bottom-6 right-6 z-50 max-w-md w-full bg-gray-900 border border-brand-orange/40 rounded-xl shadow-2xl p-4 animate-fade-in backdrop-blur-xl">
+        <div className="fixed bottom-6 right-6 z-50 max-w-md w-full bg-gray-900 border border-brand-purple/40 rounded-xl shadow-2xl p-4 animate-fade-in backdrop-blur-xl">
           <div className="flex items-start space-x-3">
-            <div className="bg-brand-orange/20 p-2 rounded-lg text-brand-orange">
+            <div className="bg-brand-purple/20 p-2 rounded-lg text-brand-purple">
               <Mail className="w-5 h-5 animate-pulse" />
             </div>
             <div className="flex-1">
               <div className="flex items-center justify-between">
-                <p className="text-xs font-bold text-brand-orange uppercase tracking-wider">Simulated SLA Email Alert</p>
+                <p className="text-xs font-bold text-brand-purple uppercase tracking-wider">Simulated SLA Email Alert</p>
                 <button onClick={() => setToast(null)} className="text-gray-400 hover:text-white">
                   <X className="w-4 h-4" />
                 </button>
               </div>
               <p className="text-sm font-semibold text-white mt-1">{toast.subject}</p>
               <p className="text-xs text-gray-400 mt-1 leading-relaxed whitespace-pre-line">{toast.body}</p>
-              <span className="text-[10px] text-brand-orange font-mono mt-2 block">
+              <span className="text-[10px] text-brand-purple font-mono mt-2 block">
                 ⚡ Received within 5 seconds of submission (Target SLA: 5 minutes)
               </span>
             </div>

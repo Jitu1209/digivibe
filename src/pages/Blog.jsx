@@ -15,13 +15,13 @@ export default function Blog() {
   return (
     <div className="text-white min-h-screen relative pt-12 pb-24">
       {/* Background Decor */}
-      <div className="absolute top-40 left-10 w-96 h-96 bg-brand-orange/5 rounded-full blur-[120px] z-0"></div>
+      <div className="absolute top-40 left-10 w-96 h-96 bg-brand-purple/5 rounded-full blur-[120px] z-0"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 relative">
         {/* Title */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-bold tracking-widest text-brand-orange uppercase border border-brand-orange/30 px-3 py-1 rounded bg-brand-orange/5">
-            Digivibe Insights
+          <span className="text-xs font-bold tracking-widest text-brand-purple uppercase border border-brand-purple/30 px-3 py-1 rounded bg-brand-purple/5">
+            BeyondSkills Insights
           </span>
           <h1 className="logo-font text-4xl sm:text-6xl font-extrabold mt-6">
             Industry Tech & Career Guidance
@@ -34,7 +34,7 @@ export default function Blog() {
         {/* Category Filters */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {categories.map((cat, idx) => (
-            <button key={idx} onClick={() => setSelectedCategory(cat)} className={`px-5 py-2 rounded-full font-bold text-xs uppercase tracking-wider transition-all ${selectedCategory === cat ? 'bg-brand-orange text-black' : 'bg-white/5 border border-white/10 text-gray-300 hover:text-white'}`}>
+            <button key={idx} onClick={() => setSelectedCategory(cat)} className={`px-5 py-2 rounded-full font-bold text-xs uppercase tracking-wider transition-all ${selectedCategory === cat ? 'bg-brand-purple text-black' : 'bg-white/5 border border-white/10 text-gray-300 hover:text-white'}`}>
               {cat}
             </button>
           ))}
@@ -43,12 +43,12 @@ export default function Blog() {
         {/* Blogs Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredBlogs.map((blog) => (
-            <div key={blog.id} className="glass-card rounded-2xl overflow-hidden flex flex-col justify-between border border-white/5 hover:border-brand-orange/20 transition-all hover:scale-[1.01]">
+            <div key={blog.id} className="glass-card rounded-2xl overflow-hidden flex flex-col justify-between border border-white/5 hover:border-brand-purple/20 transition-all hover:scale-[1.01]">
               <div>
                 <img src={blog.image} alt={blog.title} className="w-full h-48 object-cover border-b border-white/5" />
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-[9px] font-bold tracking-widest text-brand-orange bg-brand-orange/10 border border-brand-orange/30 px-2.5 py-0.5 rounded uppercase">
+                    <span className="text-[9px] font-bold tracking-widest text-brand-purple bg-brand-purple/10 border border-brand-purple/30 px-2.5 py-0.5 rounded uppercase">
                       {blog.category}
                     </span>
                     <span className="text-[10px] text-gray-400 font-mono flex items-center space-x-1">
@@ -63,10 +63,10 @@ export default function Blog() {
               <div className="p-6 pt-0">
                 <div className="border-t border-white/5 pt-4 flex items-center justify-between">
                   <div className="flex items-center space-x-2 text-[10px] text-gray-400">
-                    <User className="w-3.5 h-3.5 text-brand-orange" />
+                    <User className="w-3.5 h-3.5 text-brand-purple" />
                     <span>{blog.author}</span>
                   </div>
-                  <button onClick={() => setSelectedBlog(blog)} className="inline-flex items-center space-x-1.5 text-xs font-bold uppercase tracking-wider text-brand-orange hover:text-white transition-colors">
+                  <button onClick={() => setSelectedBlog(blog)} className="inline-flex items-center space-x-1.5 text-xs font-bold uppercase tracking-wider text-brand-purple hover:text-white transition-colors">
                     <span>Read Article</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
@@ -88,7 +88,7 @@ export default function Blog() {
               
               <div className="p-8">
                 <div className="flex items-center space-x-4 mb-4 text-xs">
-                  <span className="bg-brand-orange/15 text-brand-orange font-bold uppercase px-3 py-1 rounded">
+                  <span className="bg-brand-purple/15 text-brand-purple font-bold uppercase px-3 py-1 rounded">
                     {selectedBlog.category}
                   </span>
                   <span className="text-gray-400 font-mono">{selectedBlog.date}</span>
@@ -100,7 +100,7 @@ export default function Blog() {
                 </h2>
                 
                 <div className="text-gray-300 text-sm sm:text-base leading-relaxed space-y-6 text-justify">
-                  <p className="font-semibold text-white border-l-2 border-brand-orange pl-4 italic">
+                  <p className="font-semibold text-white border-l-2 border-brand-purple pl-4 italic">
                     {selectedBlog.summary}
                   </p>
                   <p className="whitespace-pre-line">
@@ -109,8 +109,8 @@ export default function Blog() {
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between text-xs text-gray-500">
-                  <span>© {new Date().getFullYear()} Digivibe Insights.</span>
-                  <span className="flex items-center space-x-1.5 text-brand-orange font-bold uppercase tracking-wider">
+                  <span>© {new Date().getFullYear()} BeyondSkills Insights.</span>
+                  <span className="flex items-center space-x-1.5 text-brand-purple font-bold uppercase tracking-wider">
                     <Sparkles className="w-4 h-4" />
                     <span>Quality Tech Guidance</span>
                   </span>

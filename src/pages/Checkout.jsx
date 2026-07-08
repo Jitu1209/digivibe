@@ -17,7 +17,7 @@ export default function Checkout() {
 
   useEffect(() => {
     // If user is already logged in, pre-fill form
-    const loggedInUser = getDbItem('digivibe_current_user', null);
+    const loggedInUser = getDbItem('beyondskills_current_user', null);
     if (loggedInUser) {
       setForm({
         name: loggedInUser.name || '',
@@ -49,10 +49,10 @@ export default function Checkout() {
     // Simulate transaction delay
     setTimeout(() => {
       // 1. Create student account or fetch existing
-      const users = getDbItem('digivibe_users', []);
+      const users = getDbItem('beyondskills_users', []);
       let targetUser = users.find(u => u.email === form.email);
       
-      const newStudentId = `DV-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+      const newStudentId = `BS-2026-${Math.floor(1000 + Math.random() * 9000)}`;
 
       if (!targetUser) {
         // Create new user record
@@ -65,7 +65,7 @@ export default function Checkout() {
           activeCourses: [course.id]
         };
         users.push(targetUser);
-        setDbItem('digivibe_users', users);
+        setDbItem('beyondskills_users', users);
       } else {
         // Update user record: allocate course if not already owned
         if (!targetUser.activeCourses.includes(course.id)) {
@@ -73,15 +73,15 @@ export default function Checkout() {
         }
         // Save back users
         const updatedUsers = users.map(u => u.email === form.email ? targetUser : u);
-        setDbItem('digivibe_users', updatedUsers);
+        setDbItem('beyondskills_users', updatedUsers);
       }
 
       // 2. Set user as current session
-      setDbItem('digivibe_current_user', targetUser);
+      setDbItem('beyondskills_current_user', targetUser);
       window.dispatchEvent(new Event('auth_change'));
 
       // 3. Log payment record
-      const payments = getDbItem('digivibe_payments', []);
+      const payments = getDbItem('beyondskills_payments', []);
       const newPayId = `pay_mock_${Math.floor(100000 + Math.random() * 900000)}`;
       payments.push({
         orderId: newPayId,
@@ -92,10 +92,10 @@ export default function Checkout() {
         status: 'Success',
         date: new Date().toISOString()
       });
-      setDbItem('digivibe_payments', payments);
+      setDbItem('beyondskills_payments', payments);
 
       // 4. Trigger simulated welcome email notifications toast SLA
-      window.dispatchEvent(new CustomEvent('digivibe_toast', {
+      window.dispatchEvent(new CustomEvent('beyondskills_toast', {
         detail: {
           subject: `Enrollment Success & Onboarding Checklist`,
           body: `Hi ${form.name},\n\nPayment successful (Ref ID: ${newPayId}). Your student ID is ${targetUser.studentId || newStudentId}.\n\nWelcome to your learning platform! Registered login details:\nEmail: ${form.email}\nTemp Password: password\n\nYour dashboard workspace is active. Let's start!`,
@@ -104,7 +104,7 @@ export default function Checkout() {
 
       // 5. Trigger admin notification
       setTimeout(() => {
-        window.dispatchEvent(new CustomEvent('digivibe_toast', {
+        window.dispatchEvent(new CustomEvent('beyondskills_toast', {
           detail: {
             subject: `Admin Alert: New Enrollment`,
             body: `Student ${form.name} (${form.email}) has purchased ${course.title} for ₹${course.fee.toLocaleString()}.\nAllocated Student ID: ${targetUser.studentId || newStudentId}. Onboarding SLA completed.`
@@ -123,9 +123,9 @@ export default function Checkout() {
   if (!course) {
     return (
       <div className="text-white min-h-screen flex flex-col items-center justify-center p-6 text-center">
-        <ShieldAlert className="w-12 h-12 text-brand-red mb-4" />
+        <ShieldAlert className="w-12 h-12 text-brand-blue mb-4" />
         <h2 className="text-xl font-bold mb-2">No Course Selected for Checkout</h2>
-        <Link to="/courses" className="bg-brand-orange text-black font-bold px-6 py-2 rounded-lg text-xs uppercase">
+        <Link to="/courses" className="bg-brand-purple text-black font-bold px-6 py-2 rounded-lg text-xs uppercase">
           Return to Courses
         </Link>
       </div>
@@ -135,18 +135,18 @@ export default function Checkout() {
   return (
     <div className="text-white min-h-screen relative pt-12 pb-24">
       {/* Background Glow */}
-      <div className="absolute top-20 left-1/4 w-96 h-96 bg-brand-orange/5 rounded-full blur-[100px] z-0"></div>
+      <div className="absolute top-20 left-1/4 w-96 h-96 bg-brand-purple/5 rounded-full blur-[100px] z-0"></div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 z-10 relative">
         {/* Back Link */}
-        <Link to={`/courses?id=${course.id}`} className="inline-flex items-center space-x-2 text-xs font-bold text-gray-400 hover:text-brand-orange uppercase tracking-wider mb-8">
+        <Link to={`/courses?id=${course.id}`} className="inline-flex items-center space-x-2 text-xs font-bold text-gray-400 hover:text-brand-purple uppercase tracking-wider mb-8">
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Syllabus</span>
         </Link>
 
         {/* Title */}
         <div className="mb-10 text-center sm:text-left">
-          <span className="text-xs font-bold tracking-widest text-brand-orange uppercase">Secure Academy Checkout</span>
+          <span className="text-xs font-bold tracking-widest text-brand-purple uppercase">Secure Academy Checkout</span>
           <h1 className="logo-font text-3xl font-extrabold text-white mt-2">
             Complete Program Enrollment
           </h1>
@@ -159,28 +159,28 @@ export default function Checkout() {
           <div className="md:col-span-3 space-y-6">
             
             <div className="glass-panel p-6 rounded-2xl border border-white/10">
-              <h3 className="font-bold text-white text-sm uppercase tracking-wider mb-4 border-l-2 border-brand-orange pl-3">
+              <h3 className="font-bold text-white text-sm uppercase tracking-wider mb-4 border-l-2 border-brand-purple pl-3">
                 Learner Registration
               </h3>
               
               <form onSubmit={handleStartPayment} className="space-y-4">
                 <div>
                   <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">Name *</label>
-                  <input type="text" required value={form.name} onChange={(e) => setForm({...form, name: e.target.value})} className="w-full bg-black/40 border border-white/10 rounded-lg px-3.5 py-2.5 text-xs text-white focus:border-brand-orange outline-none" placeholder="Enter Full Name" />
+                  <input type="text" required value={form.name} onChange={(e) => setForm({...form, name: e.target.value})} className="w-full bg-black/40 border border-white/10 rounded-lg px-3.5 py-2.5 text-xs text-white focus:border-brand-purple outline-none" placeholder="Enter Full Name" />
                 </div>
                 <div>
                   <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">Email Address *</label>
-                  <input type="email" required value={form.email} onChange={(e) => setForm({...form, email: e.target.value})} className="w-full bg-black/40 border border-white/10 rounded-lg px-3.5 py-2.5 text-xs text-white focus:border-brand-orange outline-none" placeholder="enteremail@gmail.com" />
+                  <input type="email" required value={form.email} onChange={(e) => setForm({...form, email: e.target.value})} className="w-full bg-black/40 border border-white/10 rounded-lg px-3.5 py-2.5 text-xs text-white focus:border-brand-purple outline-none" placeholder="enteremail@gmail.com" />
                 </div>
                 <div>
                   <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">Phone Number *</label>
-                  <input type="tel" required value={form.phone} onChange={(e) => setForm({...form, phone: e.target.value})} className="w-full bg-black/40 border border-white/10 rounded-lg px-3.5 py-2.5 text-xs text-white focus:border-brand-orange outline-none" placeholder="+91 98765 43210" />
+                  <input type="tel" required value={form.phone} onChange={(e) => setForm({...form, phone: e.target.value})} className="w-full bg-black/40 border border-white/10 rounded-lg px-3.5 py-2.5 text-xs text-white focus:border-brand-purple outline-none" placeholder="+91 98765 43210" />
                 </div>
 
                 {/* CRITICAL Placement Disclaimer Confirmation Checkbox */}
-                <div className="bg-brand-red/10 border border-brand-red/20 rounded-xl p-4 mt-6">
+                <div className="bg-brand-blue/10 border border-brand-blue/20 rounded-xl p-4 mt-6">
                   <div className="flex items-start space-x-3">
-                    <button type="button" onClick={() => setAgreeDisclaimer(!agreeDisclaimer)} className="text-brand-orange mt-0.5 focus:outline-none">
+                    <button type="button" onClick={() => setAgreeDisclaimer(!agreeDisclaimer)} className="text-brand-purple mt-0.5 focus:outline-none">
                       {agreeDisclaimer ? (
                         <CheckSquare className="w-5 h-5" />
                       ) : (
@@ -189,12 +189,12 @@ export default function Checkout() {
                     </button>
                     <div className="text-[11px] text-gray-300 leading-relaxed text-justify">
                       <strong className="text-white uppercase font-bold block mb-1">MANDATORY PLACEMENT AGREEMENT:</strong>
-                      I explicitly acknowledge that Digivibe Upskilling Academy provides skills development, certifications, and project reviews, and <strong>DOES NOT guarantee jobs, placements, salary packages, or internship offers</strong>. Enrollment is entirely governed by academic guidelines.
+                      I explicitly acknowledge that BeyondSkills Upskilling Academy provides skills development, certifications, and project reviews, and <strong>DOES NOT guarantee jobs, placements, salary packages, or internship offers</strong>. Enrollment is entirely governed by academic guidelines.
                     </div>
                   </div>
                 </div>
 
-                <button type="submit" className="w-full bg-gradient-to-r from-brand-red to-brand-orange hover:brightness-110 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-widest transition-all mt-6 flex items-center justify-center space-x-2">
+                <button type="submit" className="w-full bg-gradient-to-r from-brand-purple to-brand-blue hover:brightness-110 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-widest transition-all mt-6 flex items-center justify-center space-x-2">
                   <Lock className="w-4 h-4" />
                   <span>Secure Razorpay Payment</span>
                 </button>
@@ -209,7 +209,7 @@ export default function Checkout() {
               <h3 className="font-bold text-white text-xs uppercase tracking-wider">Purchase Summary</h3>
               
               <div className="border-b border-white/5 pb-4">
-                <span className="text-[10px] text-brand-orange font-bold uppercase">{course.category} Program</span>
+                <span className="text-[10px] text-brand-purple font-bold uppercase">{course.category} Program</span>
                 <p className="font-bold text-white text-sm sm:text-base leading-tight mt-1">{course.title}</p>
                 <span className="text-xs text-gray-400 block mt-1">Duration: {course.duration}</span>
               </div>
@@ -236,7 +236,7 @@ export default function Checkout() {
             </div>
 
             <div className="bg-brand-dark border border-white/5 p-4 rounded-xl flex items-center space-x-3 text-gray-400 text-xs">
-              <ShieldCheck className="w-8 h-8 text-brand-orange flex-shrink-0" />
+              <ShieldCheck className="w-8 h-8 text-brand-purple flex-shrink-0" />
               <span>Razorpay 256-bit SSL encrypted connection. Your transactions are secure.</span>
             </div>
           </div>
@@ -257,8 +257,8 @@ export default function Checkout() {
                   RP
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white">Digivibe Academy</h4>
-                  <p className="text-[10px] text-gray-400">Order ID: od_dv_2026_pay</p>
+                  <h4 className="text-sm font-bold text-white">BeyondSkills Academy</h4>
+                  <p className="text-[10px] text-gray-400">Order ID: od_bs_2026_pay</p>
                 </div>
               </div>
               <div className="text-right">

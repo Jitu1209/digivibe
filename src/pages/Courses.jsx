@@ -63,9 +63,9 @@ export default function Courses() {
     if (!course) {
       return (
         <div className="text-white min-h-[60vh] flex flex-col items-center justify-center p-6 text-center">
-          <ShieldAlert className="w-12 h-12 text-brand-red mb-4" />
+          <ShieldAlert className="w-12 h-12 text-brand-blue mb-4" />
           <h2 className="text-2xl font-bold mb-2">Course Not Found</h2>
-          <button onClick={handleBackToList} className="bg-brand-orange text-black font-bold px-6 py-2 rounded-lg text-xs uppercase">
+          <button onClick={handleBackToList} className="bg-brand-purple text-black font-bold px-6 py-2 rounded-lg text-xs uppercase">
             Back to Catalog
           </button>
         </div>
@@ -75,12 +75,12 @@ export default function Courses() {
     return (
       <div className="text-white min-h-screen relative pt-12 pb-24">
         {/* Glow */}
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-brand-orange/5 rounded-full blur-[100px] z-0"></div>
+        <div className="absolute top-20 left-1/4 w-96 h-96 bg-brand-purple/5 rounded-full blur-[100px] z-0"></div>
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10 relative">
           
           {/* Back Action */}
-          <button onClick={handleBackToList} className="inline-flex items-center space-x-2 text-xs font-bold text-gray-400 hover:text-brand-orange uppercase tracking-wider mb-8">
+          <button onClick={handleBackToList} className="inline-flex items-center space-x-2 text-xs font-bold text-gray-400 hover:text-brand-purple uppercase tracking-wider mb-8">
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Course Catalog</span>
           </button>
@@ -90,7 +90,7 @@ export default function Courses() {
             
             {/* Left Content */}
             <div className="lg:col-span-2 space-y-6">
-              <span className="text-xs font-bold tracking-widest text-brand-orange uppercase border border-brand-orange/30 px-3 py-1 rounded bg-brand-orange/5">
+              <span className="text-xs font-bold tracking-widest text-brand-purple uppercase border border-brand-purple/30 px-3 py-1 rounded bg-brand-purple/5">
                 {course.category} Certification
               </span>
               <h1 className="logo-font text-3xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
@@ -102,15 +102,15 @@ export default function Courses() {
               
               <div className="flex flex-wrap items-center gap-6 text-xs sm:text-sm text-gray-300 font-mono">
                 <span className="flex items-center space-x-1">
-                  <Clock className="w-4.5 h-4.5 text-brand-orange" />
+                  <Clock className="w-4.5 h-4.5 text-brand-purple" />
                   <span>Duration: {course.duration}</span>
                 </span>
                 <span className="flex items-center space-x-1">
-                  <BookOpen className="w-4.5 h-4.5 text-brand-orange" />
+                  <BookOpen className="w-4.5 h-4.5 text-brand-purple" />
                   <span>{course.delivery}</span>
                 </span>
                 <span className="flex items-center space-x-1">
-                  <Award className="w-4.5 h-4.5 text-brand-orange" />
+                  <Award className="w-4.5 h-4.5 text-brand-purple" />
                   <span>Certify: Yes</span>
                 </span>
               </div>
@@ -124,13 +124,13 @@ export default function Courses() {
               </p>
               <p className="text-[10px] text-gray-400 mb-6">Inclusive of recorded lectures, live mentor reviews & digital badge.</p>
               
-              <button onClick={() => handleEnroll(course.id)} className="w-full bg-gradient-to-r from-brand-red to-brand-orange hover:brightness-110 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-widest transition-all transform hover:scale-[1.02]">
+              <button onClick={() => handleEnroll(course.id)} className="w-full bg-gradient-to-r from-brand-purple to-brand-blue hover:brightness-110 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-widest transition-all transform hover:scale-[1.02]">
                 Enroll & Onboard Now
               </button>
 
               {/* Prominent disclaimer under checkouts */}
               <div className="mt-6 pt-6 border-t border-white/5 flex items-start space-x-2 text-[10px] text-gray-400 text-left leading-normal bg-white/5 p-3.5 rounded-xl">
-                <ShieldAlert className="w-4.5 h-4.5 text-brand-orange flex-shrink-0 mt-0.5" />
+                <ShieldAlert className="w-4.5 h-4.5 text-brand-purple flex-shrink-0 mt-0.5" />
                 <p>
                   <strong>No Placement Guarantee:</strong> Enrollment does not imply job or internship guarantees. Learner career outcomes remain their sole responsibility.
                 </p>
@@ -147,13 +147,13 @@ export default function Courses() {
               
               {/* Curriculum */}
               <div>
-                <h3 className="text-lg font-bold text-white uppercase tracking-wider mb-6 border-l-2 border-brand-orange pl-3">
+                <h3 className="text-lg font-bold text-white uppercase tracking-wider mb-6 border-l-2 border-brand-purple pl-3">
                   Course Syllabus & Curriculum
                 </h3>
                 <div className="space-y-4">
                   {course.curriculum.map((module, idx) => (
                     <div key={idx} className="bg-white/5 border border-white/5 p-5 rounded-xl flex items-start space-x-4">
-                      <span className="bg-brand-orange/10 border border-brand-orange/30 text-brand-orange font-mono text-xs font-bold px-2.5 py-1 rounded">
+                      <span className="bg-brand-purple/10 border border-brand-purple/30 text-brand-purple font-mono text-xs font-bold px-2.5 py-1 rounded">
                         {module.week}
                       </span>
                       <div>
@@ -166,16 +166,16 @@ export default function Courses() {
 
               {/* Mentors */}
               <div>
-                <h3 className="text-lg font-bold text-white uppercase tracking-wider mb-6 border-l-2 border-brand-orange pl-3">
+                <h3 className="text-lg font-bold text-white uppercase tracking-wider mb-6 border-l-2 border-brand-purple pl-3">
                   Program Mentors
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {course.mentors.map((mentor, idx) => (
                     <div key={idx} className="bg-white/5 border border-white/5 p-5 rounded-xl flex items-start space-x-3">
-                      <Users className="w-8 h-8 text-brand-orange flex-shrink-0 mt-0.5" />
+                      <Users className="w-8 h-8 text-brand-purple flex-shrink-0 mt-0.5" />
                       <div>
                         <h4 className="font-bold text-white text-sm sm:text-base">{mentor.name}</h4>
-                        <p className="text-xs text-brand-orange mt-0.5">{mentor.role}</p>
+                        <p className="text-xs text-brand-purple mt-0.5">{mentor.role}</p>
                         <p className="text-[10px] text-gray-500 mt-0.5">{mentor.experience} Experience</p>
                       </div>
                     </div>
@@ -185,13 +185,13 @@ export default function Courses() {
 
               {/* Learning Outcomes */}
               <div>
-                <h3 className="text-lg font-bold text-white uppercase tracking-wider mb-6 border-l-2 border-brand-orange pl-3">
+                <h3 className="text-lg font-bold text-white uppercase tracking-wider mb-6 border-l-2 border-brand-purple pl-3">
                   Syllabus Learning Outcomes
                 </h3>
                 <ul className="space-y-3 text-xs sm:text-sm text-gray-300">
                   {course.outcomes.map((item, idx) => (
                     <li key={idx} className="flex items-start space-x-3">
-                      <CheckCircle className="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-5 h-5 text-brand-purple flex-shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -200,7 +200,7 @@ export default function Courses() {
 
               {/* FAQ Section */}
               <div>
-                <h3 className="text-lg font-bold text-white uppercase tracking-wider mb-6 border-l-2 border-brand-orange pl-3">
+                <h3 className="text-lg font-bold text-white uppercase tracking-wider mb-6 border-l-2 border-brand-purple pl-3">
                   Course FAQs
                 </h3>
                 <div className="space-y-4">
@@ -219,11 +219,11 @@ export default function Courses() {
             <div className="space-y-6 sticky top-24">
               <div className="bg-brand-dark border border-white/10 p-6 rounded-2xl">
                 <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-3 flex items-center space-x-2">
-                  <ShieldAlert className="w-4 h-4 text-brand-orange" />
+                  <ShieldAlert className="w-4 h-4 text-brand-purple" />
                   <span>Educational Scope Policy</span>
                 </h4>
                 <p className="text-[11px] text-gray-400 leading-relaxed">
-                  Digivibe Academy courses are built to provide Basic to Intermediate level coding and operation practices. Completion of course programs signifies syllabus study completion and passing standard test templates, but does not imply advanced competency or corporate licensing.
+                  BeyondSkills Academy courses are built to provide Basic to Intermediate level coding and operation practices. Completion of course programs signifies syllabus study completion and passing standard test templates, but does not imply advanced competency or corporate licensing.
                 </p>
               </div>
 
@@ -234,7 +234,7 @@ export default function Courses() {
                     <div key={idx} className="border-b border-white/5 pb-4 last:border-b-0 last:pb-0">
                       <div className="flex items-center justify-between text-xs mb-1.5">
                         <span className="font-bold text-white">{rev.user}</span>
-                        <div className="flex text-brand-yellow">
+                        <div className="flex text-brand-cyan">
                           {[...Array(rev.rating)].map((_, i) => <Star key={i} className="w-3 h-3 fill-current" />)}
                         </div>
                       </div>
@@ -256,14 +256,14 @@ export default function Courses() {
   return (
     <div className="text-white min-h-screen relative pt-12 pb-24">
       {/* Glow Blur */}
-      <div className="absolute top-20 left-1/3 w-96 h-96 bg-brand-orange/5 rounded-full blur-[100px] z-0"></div>
+      <div className="absolute top-20 left-1/3 w-96 h-96 bg-brand-purple/5 rounded-full blur-[100px] z-0"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 relative">
         
         {/* Title */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-bold tracking-widest text-brand-orange uppercase border border-brand-orange/30 px-3 py-1 rounded bg-brand-orange/5">
-            Digivibe Academy
+          <span className="text-xs font-bold tracking-widest text-brand-purple uppercase border border-brand-purple/30 px-3 py-1 rounded bg-brand-purple/5">
+            BeyondSkills Academy
           </span>
           <h1 className="logo-font text-4xl sm:text-6xl font-extrabold mt-6">
             Academy Course Catalog
@@ -279,7 +279,7 @@ export default function Courses() {
           {/* Category Scroller */}
           <div className="flex flex-wrap gap-2.5 max-w-full">
             {categories.map((cat, idx) => (
-              <button key={idx} onClick={() => handleCategorySelect(cat)} className={`px-4 py-2 rounded-xl font-bold text-xs uppercase tracking-wider transition-all ${selectedCat === cat ? 'bg-brand-orange text-black' : 'bg-black/40 border border-white/10 text-gray-300 hover:text-white'}`}>
+              <button key={idx} onClick={() => handleCategorySelect(cat)} className={`px-4 py-2 rounded-xl font-bold text-xs uppercase tracking-wider transition-all ${selectedCat === cat ? 'bg-brand-purple text-black' : 'bg-black/40 border border-white/10 text-gray-300 hover:text-white'}`}>
                 {cat}
               </button>
             ))}
@@ -288,7 +288,7 @@ export default function Courses() {
           {/* Search Box */}
           <div className="relative w-full md:w-80">
             <Search className="absolute left-3.5 top-3.5 w-4.5 h-4.5 text-gray-500" />
-            <input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="w-full bg-black/40 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-xs text-white focus:border-brand-orange outline-none" placeholder="Search courses..." />
+            <input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="w-full bg-black/40 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-xs text-white focus:border-brand-purple outline-none" placeholder="Search courses..." />
           </div>
 
         </div>
@@ -296,10 +296,10 @@ export default function Courses() {
         {/* Course Catalog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredCourses.map((c) => (
-            <div key={c.id} className="glass-card p-6 rounded-2xl flex flex-col justify-between border border-white/5 hover:border-brand-orange/20 transition-all hover:scale-[1.01]">
+            <div key={c.id} className="glass-card p-6 rounded-2xl flex flex-col justify-between border border-white/5 hover:border-brand-purple/20 transition-all hover:scale-[1.01]">
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-[9px] font-bold text-brand-orange uppercase border border-brand-orange/30 px-2 py-0.5 rounded bg-brand-orange/5">
+                  <span className="text-[9px] font-bold text-brand-purple uppercase border border-brand-purple/30 px-2 py-0.5 rounded bg-brand-purple/5">
                     {c.category}
                   </span>
                   <span className="text-xs text-gray-400 font-mono">
@@ -311,7 +311,7 @@ export default function Courses() {
               </div>
 
               <div>
-                <div className="flex items-center space-x-1 mb-4 text-brand-yellow">
+                <div className="flex items-center space-x-1 mb-4 text-brand-cyan">
                   <Star className="w-3.5 h-3.5 fill-current" />
                   <span className="text-xs font-bold text-white">{c.rating}</span>
                   <span className="text-[10px] text-gray-500">({c.enrollments})</span>
@@ -326,7 +326,7 @@ export default function Courses() {
                     <button onClick={() => handleViewCourse(c.id)} className="bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold text-xs uppercase px-3 py-2.5 rounded-lg transition-colors">
                       Syllabus
                     </button>
-                    <button onClick={() => handleEnroll(c.id)} className="bg-brand-orange hover:bg-brand-orange/90 text-black font-bold text-xs uppercase px-3.5 py-2.5 rounded-lg transition-colors">
+                    <button onClick={() => handleEnroll(c.id)} className="bg-brand-purple hover:bg-brand-purple/90 text-black font-bold text-xs uppercase px-3.5 py-2.5 rounded-lg transition-colors">
                       Enroll
                     </button>
                   </div>

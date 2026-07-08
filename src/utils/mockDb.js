@@ -1,4 +1,4 @@
-// Mock Database for Digivibe platform content and localStorage persistence
+// Mock Database for BeyondSkills platform content and localStorage persistence
 
 export const COURSES = [
   {
@@ -300,7 +300,7 @@ export const MENTORS = [
 ];
 
 export const CLIENT_TESTIMONIALS = [
-  { company: 'EdStart Solutions', client: 'Dr. Ramesh R.', text: 'Digivibe built our custom learning platform in record time. The quality of react implementation and analytics dashboard is incredible.', rating: 5 },
+  { company: 'EdStart Solutions', client: 'Dr. Ramesh R.', text: 'BeyondSkills built our custom learning platform in record time. The quality of react implementation and analytics dashboard is incredible.', rating: 5 },
   { company: 'Zeta Fashion Brand', client: 'Priya K.', text: 'Our performance ad campaign ROI went up by 45% in the first two months. Their meta ads optimizations are top tier.', rating: 5 }
 ];
 
@@ -329,27 +329,27 @@ export const setDbItem = (key, val) => {
 };
 
 // Initialize DB with sample leads and transactions if empty
-if (!localStorage.getItem('digivibe_users')) {
-  setDbItem('digivibe_users', [
-    { email: 'student@digivibe.in', phone: '9876543210', password: 'password', name: 'Demo Student', studentId: 'DV-2026-1004', activeCourses: ['full-stack-web'] }
+if (!localStorage.getItem('beyondskills_users')) {
+  setDbItem('beyondskills_users', [
+    { email: 'student@beyondskills.in', phone: '9876543210', password: 'password', name: 'Demo Student', studentId: 'BS-2026-1004', activeCourses: ['full-stack-web'] }
   ]);
 }
 
-if (!localStorage.getItem('digivibe_leads')) {
-  setDbItem('digivibe_leads', [
+if (!localStorage.getItem('beyondskills_leads')) {
+  setDbItem('beyondskills_leads', [
     { type: 'Agency', name: 'Ramesh Patel', email: 'ramesh@startup.in', phone: '9988776655', company: 'Ramesh Tech', service: 'Website Development', budget: '₹1,00,000 - ₹3,00,000', message: 'Looking for a custom React/Node client onboarding platform.', date: new Date(Date.now() - 3600000).toISOString() },
     { type: 'Academy', name: 'Nikhil Gowda', email: 'nikhil@college.edu', phone: '8877665544', course: 'ai-ml-ds', college: 'RV College of Eng', status: 'Final Year Student', message: 'Interested in AI course recorded lecture models.', date: new Date(Date.now() - 7200000).toISOString() }
   ]);
 }
 
-if (!localStorage.getItem('digivibe_payments')) {
-  setDbItem('digivibe_payments', [
-    { orderId: 'pay_mock_12345', amount: 15000, studentId: 'DV-2026-1004', courseId: 'full-stack-web', email: 'student@digivibe.in', status: 'Success', date: new Date(Date.now() - 3600000).toISOString() }
+if (!localStorage.getItem('beyondskills_payments')) {
+  setDbItem('beyondskills_payments', [
+    { orderId: 'pay_mock_12345', amount: 15000, studentId: 'BS-2026-1004', courseId: 'full-stack-web', email: 'student@beyondskills.in', status: 'Success', date: new Date(Date.now() - 3600000).toISOString() }
   ]);
 }
 
-if (!localStorage.getItem('digivibe_certificates')) {
-  setDbItem('digivibe_certificates', [
-    { id: 'CERT-DV-FS-9874', studentName: 'Demo Student', studentId: 'DV-2026-1004', courseTitle: 'Full Stack Web Development (MERN)', issueDate: 'June 30, 2026', verificationUrl: window.location.origin + '/verify?certId=CERT-DV-FS-9874' }
+if (!localStorage.getItem('beyondskills_certificates')) {
+  setDbItem('beyondskills_certificates', [
+    { id: 'CERT-BS-FS-9874', studentName: 'Demo Student', studentId: 'BS-2026-1004', courseTitle: 'Full Stack Web Development (MERN)', issueDate: 'June 30, 2026', verificationUrl: window.location.origin + '/verify?certId=CERT-BS-FS-9874' }
   ]);
 }

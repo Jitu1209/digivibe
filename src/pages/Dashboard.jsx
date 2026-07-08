@@ -41,7 +41,7 @@ export default function Dashboard() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const loggedInUser = getDbItem('digivibe_current_user', null);
+    const loggedInUser = getDbItem('beyondskills_current_user', null);
     if (!loggedInUser) {
       navigate('/auth');
       return;
@@ -91,8 +91,8 @@ export default function Dashboard() {
     }
 
     // Add to digital certificates DB
-    const certs = getDbItem('digivibe_certificates', []);
-    const newCertId = `CERT-DV-${activeCourseId.toUpperCase().slice(0, 4)}-${Math.floor(1000 + Math.random() * 9000)}`;
+    const certs = getDbItem('beyondskills_certificates', []);
+    const newCertId = `CERT-BS-${activeCourseId.toUpperCase().slice(0, 4)}-${Math.floor(1000 + Math.random() * 9000)}`;
     
     // Check if certificate already exists
     const exists = certs.find(c => c.studentId === user.studentId && c.courseId === activeCourseId);
@@ -113,13 +113,13 @@ export default function Dashboard() {
       studentName: user.name,
       studentId: user.studentId,
       courseId: activeCourseId,
-      courseTitle: courseTitleMap[activeCourseId] || 'Digivibe Academy Graduate Cert',
+      courseTitle: courseTitleMap[activeCourseId] || 'BeyondSkills Academy Graduate Cert',
       issueDate: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
       verificationUrl: `${window.location.origin}/verify?certId=${newCertId}`
     };
 
     certs.push(newRecord);
-    setDbItem('digivibe_certificates', certs);
+    setDbItem('beyondskills_certificates', certs);
 
     confetti({
       particleCount: 200,
@@ -131,7 +131,7 @@ export default function Dashboard() {
   };
 
   // Fetch certificates matching the student
-  const studentCerts = getDbItem('digivibe_certificates', []).filter(c => c.studentId === (user?.studentId || ''));
+  const studentCerts = getDbItem('beyondskills_certificates', []).filter(c => c.studentId === (user?.studentId || ''));
 
   if (!user) return null;
 
@@ -144,7 +144,7 @@ export default function Dashboard() {
           {/* User profile brief */}
           <div className="border-b border-white/5 pb-6 mb-6">
             <div className="flex items-center space-x-3">
-              <div className="bg-brand-orange/10 border border-brand-orange/30 text-brand-orange p-2 rounded-xl">
+              <div className="bg-brand-purple/10 border border-brand-purple/30 text-brand-purple p-2 rounded-xl">
                 <User className="w-6 h-6" />
               </div>
               <div>
@@ -155,17 +155,17 @@ export default function Dashboard() {
           </div>
 
           <nav className="space-y-2 text-xs">
-            <button onClick={() => setActiveTab('recorded')} className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-bold uppercase tracking-wider transition-colors ${activeTab === 'recorded' ? 'bg-brand-orange text-black' : 'hover:bg-white/5 text-gray-400 hover:text-white'}`}>
+            <button onClick={() => setActiveTab('recorded')} className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-bold uppercase tracking-wider transition-colors ${activeTab === 'recorded' ? 'bg-brand-purple text-black' : 'hover:bg-white/5 text-gray-400 hover:text-white'}`}>
               <Video className="w-4 h-4" />
               <span>Recorded Area</span>
             </button>
 
-            <button onClick={() => setActiveTab('live')} className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-bold uppercase tracking-wider transition-colors ${activeTab === 'live' ? 'bg-brand-orange text-black' : 'hover:bg-white/5 text-gray-400 hover:text-white'}`}>
+            <button onClick={() => setActiveTab('live')} className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-bold uppercase tracking-wider transition-colors ${activeTab === 'live' ? 'bg-brand-purple text-black' : 'hover:bg-white/5 text-gray-400 hover:text-white'}`}>
               <Calendar className="w-4 h-4" />
               <span>Live Schedule</span>
             </button>
 
-            <button onClick={() => setActiveTab('certificates')} className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-bold uppercase tracking-wider transition-colors ${activeTab === 'certificates' ? 'bg-brand-orange text-black' : 'hover:bg-white/5 text-gray-400 hover:text-white'}`}>
+            <button onClick={() => setActiveTab('certificates')} className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-bold uppercase tracking-wider transition-colors ${activeTab === 'certificates' ? 'bg-brand-purple text-black' : 'hover:bg-white/5 text-gray-400 hover:text-white'}`}>
               <Award className="w-4 h-4" />
               <span>Certificates</span>
             </button>
@@ -173,27 +173,27 @@ export default function Dashboard() {
         </div>
 
         <div className="pt-6 border-t border-white/5 text-[10px] text-gray-500 leading-normal">
-          Digivibe Student Workspace V1.0. Verified Sandbox Session.
+          BeyondSkills Student Workspace V1.0. Verified Sandbox Session.
         </div>
       </aside>
 
       {/* Main Workspace content */}
       <main className="flex-grow p-6 sm:p-10 relative">
-        <div className="absolute top-20 right-1/4 w-96 h-96 bg-brand-orange/5 rounded-full blur-[100px] z-0"></div>
+        <div className="absolute top-20 right-1/4 w-96 h-96 bg-brand-purple/5 rounded-full blur-[100px] z-0"></div>
 
         <div className="z-10 relative space-y-8">
           
           {/* Dashboard Header Banner */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-white/5 pb-6 gap-4">
             <div>
-              <span className="text-xs font-bold text-brand-orange uppercase">Student Study Dashboard</span>
+              <span className="text-xs font-bold text-brand-purple uppercase">Student Study Dashboard</span>
               <h1 className="logo-font text-2xl sm:text-3xl font-extrabold text-white mt-1">
                 Learning Workspace
               </h1>
             </div>
 
             {user.activeCourses && user.activeCourses.length === 0 ? (
-              <Link to="/courses" className="bg-brand-orange text-black font-bold px-5 py-2.5 rounded-lg text-xs uppercase tracking-wider">
+              <Link to="/courses" className="bg-brand-purple text-black font-bold px-5 py-2.5 rounded-lg text-xs uppercase tracking-wider">
                 Enroll in a Course
               </Link>
             ) : (
@@ -211,7 +211,7 @@ export default function Dashboard() {
               <p className="text-xs text-gray-400 leading-relaxed">
                 You are registered in the student login database, but have not completed checkout payments for any certification program. Navigate to our catalog to select courses.
               </p>
-              <Link to="/courses" className="inline-block bg-brand-orange text-black font-bold px-6 py-3 rounded-xl text-xs uppercase tracking-widest transition-all">
+              <Link to="/courses" className="inline-block bg-brand-purple text-black font-bold px-6 py-3 rounded-xl text-xs uppercase tracking-widest transition-all">
                 Browse Course Catalog
               </Link>
             </div>
@@ -225,7 +225,7 @@ export default function Dashboard() {
                   {/* Left Player Workspace */}
                   <div className="lg:col-span-2 space-y-4">
                     <div className="aspect-video w-full bg-[#1A1A1A] border border-white/10 rounded-2xl flex flex-col items-center justify-center p-6 relative group overflow-hidden">
-                      <PlayCircle className="w-16 h-16 text-brand-orange group-hover:scale-110 transition-transform cursor-pointer" />
+                      <PlayCircle className="w-16 h-16 text-brand-purple group-hover:scale-110 transition-transform cursor-pointer" />
                       <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs text-gray-400 bg-black/60 px-4 py-2.5 rounded-lg">
                         <span className="font-medium text-white truncate max-w-xs">{activeVideo?.title || 'Loading Lecture Video...'}</span>
                         <span className="font-mono">{activeVideo?.duration || '00:00'}</span>
@@ -253,15 +253,15 @@ export default function Dashboard() {
                     <div className="border-b border-white/5 pb-4">
                       <h3 className="font-bold text-white text-xs uppercase tracking-wider">Module Classes ({lectures.filter(l => l.comp).length}/{lectures.length})</h3>
                       <div className="w-full bg-white/10 h-1.5 rounded-full mt-3 overflow-hidden">
-                        <div className="bg-brand-orange h-full" style={{ width: `${(lectures.filter(l => l.comp).length / lectures.length) * 100}%` }}></div>
+                        <div className="bg-brand-purple h-full" style={{ width: `${(lectures.filter(l => l.comp).length / lectures.length) * 100}%` }}></div>
                       </div>
                     </div>
 
                     <div className="space-y-3.5 max-h-[350px] overflow-y-auto">
                       {lectures.map((lec) => (
-                        <div key={lec.id} className={`p-3 rounded-xl border text-xs flex items-center justify-between transition-all cursor-pointer ${activeVideo?.id === lec.id ? 'border-brand-orange/40 bg-brand-orange/5' : 'border-white/5 hover:bg-white/5'}`} onClick={() => handleSelectVideo(lec)}>
+                        <div key={lec.id} className={`p-3 rounded-xl border text-xs flex items-center justify-between transition-all cursor-pointer ${activeVideo?.id === lec.id ? 'border-brand-purple/40 bg-brand-purple/5' : 'border-white/5 hover:bg-white/5'}`} onClick={() => handleSelectVideo(lec)}>
                           <div className="flex items-center space-x-2.5 truncate">
-                            <input type="checkbox" checked={lec.comp} onChange={() => handleToggleLecture(lec.id)} onClick={(e) => e.stopPropagation()} className="accent-brand-orange h-4 w-4 rounded flex-shrink-0" />
+                            <input type="checkbox" checked={lec.comp} onChange={() => handleToggleLecture(lec.id)} onClick={(e) => e.stopPropagation()} className="accent-brand-purple h-4 w-4 rounded flex-shrink-0" />
                             <span className={`truncate ${lec.comp ? 'text-gray-500 line-through' : 'text-gray-300'}`}>{lec.title}</span>
                           </div>
                           <span className="text-[10px] text-gray-500 font-mono flex-shrink-0 ml-2">{lec.duration}</span>
@@ -271,7 +271,7 @@ export default function Dashboard() {
 
                     {/* Certificate issuance trigger */}
                     {lectures.every(l => l.comp) ? (
-                      <button onClick={handleGenerateCertificate} className="w-full bg-gradient-to-r from-brand-red to-brand-orange hover:brightness-110 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-widest shadow-lg shadow-brand-orange/20 animate-bounce">
+                      <button onClick={handleGenerateCertificate} className="w-full bg-gradient-to-r from-brand-purple to-brand-blue hover:brightness-110 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-widest shadow-lg shadow-brand-purple/20 animate-bounce">
                         Generate Certificate
                       </button>
                     ) : (
@@ -287,26 +287,26 @@ export default function Dashboard() {
               {activeTab === 'live' && (
                 /* LIVE SESSION MEETING LINKS GRID */
                 <div className="space-y-6">
-                  <h3 className="text-base font-bold text-white uppercase tracking-wider mb-2 border-l-2 border-brand-orange pl-3">Upcoming Zoom Mentor Sessions</h3>
+                  <h3 className="text-base font-bold text-white uppercase tracking-wider mb-2 border-l-2 border-brand-purple pl-3">Upcoming Zoom Mentor Sessions</h3>
                   <p className="text-xs text-gray-400">Weekly live code reviews and career workshops designed to guide your portfolio.</p>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {LIVE_MEETINGS.map((mtg, idx) => (
                       <div key={idx} className="glass-panel p-6 rounded-2xl border border-white/10 flex flex-col justify-between space-y-4">
                         <div>
-                          <span className="text-[9px] font-bold text-brand-orange uppercase border border-brand-orange/30 px-2 py-0.5 rounded bg-brand-orange/5">
+                          <span className="text-[9px] font-bold text-brand-purple uppercase border border-brand-purple/30 px-2 py-0.5 rounded bg-brand-purple/5">
                             Live Zoom Link
                           </span>
                           <h4 className="font-bold text-white text-sm sm:text-base leading-tight mt-3">{mtg.topic}</h4>
                           <div className="flex items-center space-x-1.5 text-xs text-gray-400 font-mono mt-3">
-                            <Clock className="w-4 h-4 text-brand-orange" />
+                            <Clock className="w-4 h-4 text-brand-purple" />
                             <span>{mtg.date} • {mtg.time}</span>
                           </div>
                         </div>
 
                         <div className="border-t border-white/5 pt-4 flex items-center justify-between">
                           <span className="text-xs text-gray-500">Mentor: {mtg.expert}</span>
-                          <a href={mtg.link} target="_blank" rel="noreferrer" className="bg-brand-orange hover:bg-brand-orange/90 text-black font-bold text-xs uppercase px-4 py-2 rounded-lg flex items-center space-x-1">
+                          <a href={mtg.link} target="_blank" rel="noreferrer" className="bg-brand-purple hover:bg-brand-purple/90 text-black font-bold text-xs uppercase px-4 py-2 rounded-lg flex items-center space-x-1">
                             <span>Join</span>
                             <ExternalLink className="w-3.5 h-3.5" />
                           </a>
@@ -320,7 +320,7 @@ export default function Dashboard() {
               {activeTab === 'certificates' && (
                 /* DIGITAL CERTIFICATE AND VERIFICATIONS MODULE */
                 <div className="space-y-6">
-                  <h3 className="text-base font-bold text-white uppercase tracking-wider mb-2 border-l-2 border-brand-orange pl-3">My Academic Credentials</h3>
+                  <h3 className="text-base font-bold text-white uppercase tracking-wider mb-2 border-l-2 border-brand-purple pl-3">My Academic Credentials</h3>
                   
                   {studentCerts.length === 0 ? (
                     <div className="glass-panel p-8 rounded-2xl text-center space-y-4 max-w-md mx-auto">
@@ -333,19 +333,19 @@ export default function Dashboard() {
                   ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                       {studentCerts.map((cert) => (
-                        <div key={cert.id} className="glass-panel p-6 rounded-2xl border border-brand-orange/20 relative space-y-6">
-                          <span className="absolute -top-3 -left-3 bg-brand-orange text-black text-[9px] font-extrabold uppercase px-2.5 py-0.5 rounded tracking-widest shadow">
+                        <div key={cert.id} className="glass-panel p-6 rounded-2xl border border-brand-purple/20 relative space-y-6">
+                          <span className="absolute -top-3 -left-3 bg-brand-purple text-black text-[9px] font-extrabold uppercase px-2.5 py-0.5 rounded tracking-widest shadow">
                             Verified Cert
                           </span>
                           
                           <div className="border-b border-white/5 pb-4">
                             <h4 className="font-bold text-white text-sm leading-tight">{cert.courseTitle}</h4>
-                            <p className="text-xs text-brand-orange mt-1">Ref ID: {cert.id}</p>
+                            <p className="text-xs text-brand-purple mt-1">Ref ID: {cert.id}</p>
                             <p className="text-[10px] text-gray-500 mt-0.5">Issued: {cert.issueDate}</p>
                           </div>
 
                           <div className="flex items-center space-x-3 bg-white/5 p-3 rounded-lg text-xs text-gray-300">
-                            <ShieldCheck className="w-5 h-5 text-brand-orange flex-shrink-0" />
+                            <ShieldCheck className="w-5 h-5 text-brand-purple flex-shrink-0" />
                             <span>This certificate contains a mock verification URL active on our verification page.</span>
                           </div>
 
@@ -353,7 +353,7 @@ export default function Dashboard() {
                             <Link to={`/verify?certId=${cert.id}`} className="flex-1 text-center bg-white/5 border border-white/10 hover:bg-white/10 text-white font-bold py-2.5 rounded-lg text-[10px] uppercase">
                               Verify Link
                             </Link>
-                            <button onClick={() => navigate(`/verify?certId=${cert.id}&dl=1`)} className="flex-1 bg-brand-orange text-black font-bold py-2.5 rounded-lg text-[10px] uppercase flex items-center justify-center space-x-1">
+                            <button onClick={() => navigate(`/verify?certId=${cert.id}&dl=1`)} className="flex-1 bg-brand-purple text-black font-bold py-2.5 rounded-lg text-[10px] uppercase flex items-center justify-center space-x-1">
                               <Download className="w-3.5 h-3.5" />
                               <span>Download PDF</span>
                             </button>

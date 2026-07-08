@@ -21,19 +21,19 @@ export default function Auth() {
     setError(null);
     
     // Admin login shortcut
-    if (loginForm.email === 'admin@digivibe.in' && loginForm.password === 'admin123') {
-      const adminSession = { email: 'admin@digivibe.in', name: 'Digivibe Administrator', studentId: 'DV-ADMIN' };
-      setDbItem('digivibe_current_user', adminSession);
+    if (loginForm.email === 'admin@beyondskills.in' && loginForm.password === 'admin123') {
+      const adminSession = { email: 'admin@beyondskills.in', name: 'BeyondSkills Administrator', studentId: 'DV-ADMIN' };
+      setDbItem('beyondskills_current_user', adminSession);
       window.dispatchEvent(new Event('auth_change'));
       navigate('/admin');
       return;
     }
 
-    const users = getDbItem('digivibe_users', []);
+    const users = getDbItem('beyondskills_users', []);
     const match = users.find(u => u.email === loginForm.email && u.password === loginForm.password);
     
     if (match) {
-      setDbItem('digivibe_current_user', match);
+      setDbItem('beyondskills_current_user', match);
       window.dispatchEvent(new Event('auth_change'));
       
       // If student has active courses, go to dashboard, else browse courses
@@ -43,7 +43,7 @@ export default function Auth() {
         navigate('/courses');
       }
     } else {
-      setError('Invalid email or password. Use student@digivibe.in / password for testing.');
+      setError('Invalid email or password. Use student@beyondskills.in / password for testing.');
     }
   };
 
@@ -51,7 +51,7 @@ export default function Auth() {
     e.preventDefault();
     setError(null);
     
-    const users = getDbItem('digivibe_users', []);
+    const users = getDbItem('beyondskills_users', []);
     const exists = users.find(u => u.email === registerForm.email);
     if (exists) {
       setError('An account with this email already exists.');
@@ -63,7 +63,7 @@ export default function Auth() {
     setMode('otp');
     
     // Dispatch simulated OTP toast within SLA
-    window.dispatchEvent(new CustomEvent('digivibe_toast', {
+    window.dispatchEvent(new CustomEvent('beyondskills_toast', {
       detail: {
         subject: `OTP Code Verification Dispatch`,
         body: `Your mock security code is: 2026.\n\nPlease enter this on your registration verification page to complete onboarding.`,
@@ -80,8 +80,8 @@ export default function Auth() {
 
     if (!tempRegisterData) return;
 
-    const users = getDbItem('digivibe_users', []);
-    const newStudentId = `DV-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+    const users = getDbItem('beyondskills_users', []);
+    const newStudentId = `BS-2026-${Math.floor(1000 + Math.random() * 9000)}`;
     const newRecord = {
       name: tempRegisterData.name,
       email: tempRegisterData.email,
@@ -92,10 +92,10 @@ export default function Auth() {
     };
 
     users.push(newRecord);
-    setDbItem('digivibe_users', users);
+    setDbItem('beyondskills_users', users);
     
     // Automatically log in the user
-    setDbItem('digivibe_current_user', newRecord);
+    setDbItem('beyondskills_current_user', newRecord);
     window.dispatchEvent(new Event('auth_change'));
     
     setInfo('Registration successful! Redirecting to course catalog...');
@@ -108,7 +108,7 @@ export default function Auth() {
     e.preventDefault();
     setInfo(`A temporary reset token has been generated and mock emailed to ${resetEmail}. Check your mock alerts inbox.`);
     
-    window.dispatchEvent(new CustomEvent('digivibe_toast', {
+    window.dispatchEvent(new CustomEvent('beyondskills_toast', {
       detail: {
         subject: `Password Recovery Token`,
         body: `Dear User,\n\nWe received a request to reset your password. Use the mock token below to log back in:\nToken: dv_pw_reset_8927\n\nContact support if you did not request this.`,
@@ -124,32 +124,32 @@ export default function Auth() {
   return (
     <div className="text-white min-h-[80vh] flex items-center justify-center p-6 relative">
       {/* Back glow */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-orange/5 rounded-full blur-[100px] z-0"></div>
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-purple/5 rounded-full blur-[100px] z-0"></div>
 
       <div className="glass-panel p-8 rounded-2xl border border-white/10 max-w-md w-full z-10">
         
         {/* Tab Headers */}
         {mode !== 'otp' && (
           <div className="flex border-b border-white/10 space-x-6 pb-2 mb-8">
-            <button onClick={() => { setMode('login'); setError(null); setInfo(null); }} className={`pb-3 font-bold text-xs uppercase tracking-wider relative transition-colors ${mode === 'login' ? 'text-brand-orange' : 'text-gray-400 hover:text-white'}`}>
+            <button onClick={() => { setMode('login'); setError(null); setInfo(null); }} className={`pb-3 font-bold text-xs uppercase tracking-wider relative transition-colors ${mode === 'login' ? 'text-brand-purple' : 'text-gray-400 hover:text-white'}`}>
               Login
-              {mode === 'login' && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-orange"></div>}
+              {mode === 'login' && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-purple"></div>}
             </button>
-            <button onClick={() => { setMode('register'); setError(null); setInfo(null); }} className={`pb-3 font-bold text-xs uppercase tracking-wider relative transition-colors ${mode === 'register' ? 'text-brand-orange' : 'text-gray-400 hover:text-white'}`}>
+            <button onClick={() => { setMode('register'); setError(null); setInfo(null); }} className={`pb-3 font-bold text-xs uppercase tracking-wider relative transition-colors ${mode === 'register' ? 'text-brand-purple' : 'text-gray-400 hover:text-white'}`}>
               Register
-              {mode === 'register' && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-orange"></div>}
+              {mode === 'register' && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-purple"></div>}
             </button>
           </div>
         )}
 
         {/* Error / Success Banners */}
         {error && (
-          <div className="bg-brand-red/10 border border-brand-red/20 text-brand-red p-3 rounded-lg text-xs mb-6">
+          <div className="bg-brand-blue/10 border border-brand-blue/20 text-brand-blue p-3 rounded-lg text-xs mb-6">
             {error}
           </div>
         )}
         {info && (
-          <div className="bg-brand-orange/10 border border-brand-orange/20 text-brand-orange p-3 rounded-lg text-xs mb-6">
+          <div className="bg-brand-purple/10 border border-brand-purple/20 text-brand-purple p-3 rounded-lg text-xs mb-6">
             {info}
           </div>
         )}
@@ -161,30 +161,30 @@ export default function Auth() {
               <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">Email Address</label>
               <div className="relative">
                 <Mail className="absolute left-3 top-3 w-4 h-4 text-gray-500" />
-                <input type="email" required value={loginForm.email} onChange={(e) => setLoginForm({...loginForm, email: e.target.value})} className="w-full bg-black/40 border border-white/10 rounded-lg pl-10 pr-4 py-2.5 text-xs text-white focus:border-brand-orange outline-none" placeholder="student@digivibe.in" />
+                <input type="email" required value={loginForm.email} onChange={(e) => setLoginForm({...loginForm, email: e.target.value})} className="w-full bg-black/40 border border-white/10 rounded-lg pl-10 pr-4 py-2.5 text-xs text-white focus:border-brand-purple outline-none" placeholder="student@beyondskills.in" />
               </div>
             </div>
             
             <div>
               <div className="flex justify-between items-center mb-1.5">
                 <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider">Password</label>
-                <button type="button" onClick={() => setMode('reset')} className="text-[10px] text-brand-orange hover:underline focus:outline-none uppercase font-semibold">Forgot Password?</button>
+                <button type="button" onClick={() => setMode('reset')} className="text-[10px] text-brand-purple hover:underline focus:outline-none uppercase font-semibold">Forgot Password?</button>
               </div>
               <div className="relative">
                 <Lock className="absolute left-3 top-3 w-4 h-4 text-gray-500" />
-                <input type="password" required value={loginForm.password} onChange={(e) => setLoginForm({...loginForm, password: e.target.value})} className="w-full bg-black/40 border border-white/10 rounded-lg pl-10 pr-4 py-2.5 text-xs text-white focus:border-brand-orange outline-none" placeholder="password" />
+                <input type="password" required value={loginForm.password} onChange={(e) => setLoginForm({...loginForm, password: e.target.value})} className="w-full bg-black/40 border border-white/10 rounded-lg pl-10 pr-4 py-2.5 text-xs text-white focus:border-brand-purple outline-none" placeholder="password" />
               </div>
             </div>
 
-            <button type="submit" className="w-full bg-brand-orange hover:bg-brand-orange/90 text-black font-bold py-3 rounded-lg text-xs uppercase tracking-widest transition-colors flex items-center justify-center space-x-1.5">
+            <button type="submit" className="w-full bg-brand-purple hover:bg-brand-purple/90 text-black font-bold py-3 rounded-lg text-xs uppercase tracking-widest transition-colors flex items-center justify-center space-x-1.5">
               <span>Sign In</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
 
             <div className="text-[10px] text-gray-500 text-center mt-6">
               Test accounts:<br />
-              Student: <span className="text-gray-300 font-mono">student@digivibe.in / password</span><br />
-              Admin: <span className="text-gray-300 font-mono">admin@digivibe.in / admin123</span>
+              Student: <span className="text-gray-300 font-mono">student@beyondskills.in / password</span><br />
+              Admin: <span className="text-gray-300 font-mono">admin@beyondskills.in / admin123</span>
             </div>
           </form>
         )}
@@ -196,7 +196,7 @@ export default function Auth() {
               <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">Full Name</label>
               <div className="relative">
                 <User className="absolute left-3 top-3 w-4 h-4 text-gray-500" />
-                <input type="text" required value={registerForm.name} onChange={(e) => setRegisterForm({...registerForm, name: e.target.value})} className="w-full bg-black/40 border border-white/10 rounded-lg pl-10 pr-4 py-2.5 text-xs text-white focus:border-brand-orange outline-none" placeholder="John Doe" />
+                <input type="text" required value={registerForm.name} onChange={(e) => setRegisterForm({...registerForm, name: e.target.value})} className="w-full bg-black/40 border border-white/10 rounded-lg pl-10 pr-4 py-2.5 text-xs text-white focus:border-brand-purple outline-none" placeholder="John Doe" />
               </div>
             </div>
 
@@ -204,7 +204,7 @@ export default function Auth() {
               <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">Email Address</label>
               <div className="relative">
                 <Mail className="absolute left-3 top-3 w-4 h-4 text-gray-500" />
-                <input type="email" required value={registerForm.email} onChange={(e) => setRegisterForm({...registerForm, email: e.target.value})} className="w-full bg-black/40 border border-white/10 rounded-lg pl-10 pr-4 py-2.5 text-xs text-white focus:border-brand-orange outline-none" placeholder="johndoe@gmail.com" />
+                <input type="email" required value={registerForm.email} onChange={(e) => setRegisterForm({...registerForm, email: e.target.value})} className="w-full bg-black/40 border border-white/10 rounded-lg pl-10 pr-4 py-2.5 text-xs text-white focus:border-brand-purple outline-none" placeholder="johndoe@gmail.com" />
               </div>
             </div>
 
@@ -212,7 +212,7 @@ export default function Auth() {
               <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">Mobile Number</label>
               <div className="relative">
                 <Phone className="absolute left-3 top-3 w-4 h-4 text-gray-500" />
-                <input type="tel" required value={registerForm.phone} onChange={(e) => setRegisterForm({...registerForm, phone: e.target.value})} className="w-full bg-black/40 border border-white/10 rounded-lg pl-10 pr-4 py-2.5 text-xs text-white focus:border-brand-orange outline-none" placeholder="9876543210" />
+                <input type="tel" required value={registerForm.phone} onChange={(e) => setRegisterForm({...registerForm, phone: e.target.value})} className="w-full bg-black/40 border border-white/10 rounded-lg pl-10 pr-4 py-2.5 text-xs text-white focus:border-brand-purple outline-none" placeholder="9876543210" />
               </div>
             </div>
 
@@ -220,11 +220,11 @@ export default function Auth() {
               <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">Security Password</label>
               <div className="relative">
                 <Lock className="absolute left-3 top-3 w-4 h-4 text-gray-500" />
-                <input type="password" required value={registerForm.password} onChange={(e) => setRegisterForm({...registerForm, password: e.target.value})} className="w-full bg-black/40 border border-white/10 rounded-lg pl-10 pr-4 py-2.5 text-xs text-white focus:border-brand-orange outline-none" placeholder="Create Password" />
+                <input type="password" required value={registerForm.password} onChange={(e) => setRegisterForm({...registerForm, password: e.target.value})} className="w-full bg-black/40 border border-white/10 rounded-lg pl-10 pr-4 py-2.5 text-xs text-white focus:border-brand-purple outline-none" placeholder="Create Password" />
               </div>
             </div>
 
-            <button type="submit" className="w-full bg-brand-orange hover:bg-brand-orange/90 text-black font-bold py-3 rounded-lg text-xs uppercase tracking-widest transition-colors flex items-center justify-center space-x-1.5">
+            <button type="submit" className="w-full bg-brand-purple hover:bg-brand-purple/90 text-black font-bold py-3 rounded-lg text-xs uppercase tracking-widest transition-colors flex items-center justify-center space-x-1.5">
               <span>Send OTP Verification</span>
               <Send className="w-3.5 h-3.5" />
             </button>
@@ -241,18 +241,18 @@ export default function Auth() {
 
             <div>
               <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2 text-center">Enter 4-Digit OTP Code</label>
-              <input type="text" maxLength={4} required value={otpVal} onChange={(e) => setOtpVal(e.target.value)} className="w-28 mx-auto block bg-black/40 border border-white/15 rounded-lg py-2.5 text-center font-mono font-bold text-lg text-white focus:border-brand-orange outline-none tracking-widest" placeholder="0000" />
+              <input type="text" maxLength={4} required value={otpVal} onChange={(e) => setOtpVal(e.target.value)} className="w-28 mx-auto block bg-black/40 border border-white/15 rounded-lg py-2.5 text-center font-mono font-bold text-lg text-white focus:border-brand-purple outline-none tracking-widest" placeholder="0000" />
             </div>
 
             <p className="text-[10px] text-gray-400 text-center leading-normal">
-              Enter <strong className="text-brand-orange">2026</strong> (mock code provided in the active toast banner in the bottom corner of your browser screen).
+              Enter <strong className="text-brand-purple">2026</strong> (mock code provided in the active toast banner in the bottom corner of your browser screen).
             </p>
 
             <div className="flex space-x-3">
               <button type="button" onClick={() => setMode('register')} className="w-1/3 bg-white/5 border border-white/10 hover:bg-white/10 text-white font-bold py-2.5 rounded-lg text-xs uppercase">
                 Back
               </button>
-              <button type="submit" className="w-2/3 bg-brand-orange hover:bg-brand-orange/90 text-black font-bold py-2.5 rounded-lg text-xs uppercase tracking-widest transition-all">
+              <button type="submit" className="w-2/3 bg-brand-purple hover:bg-brand-purple/90 text-black font-bold py-2.5 rounded-lg text-xs uppercase tracking-widest transition-all">
                 Verify & Register
               </button>
             </div>
@@ -271,7 +271,7 @@ export default function Auth() {
               <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">Registered Email</label>
               <div className="relative">
                 <Mail className="absolute left-3 top-3 w-4 h-4 text-gray-500" />
-                <input type="email" required value={resetEmail} onChange={(e) => setResetEmail(e.target.value)} className="w-full bg-black/40 border border-white/10 rounded-lg pl-10 pr-4 py-2.5 text-xs text-white focus:border-brand-orange outline-none" placeholder="enteremail@gmail.com" />
+                <input type="email" required value={resetEmail} onChange={(e) => setResetEmail(e.target.value)} className="w-full bg-black/40 border border-white/10 rounded-lg pl-10 pr-4 py-2.5 text-xs text-white focus:border-brand-purple outline-none" placeholder="enteremail@gmail.com" />
               </div>
             </div>
 
@@ -279,7 +279,7 @@ export default function Auth() {
               <button type="button" onClick={() => setMode('login')} className="w-1/3 bg-white/5 border border-white/10 hover:bg-white/10 text-white font-bold py-2.5 rounded-lg text-xs uppercase">
                 Cancel
               </button>
-              <button type="submit" className="w-2/3 bg-brand-orange hover:bg-brand-orange/90 text-black font-bold py-2.5 rounded-lg text-xs uppercase tracking-widest transition-colors flex items-center justify-center space-x-1.5">
+              <button type="submit" className="w-2/3 bg-brand-purple hover:bg-brand-purple/90 text-black font-bold py-2.5 rounded-lg text-xs uppercase tracking-widest transition-colors flex items-center justify-center space-x-1.5">
                 <Send className="w-3.5 h-3.5" />
                 <span>Recover Account</span>
               </button>

@@ -41,7 +41,7 @@ export default function Onboarding() {
     return (
       <div className="text-white min-h-screen flex flex-col items-center justify-center p-6 text-center">
         <h2 className="text-xl font-bold mb-4">Onboarding Record Not Found</h2>
-        <Link to="/courses" className="bg-brand-orange text-black font-bold px-6 py-2 rounded-lg text-xs uppercase">
+        <Link to="/courses" className="bg-brand-purple text-black font-bold px-6 py-2 rounded-lg text-xs uppercase">
           Catalog
         </Link>
       </div>
@@ -51,18 +51,18 @@ export default function Onboarding() {
   return (
     <div className="text-white min-h-screen relative pt-12 pb-24 print:bg-white print:text-black">
       {/* Glow Blur */}
-      <div className="absolute top-20 right-1/4 w-96 h-96 bg-brand-orange/5 rounded-full blur-[100px] z-0 print:hidden"></div>
+      <div className="absolute top-20 right-1/4 w-96 h-96 bg-brand-purple/5 rounded-full blur-[100px] z-0 print:hidden"></div>
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 z-10 relative print:p-0">
         
         {/* Onboarding Header */}
         <div className="text-center mb-10 print:hidden">
-          <div className="bg-brand-orange/15 border border-brand-orange/30 text-brand-orange p-3.5 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+          <div className="bg-brand-purple/15 border border-brand-purple/30 text-brand-purple p-3.5 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
             <CheckCircle className="w-8 h-8" />
           </div>
-          <span className="text-xs font-bold tracking-widest text-brand-orange uppercase">Instant Provision Success</span>
+          <span className="text-xs font-bold tracking-widest text-brand-purple uppercase">Instant Provision Success</span>
           <h1 className="logo-font text-3xl sm:text-4xl font-extrabold text-white mt-2">
-            Welcome to Digivibe Academy!
+            Welcome to BeyondSkills Academy!
           </h1>
           <p className="mt-2 text-xs text-gray-400">
             Account setup completed within 14 seconds (Target SLA: 5 minutes).
@@ -75,7 +75,7 @@ export default function Onboarding() {
           <div className="border-b border-white/5 pb-6 grid grid-cols-2 gap-4">
             <div>
               <span className="text-[10px] text-gray-500 uppercase font-bold block">Assigned Student ID</span>
-              <span className="text-lg font-bold text-brand-orange font-mono">{studentId || 'DV-2026-1004'}</span>
+              <span className="text-lg font-bold text-brand-purple font-mono">{studentId || 'BS-2026-1004'}</span>
             </div>
             <div>
               <span className="text-[10px] text-gray-500 uppercase font-bold block">Course Allocated</span>
@@ -91,7 +91,7 @@ export default function Onboarding() {
             
             <div className="space-y-3.5 text-xs text-gray-300">
               <div className="flex items-start space-x-3 bg-white/5 p-3 rounded-lg border border-white/5">
-                <CheckCircle className="w-5 h-5 text-brand-orange mt-0.5 flex-shrink-0" />
+                <CheckCircle className="w-5 h-5 text-brand-purple mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="font-bold text-white">Temporary Credentials Issued</p>
                   <p className="text-gray-400 mt-0.5">Use your checkout email and temporary password <strong>"password"</strong> to login.</p>
@@ -99,7 +99,7 @@ export default function Onboarding() {
               </div>
 
               <div className="flex items-start space-x-3 bg-white/5 p-3 rounded-lg border border-white/5">
-                <CheckCircle className="w-5 h-5 text-brand-orange mt-0.5 flex-shrink-0" />
+                <CheckCircle className="w-5 h-5 text-brand-purple mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="font-bold text-white">Watch Recorded Module 1</p>
                   <p className="text-gray-400 mt-0.5">Start recorded lessons in your dashboard workspace area to unlock syllabus projects.</p>
@@ -107,7 +107,7 @@ export default function Onboarding() {
               </div>
 
               <div className="flex items-start space-x-3 bg-white/5 p-3 rounded-lg border border-white/5">
-                <CheckCircle className="w-5 h-5 text-brand-orange mt-0.5 flex-shrink-0" />
+                <CheckCircle className="w-5 h-5 text-brand-purple mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="font-bold text-white">Review Live Mentor Calendar</p>
                   <p className="text-gray-400 mt-0.5">Check dashboard notifications for weekly live Zoom meetings with Dr. Aris Rawat and team.</p>
@@ -119,11 +119,11 @@ export default function Onboarding() {
           {/* Actions */}
           <div className="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
             <button onClick={() => setInvoiceOpen(true)} className="w-full sm:w-auto bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold px-6 py-3 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center space-x-2">
-              <FileText className="w-4.5 h-4.5 text-brand-orange" />
+              <FileText className="w-4.5 h-4.5 text-brand-purple" />
               <span>Generate PDF Invoice</span>
             </button>
 
-            <button onClick={handleGoToDashboard} className="w-full sm:w-auto bg-gradient-to-r from-brand-red to-brand-orange hover:brightness-110 text-white font-bold px-6 py-3 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center space-x-2 shadow-lg shadow-brand-orange/15 hover:scale-105 transition-all">
+            <button onClick={handleGoToDashboard} className="w-full sm:w-auto bg-gradient-to-r from-brand-purple to-brand-blue hover:brightness-110 text-white font-bold px-6 py-3 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center space-x-2 shadow-lg shadow-brand-purple/15 hover:scale-105 transition-all">
               <span>Go to Study Dashboard</span>
               <ArrowRight className="w-4.5 h-4.5" />
             </button>
@@ -138,7 +138,7 @@ export default function Onboarding() {
               
               {/* Close / Action tools (hidden on print) */}
               <div className="absolute top-4 right-4 flex items-center space-x-2 print:hidden">
-                <button onClick={handlePrintInvoice} className="bg-brand-orange text-black font-bold p-2.5 rounded-lg text-xs uppercase flex items-center space-x-1.5 shadow">
+                <button onClick={handlePrintInvoice} className="bg-brand-purple text-black font-bold p-2.5 rounded-lg text-xs uppercase flex items-center space-x-1.5 shadow">
                   <Download className="w-4 h-4" />
                   <span>Print / Save</span>
                 </button>
@@ -150,15 +150,15 @@ export default function Onboarding() {
               {/* Invoice Layout */}
               <div className="border-b border-gray-200 pb-6 flex justify-between items-start">
                 <div>
-                  <h2 className="logo-font text-3xl font-extrabold tracking-tight text-brand-orange">
-                    digivibe
+                  <h2 className="logo-font text-3xl font-extrabold tracking-tight text-black">
+                    Beyond<span className="text-brand-purple">Skills</span>
                   </h2>
                   <p className="text-xs text-gray-500 uppercase font-semibold mt-1">Upskilling Academy Division</p>
                 </div>
                 <div className="text-right text-xs text-gray-500">
                   <h4 className="font-bold text-black text-sm uppercase">Tax Invoice / Receipt</h4>
                   <p className="mt-1">Date: {new Date().toLocaleDateString()}</p>
-                  <p>Invoice No: INV-DV-2026-{payId ? payId.slice(-4) : '9827'}</p>
+                  <p>Invoice No: INV-BS-2026-{payId ? payId.slice(-4) : '9827'}</p>
                 </div>
               </div>
 
@@ -166,13 +166,13 @@ export default function Onboarding() {
               <div className="grid grid-cols-2 gap-6 text-xs border-b border-gray-100 pb-6">
                 <div>
                   <h4 className="font-bold text-gray-400 uppercase mb-2">Billed From:</h4>
-                  <p className="font-bold text-gray-800">Digivibe Tech Services Pvt Ltd</p>
+                  <p className="font-bold text-gray-800">BeyondSkills Tech Services Pvt Ltd</p>
                   <p className="text-gray-500">Sector 62, Electronic City, Noida</p>
                   <p className="text-gray-500">GSTIN: 09AAECD9832K1ZP</p>
                 </div>
                 <div>
                   <h4 className="font-bold text-gray-400 uppercase mb-2">Billed To (Learner):</h4>
-                  <p className="font-bold text-gray-800">Student ID: {studentId || 'DV-2026-1004'}</p>
+                  <p className="font-bold text-gray-800">Student ID: {studentId || 'BS-2026-1004'}</p>
                   <p className="text-gray-500">Receipt Ref: {payId || 'pay_mock_12345'}</p>
                   <p className="text-gray-500">Registered Onboarding Address</p>
                 </div>
@@ -213,14 +213,14 @@ export default function Onboarding() {
                   </div>
                   <div className="border-t border-gray-200 pt-2 flex justify-between font-bold text-sm text-gray-800">
                     <span>Grand Total Paid:</span>
-                    <span className="font-mono text-brand-orange">₹{course.fee.toLocaleString()}.00</span>
+                    <span className="font-mono text-brand-purple">₹{course.fee.toLocaleString()}.00</span>
                   </div>
                 </div>
               </div>
 
               {/* Compliance note in invoice */}
               <div className="border-t border-gray-100 pt-6 text-[9px] text-gray-400 text-justify leading-relaxed">
-                <strong>Important Scope Disclaimer:</strong> Completed payments grant 100% access to study area videos, live sessions schedules, and certificates download metrics. Digivibe Academy operates as an educational provider and explicitly does not guarantee employment offers, corporate placements, or job interviews.
+                <strong>Important Scope Disclaimer:</strong> Completed payments grant 100% access to study area videos, live sessions schedules, and certificates download metrics. BeyondSkills Academy operates as an educational provider and explicitly does not guarantee employment offers, corporate placements, or job interviews.
               </div>
 
             </div>
