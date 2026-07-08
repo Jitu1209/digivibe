@@ -169,7 +169,7 @@ export default function Home() {
             {stats.map((stat, idx) => {
               const IconComp = stat.icon;
               return (
-                <div key={idx} className="text-center p-4 bg-white/80 rounded-2xl border border-white/10/80 shadow-sm shadow-slate-100/50">
+                <div key={idx} className="text-center p-6 bg-white/5 border border-white/10 rounded-2xl shadow-lg backdrop-blur-md">
                   <div className="flex justify-center text-brand-purple mb-3">
                     <IconComp className="w-6 h-6" />
                   </div>
@@ -269,7 +269,7 @@ export default function Home() {
       </section>
 
       {/* 5. Academy Verticals / Courses Section */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10 bg-white/40 rounded-3xl border border-white/10/60 shadow-sm shadow-slate-100/30">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10 bg-white/5 rounded-3xl border border-white/10 shadow-2xl backdrop-blur-xl">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-brand-purple text-xs font-bold tracking-widest uppercase bg-brand-purple/10 px-3 py-1 rounded-full">
             Upskilling Programs

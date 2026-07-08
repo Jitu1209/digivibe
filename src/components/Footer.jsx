@@ -4,7 +4,7 @@ import { Mail, Phone, MapPin, ShieldAlert, Sparkles } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-dark border-t border-white/10 text-slate-650">
+    <footer className="bg-brand-dark border-t border-white/10 text-gray-400">
       
       {/* Placement Disclaimer Header / Banner */}
       <div className="bg-brand-darker/60 border-b border-white/10 py-6 px-4">
@@ -12,7 +12,7 @@ export default function Footer() {
           <div className="flex items-center space-x-3 text-brand-purple">
             <ShieldAlert className="w-8 h-8 flex-shrink-0" />
             <div>
-              <h4 className="text-sm font-bold text-slate-800 uppercase tracking-wider">MANDATORY COMPLIANCE DISCLAIMER</h4>
+              <h4 className="text-sm font-bold text-slate-200 uppercase tracking-wider">MANDATORY COMPLIANCE DISCLAIMER</h4>
               <p className="text-xs text-gray-400">Please read our educational scope & placement conditions below.</p>
             </div>
           </div>
