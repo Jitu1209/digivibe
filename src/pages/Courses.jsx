@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate, Link } from 'react-router-dom';
 import { Search, BookOpen, Clock, Star, GraduationCap, CheckCircle, ShieldAlert, Award, FileText, ArrowLeft, Users } from 'lucide-react';
 import { COURSES } from '../utils/mockDb';
+import TechIcon from '../components/TechIcon';
 
 export default function Courses() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -99,6 +100,21 @@ export default function Courses() {
               <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
                 {course.overview}
               </p>
+              
+              {/* Tech Stack Covered */}
+              {course.techStack && (
+                <div className="pt-2">
+                  <p className="text-xs uppercase tracking-wider text-brand-purple font-bold mb-3">Technologies Covered</p>
+                  <div className="flex flex-wrap gap-2">
+                    {course.techStack.map((tech, tIdx) => (
+                      <span key={tIdx} className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs text-white font-medium hover:bg-white/10 transition-all">
+                        <TechIcon name={tech} className="w-4 h-4" />
+                        <span>{tech}</span>
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
               
               <div className="flex flex-wrap items-center gap-6 text-xs sm:text-sm text-gray-300 font-mono">
                 <span className="flex items-center space-x-1">
@@ -307,7 +323,20 @@ export default function Courses() {
                   </span>
                 </div>
                 <h3 className="text-base sm:text-lg font-bold text-white mb-2 line-clamp-2 h-12">{c.title}</h3>
-                <p className="text-xs text-gray-400 leading-relaxed mb-6 line-clamp-3">{c.overview}</p>
+                <p className="text-xs text-gray-400 leading-relaxed mb-6 line-clamp-3">{c.overview}
+                </p>
+                
+                {/* Tech Stack Badges */}
+                {c.techStack && (
+                  <div className="flex flex-wrap gap-1.5 mb-6">
+                    {c.techStack.map((tech, tIdx) => (
+                      <span key={tIdx} className="inline-flex items-center space-x-1 px-2 py-0.5 rounded bg-white/5 border border-white/5 text-[10px] text-gray-300 font-medium">
+                        <TechIcon name={tech} className="w-3.5 h-3.5" />
+                        <span>{tech}</span>
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
 
               <div>

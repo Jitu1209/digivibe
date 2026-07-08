@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, Code, Megaphone, CheckCircle, Star, Users, Briefcase, Award, Sparkles, MessageSquare, Plus, Minus, Send, Play, Terminal } from 'lucide-react';
+import TechIcon from '../components/TechIcon';
 import { COURSES, MENTORS, STUDENT_TESTIMONIALS, CLIENT_TESTIMONIALS, getDbItem, setDbItem } from '../utils/mockDb';
 
 export default function Home() {
@@ -295,7 +296,20 @@ export default function Home() {
                   </span>
                 </div>
                 <h3 className="text-base sm:text-lg font-bold text-white mb-2 line-clamp-2 h-12 leading-tight">{course.title}</h3>
-                <p className="text-xs text-gray-400 mb-6 line-clamp-3 leading-relaxed">{course.overview}</p>
+                <p className="text-xs text-gray-400 mb-6 line-clamp-3 leading-relaxed">{course.overview}
+                </p>
+                
+                {/* Tech Stack Badges */}
+                {course.techStack && (
+                  <div className="flex flex-wrap gap-1.5 mb-6">
+                    {course.techStack.map((tech, tIdx) => (
+                      <span key={tIdx} className="inline-flex items-center space-x-1 px-2 py-0.5 rounded bg-white/5 border border-white/5 text-[10px] text-gray-300 font-medium">
+                        <TechIcon name={tech} className="w-3.5 h-3.5" />
+                        <span>{tech}</span>
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
               
               <div>

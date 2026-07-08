@@ -3,6 +3,7 @@
 export const COURSES = [
   {
     id: 'ai-ml-ds',
+    techStack: ['Python', 'SQL', 'Pandas', 'NumPy', 'Scikit-Learn', 'TensorFlow'],
     title: 'Artificial Intelligence, Machine Learning & Data Science',
     category: 'AI/ML/DS/DA',
     level: 'Basic to Intermediate',
@@ -41,6 +42,7 @@ export const COURSES = [
   },
   {
     id: 'full-stack-web',
+    techStack: ['HTML5', 'CSS3', 'JavaScript', 'React', 'Node.js', 'Express', 'MongoDB'],
     title: 'Full Stack Web Development (MERN)',
     category: 'Full Stack Development',
     level: 'Basic to Intermediate',
@@ -78,6 +80,7 @@ export const COURSES = [
   },
   {
     id: 'digital-marketing-cert',
+    techStack: ['Google Ads', 'Meta Ads', 'Google Analytics', 'SEO', 'Email Marketing'],
     title: 'Performance Digital Marketing & Ads',
     category: 'Digital Marketing',
     level: 'Basic to Intermediate',
@@ -113,6 +116,7 @@ export const COURSES = [
   },
   {
     id: 'hr-mgmt',
+    techStack: ['ATS Systems', 'Payroll Tools', 'HR Analytics', 'Excel'],
     title: 'Human Resource Management & Operations',
     category: 'HR',
     level: 'Basic to Intermediate',
@@ -147,6 +151,7 @@ export const COURSES = [
   },
   {
     id: 'stock-market',
+    techStack: ['Technical Analysis', 'Fundamental Analysis', 'Trading Sheets', 'Risk Management'],
     title: 'Stock Market & Financial Analysis',
     category: 'Stock Market',
     level: 'Basic to Intermediate',
@@ -181,6 +186,7 @@ export const COURSES = [
   },
   {
     id: 'cyber-security',
+    techStack: ['Kali Linux', 'Wireshark', 'Metasploit', 'Nmap', 'OWASP Top 10'],
     title: 'Introduction to Cyber Security & Ethical Hacking',
     category: 'Cyber Security',
     level: 'Basic to Intermediate',
@@ -215,6 +221,7 @@ export const COURSES = [
   },
   {
     id: 'cloud-computing',
+    techStack: ['AWS', 'AWS EC2', 'AWS S3', 'VPC Routing', 'Auto Scaling'],
     title: 'Cloud Computing Foundations (AWS & Azure)',
     category: 'Cloud Computing',
     level: 'Basic to Intermediate',
