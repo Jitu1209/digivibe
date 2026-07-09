@@ -175,7 +175,7 @@ export default function Header() {
                   Verify Certificate
                 </Link>
                 <Link to="/auth" className="bg-brand-purple text-white hover:brightness-110 shadow-sm shadow-brand-purple/20 px-5 py-2 rounded-full font-bold text-xs uppercase tracking-widest transition-all duration-300 transform hover:scale-105">
-                  Student Login
+                  Login
                 </Link>
               </div>
             )}
@@ -249,7 +249,7 @@ export default function Header() {
           ) : (
             <div className="pt-4 px-3">
               <Link to="/auth" className="block text-center bg-brand-purple text-white font-bold py-2.5 rounded-full uppercase tracking-wider text-xs text-center hover:brightness-110">
-                Student Login
+                Login
               </Link>
             </div>
           )}
