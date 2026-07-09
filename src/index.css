@@ -96,12 +96,18 @@
 }
 
 /* Grid background pattern with interactive purple/blue grid tracking */
+.bg-grid-pattern {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20;
+}
+
 .bg-grid-pattern::before {
   content: '';
   position: absolute;
   inset: 0;
-  pointer-events: none;
-  z-index: 0;
+  
   /* Soft purple grid lines always visible across the whole page */
   background-size: 50px 50px;
   background-image: 
@@ -113,8 +119,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  pointer-events: none;
-  z-index: 0;
+  
   /* Rich dark purple grid that pops near the cursor */
   background-size: 50px 50px;
   background-image: 

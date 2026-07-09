@@ -33,7 +33,8 @@ function LayoutWrapper({ children }) {
   const isPortal = ['/checkout', '/onboarding'].includes(location.pathname);
   
   return (
-    <div id="glow-bg-container" className="bg-grid-pattern flex flex-col min-h-screen bg-white text-slate-900 relative">
+    <div id="glow-bg-container" className="flex flex-col min-h-screen bg-white text-slate-900 relative">
+      <div className="bg-grid-pattern"></div>
       {!isPortal && <Header />}
       <main className="flex-grow z-10 relative">
         {children}
@@ -50,8 +51,8 @@ export default function App() {
     const handleMouseMove = (e) => {
       const container = document.getElementById('glow-bg-container');
       if (container) {
-        container.style.setProperty('--mouse-x', `${e.pageX}px`);
-        container.style.setProperty('--mouse-y', `${e.pageY}px`);
+        container.style.setProperty('--mouse-x', `${e.clientX}px`);
+        container.style.setProperty('--mouse-y', `${e.clientY}px`);
       }
     };
     window.addEventListener('mousemove', handleMouseMove);

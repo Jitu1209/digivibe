@@ -94,7 +94,7 @@ export default function Home() {
   const featuredCourses = COURSES.slice(0, 3);
 
   return (
-    <div className="relative bg-white text-slate-900 overflow-hidden bg-grid-pattern min-h-screen">
+    <div className="relative bg-white text-slate-900 overflow-hidden  min-h-screen">
       
       {/* Radiant Glow Blobs */}
       <div className="absolute top-10 left-1/4 w-[500px] h-[500px] bg-brand-purple/10 rounded-full blur-[120px] animate-pulse-glow z-0"></div>
