@@ -38,7 +38,7 @@ export default function Verification() {
   // IF DLPARAM IS TRIGGERED: Render full screen printable certificate style!
   if (dlParam && cert) {
     return (
-      <div className="bg-[#111111] text-slate-900 min-h-screen flex flex-col items-center justify-center p-4 print:bg-white print:text-black print:p-0">
+      <div className="bg-white text-slate-900 min-h-screen flex flex-col items-center justify-center p-4 print:bg-white print:text-black print:p-0">
         
         {/* Actions header (hidden on print) */}
         <div className="mb-6 flex space-x-3 print:hidden">

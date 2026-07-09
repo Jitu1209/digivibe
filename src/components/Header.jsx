@@ -60,37 +60,32 @@ export default function Header() {
                 Digital Services • Upskilling • Future-Ready
               </span>
             </Link>
-          </div>
-
-          {/* Desktop Navigation Capsule Bar */}
+          </div>          {/* Desktop Navigation Capsule Bar */}
           <nav className="hidden lg:flex items-center bg-white/70 border border-slate-200/80 rounded-full px-2 py-1.5 shadow-sm shadow-slate-100/50 backdrop-blur-md hover:border-brand-purple/30 transition-all duration-300">
-            <Link to="/" className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 hover:scale-105 active:scale-95 ${location.pathname === '/' ? 'text-white bg-brand-purple shadow-md shadow-brand-purple/20' : 'text-slate-600 hover:text-slate-950 hover:bg-slate-100/60'}`}>
+            {/* 1. Home */}
+            <Link to="/" className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 hover:scale-105 active:scale-95 ${location.pathname === '/' ? 'text-white bg-brand-purple shadow-md shadow-brand-purple/20' : 'text-slate-600 hover:text-slate-955 hover:bg-slate-100/60'}`}>
               Home
             </Link>
-            
-            <Link to="/about" className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 hover:scale-105 active:scale-95 ${location.pathname === '/about' ? 'text-white bg-brand-purple shadow-md shadow-brand-purple/20' : 'text-slate-600 hover:text-slate-950 hover:bg-slate-100/60'}`}>
-              About Us
-            </Link>
 
-            {/* Agency Hover Dropdown */}
+            {/* 2. Services Dropdown */}
             <div className="relative" 
                  onMouseEnter={() => setAgencyDropdown(true)}
                  onMouseLeave={() => setAgencyDropdown(false)}>
               <button className={`flex items-center space-x-1 px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none ${location.pathname.startsWith('/services') ? 'text-white bg-brand-purple shadow-md shadow-brand-purple/20' : 'text-slate-600 hover:text-slate-950 hover:bg-slate-100/60'}`}>
-                <span>Agency</span>
+                <span>Services</span>
                 <ChevronDown className="w-3.5 h-3.5" />
               </button>
               
               {agencyDropdown && (
                 <div className="absolute left-0 w-64 mt-2 bg-white border border-slate-200 rounded-xl shadow-xl p-2 animate-fade-in backdrop-blur-xl">
-                  <Link to="/services/website-development" className="flex items-start space-x-3 p-3 rounded-lg hover:bg-slate-50 transition-colors">
+                  <Link to="/services/website-development" className="flex items-start space-x-3 p-3 rounded-lg hover:bg-slate-50 transition-colors text-slate-700">
                     <Code className="w-5 h-5 text-brand-purple mt-0.5" />
                     <div>
                       <p className="text-sm font-semibold text-slate-900">Website Development</p>
                       <p className="text-xs text-slate-500">Custom web apps & ecommerce</p>
                     </div>
                   </Link>
-                  <Link to="/services/digital-marketing" className="flex items-start space-x-3 p-3 rounded-lg hover:bg-slate-50 transition-colors">
+                  <Link to="/services/digital-marketing" className="flex items-start space-x-3 p-3 rounded-lg hover:bg-slate-50 transition-colors text-slate-700">
                     <Megaphone className="w-5 h-5 text-brand-purple mt-0.5" />
                     <div>
                       <p className="text-sm font-semibold text-slate-900">Digital Marketing</p>
@@ -101,12 +96,12 @@ export default function Header() {
               )}
             </div>
 
-            {/* Academy Course Catalog Dropdown */}
+            {/* 3. Career Accelerator Program Dropdown */}
             <div className="relative"
                  onMouseEnter={() => setCoursesDropdown(true)}
                  onMouseLeave={() => setCoursesDropdown(false)}>
               <button className={`flex items-center space-x-1 px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none ${location.pathname.startsWith('/courses') ? 'text-white bg-brand-purple shadow-md shadow-brand-purple/20' : 'text-slate-600 hover:text-slate-950 hover:bg-slate-100/60'}`}>
-                <span>Academy</span>
+                <span>Career Accelerator Program</span>
                 <ChevronDown className="w-3.5 h-3.5" />
               </button>
               
@@ -115,7 +110,7 @@ export default function Header() {
                   <div className="px-3 py-1 text-[10px] font-bold text-brand-purple tracking-widest uppercase border-b border-slate-200/60 mb-1 pb-1">
                     Certification Programs
                   </div>
-                  <Link to="/courses" className="flex items-start space-x-3 p-2.5 rounded-lg hover:bg-slate-50 transition-colors">
+                  <Link to="/courses" className="flex items-start space-x-3 p-2.5 rounded-lg hover:bg-slate-50 transition-colors text-slate-700">
                     <GraduationCap className="w-5 h-5 text-brand-purple mt-0.5" />
                     <div>
                       <p className="text-xs font-semibold text-slate-900">All Courses</p>
@@ -138,10 +133,17 @@ export default function Header() {
               )}
             </div>
 
+            {/* 4. Blog */}
             <Link to="/blog" className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 hover:scale-105 active:scale-95 ${location.pathname === '/blog' ? 'text-white bg-brand-purple shadow-md shadow-brand-purple/20' : 'text-slate-600 hover:text-slate-950 hover:bg-slate-100/60'}`}>
-              Blogs
+              Blog
             </Link>
 
+            {/* 5. About Us */}
+            <Link to="/about" className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 hover:scale-105 active:scale-95 ${location.pathname === '/about' ? 'text-white bg-brand-purple shadow-md shadow-brand-purple/20' : 'text-slate-600 hover:text-slate-950 hover:bg-slate-100/60'}`}>
+              About Us
+            </Link>
+
+            {/* 6. Contact */}
             <Link to="/contact" className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 hover:scale-105 active:scale-95 ${location.pathname === '/contact' ? 'text-white bg-brand-purple shadow-md shadow-brand-purple/20' : 'text-slate-600 hover:text-slate-950 hover:bg-slate-100/60'}`}>
               Contact
             </Link>
@@ -188,20 +190,15 @@ export default function Header() {
             </button>
           </div>
         </div>
-      </div>
-
-      {/* Mobile Drawer menu */}
+      </div>      {/* Mobile Drawer menu */}
       {isOpen && (
         <div className="lg:hidden border-t border-slate-100 bg-white px-4 pt-2 pb-6 space-y-3 shadow-lg">
           <Link to="/" className="block px-3 py-2 text-base font-semibold text-slate-800 hover:text-brand-purple border-b border-slate-100">
             Home
           </Link>
-          <Link to="/about" className="block px-3 py-2 text-base font-semibold text-slate-800 hover:text-brand-purple border-b border-slate-100">
-            About Us
-          </Link>
           
           <div className="px-3 py-1 text-[11px] font-bold text-brand-purple tracking-widest uppercase">
-            Agency Services
+            Services
           </div>
           <Link to="/services/website-development" className="block px-6 py-1.5 text-sm hover:text-brand-purple text-slate-600">
             Website Development
@@ -211,14 +208,17 @@ export default function Header() {
           </Link>
 
           <div className="px-3 py-1 text-[11px] font-bold text-brand-purple tracking-widest uppercase">
-            Academy Programs
+            Career Accelerator Program
           </div>
           <Link to="/courses" className="block px-6 py-1.5 text-sm hover:text-brand-purple text-slate-600">
             All Certification Courses
           </Link>
 
           <Link to="/blog" className="block px-3 py-2 text-base font-semibold text-slate-800 hover:text-brand-purple border-b border-slate-100">
-            Blogs
+            Blog
+          </Link>
+          <Link to="/about" className="block px-3 py-2 text-base font-semibold text-slate-800 hover:text-brand-purple border-b border-slate-100">
+            About Us
           </Link>
           <Link to="/contact" className="block px-3 py-2 text-base font-semibold text-slate-800 hover:text-brand-purple border-b border-slate-100">
             Contact
@@ -233,7 +233,7 @@ export default function Header() {
                 Student ID: {currentUser.studentId || 'Admin'}
               </span>
               {currentUser.email === 'admin@beyondskills.in' ? (
-                <Link to="/admin" className="text-center bg-brand-cyan/20 text-brand-cyan hover:bg-brand-cyan hover:text-white border border-brand-cyan/20 text-center font-bold py-2 rounded-lg">
+                <Link to="/admin" className="text-center bg-brand-cyan/20 text-brand-cyan hover:bg-brand-cyan hover:text-slate-900 border border-brand-cyan/20 text-center font-bold py-2 rounded-lg">
                   Admin Panel
                 </Link>
               ) : (

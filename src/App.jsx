@@ -33,7 +33,7 @@ function LayoutWrapper({ children }) {
   const isPortal = ['/checkout', '/onboarding'].includes(location.pathname);
   
   return (
-    <div id="glow-bg-container" className="bg-grid-pattern flex flex-col min-h-screen bg-black text-white relative">
+    <div id="glow-bg-container" className="bg-grid-pattern flex flex-col min-h-screen bg-white text-slate-900 relative">
       {!isPortal && <Header />}
       <main className="flex-grow z-10 relative">
         {children}
