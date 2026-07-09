@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, Code, Megaphone, CheckCircle, Star, Users, Briefcase, Award, Sparkles, MessageSquare, Plus, Minus, Send, Play, Terminal } from 'lucide-react';
 import TechIcon from '../components/TechIcon';
 import { COURSES, MENTORS, STUDENT_TESTIMONIALS, CLIENT_TESTIMONIALS, getDbItem, setDbItem } from '../utils/mockDb';
+import PartnerLogo from '../components/PartnerLogo';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('agency');
@@ -148,16 +149,16 @@ export default function Home() {
       <div className="w-full bg-slate-100 border-y border-slate-200 py-8 overflow-hidden relative z-10">
         <div className="flex w-[200%] animate-infinite-scroll items-center justify-around space-x-12">
           {['Google Cloud Partner', 'Meta Ads Agency Partner', 'AWS Cloud Architect', 'Microsoft Hub Member', 'Razorpay Integrated Gateway', 'HubSpot Partner', 'Vercel Partner System', 'Shopify Experts Team'].map((partner, idx) => (
-            <div key={idx} className="flex items-center space-x-2 text-slate-500 font-mono text-[10px] uppercase tracking-widest select-none">
-              <Sparkles className="w-3.5 h-3.5 text-brand-purple" />
-              <span>{partner}</span>
+            <div key={idx} className="flex items-center space-x-2.5 text-slate-600 font-mono text-[10px] uppercase tracking-widest select-none">
+              <PartnerLogo name={partner} className="w-4 h-4 flex-shrink-0" />
+              <span className="font-bold">{partner}</span>
             </div>
           ))}
           {/* Duplicate for infinite loop */}
           {['Google Cloud Partner', 'Meta Ads Agency Partner', 'AWS Cloud Architect', 'Microsoft Hub Member', 'Razorpay Integrated Gateway', 'HubSpot Partner', 'Vercel Partner System', 'Shopify Experts Team'].map((partner, idx) => (
-            <div key={`dup-${idx}`} className="flex items-center space-x-2 text-slate-500 font-mono text-[10px] uppercase tracking-widest select-none">
-              <Sparkles className="w-3.5 h-3.5 text-brand-purple" />
-              <span>{partner}</span>
+            <div key={`dup-${idx}`} className="flex items-center space-x-2.5 text-slate-600 font-mono text-[10px] uppercase tracking-widest select-none">
+              <PartnerLogo name={partner} className="w-4 h-4 flex-shrink-0" />
+              <span className="font-bold">{partner}</span>
             </div>
           ))}
         </div>
