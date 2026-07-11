@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { getDbItem, setDbItem } from '../utils/mockDb';
 import { Lock, Mail, Phone, User, Send, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
+import { saveUserToSupabase } from '../utils/supabaseClient';
 
 export default function Auth() {
   const navigate = useNavigate();
@@ -93,6 +94,9 @@ export default function Auth() {
 
     users.push(newRecord);
     setDbItem('beyondskills_users', users);
+    
+    // Log user registration to Supabase
+    saveUserToSupabase(newRecord).catch(err => console.error('Failed to save registered user to Supabase:', err));
     
     // Automatically log in the user
     setDbItem('beyondskills_current_user', newRecord);

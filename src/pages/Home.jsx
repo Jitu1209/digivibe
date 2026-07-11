@@ -5,6 +5,17 @@ import TechIcon from '../components/TechIcon';
 import { COURSES, MENTORS, STUDENT_TESTIMONIALS, CLIENT_TESTIMONIALS, getDbItem, setDbItem } from '../utils/mockDb';
 import PartnerLogo from '../components/PartnerLogo';
 import Curved3DCarousel from '../components/Curved3DCarousel';
+import BrochureModal from '../components/BrochureModal';
+
+const COURSE_IMAGES = {
+  'ai-ml-ds': 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=80',
+  'full-stack-web': 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&auto=format&fit=crop&q=80',
+  'digital-marketing-cert': 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80',
+  'hr-mgmt': 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&auto=format&fit=crop&q=80',
+  'stock-market': 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600&auto=format&fit=crop&q=80',
+  'cyber-security': 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&auto=format&fit=crop&q=80',
+  'cloud-computing': 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&auto=format&fit=crop&q=80',
+};
 
 import startupIndiaLogo from '../assets/startup_india.png';
 import isoCertifiedLogo from '../assets/iso_certified.png';
@@ -22,6 +33,8 @@ export default function Home() {
   const [submitStatus, setSubmitStatus] = useState(null);
   const [selectedServiceId, setSelectedServiceId] = useState(null);
   const [selectedCourseId, setSelectedCourseId] = useState(null);
+  const [isBrochureOpen, setIsBrochureOpen] = useState(false);
+  const [brochureCourse, setBrochureCourse] = useState(null);
 
   const handleAgencySubmit = (e) => {
     e.preventDefault();
@@ -326,61 +339,78 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {featuredCourses.map((course) => {
             const isSelected = selectedCourseId === course.id;
+            const bgImage = COURSE_IMAGES[course.id] || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600';
             return (
               <div 
                 key={course.id} 
                 onClick={() => setSelectedCourseId(course.id)}
-                className={`bg-white border shadow-sm p-6 rounded-2xl flex flex-col justify-between transition-all cursor-pointer glass-card ${
+                className={`relative overflow-hidden p-6 rounded-2xl flex flex-col justify-between transition-all cursor-pointer min-h-[360px] group ${
                   isSelected 
                     ? 'border-brand-purple ring-2 ring-brand-purple/20 shadow-[0_0_25px_rgba(139,92,246,0.45)] scale-[1.01]' 
-                    : 'border-slate-200/60 hover:border-brand-purple/30 hover:scale-[1.01]'
+                    : 'border border-slate-200/60 hover:border-brand-purple/30 hover:scale-[1.01]'
                 }`}
               >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-[9px] font-bold text-brand-purple uppercase border border-brand-purple/30 px-2.5 py-0.5 rounded bg-brand-purple/5">
-                    {course.category}
-                  </span>
-                  <span className="text-xs text-slate-500 font-mono">
-                    {course.duration}
-                  </span>
-                </div>
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2 line-clamp-2 h-12 leading-tight">{course.title}</h3>
-                <p className="text-xs text-slate-500 mb-6 line-clamp-3 leading-relaxed">{course.overview}
-                </p>
-                
-                {/* Tech Stack Badges */}
-                {course.techStack && (
-                  <div className="flex flex-wrap gap-1.5 mb-6">
-                    {course.techStack.map((tech, tIdx) => (
-                      <span key={tIdx} className="inline-flex items-center space-x-1 px-2 py-0.5 rounded bg-slate-100 border border-slate-200/60 text-[10px] text-slate-700 font-medium">
-                        <TechIcon name={tech} className="w-3.5 h-3.5" />
-                        <span>{tech}</span>
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </div>
-              
-              <div>
-                <div className="flex items-center space-x-1 mb-4 text-brand-cyan">
-                  <Star className="w-3.5 h-3.5 fill-current" />
-                  <span className="text-xs font-bold text-slate-900">{course.rating}</span>
-                  <span className="text-[10px] text-slate-500">({course.enrollments} learners)</span>
-                </div>
-                
-                <div className="border-t border-slate-200/60 pt-4 flex items-center justify-between">
+                {/* Background Image with Dark Overlay */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center z-0 transition-transform duration-500 group-hover:scale-105"
+                  style={{ backgroundImage: `url('${bgImage}')` }}
+                />
+                <div className="absolute inset-0 bg-slate-950/85 backdrop-blur-[0.5px] z-0" />
+
+                {/* Content Container */}
+                <div className="relative z-10 flex flex-col justify-between h-full text-white w-full">
                   <div>
-                    <span className="text-[10px] text-slate-500 block">Syllabus Fee</span>
-                    <span className="text-base font-bold text-slate-900">₹{course.fee.toLocaleString()}</span>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-[9px] font-bold text-brand-purple uppercase border border-brand-purple/40 px-2.5 py-0.5 rounded bg-brand-purple/10">
+                        {course.category}
+                      </span>
+                      <span className="text-xs text-slate-300 font-mono">
+                        {course.duration}
+                      </span>
+                    </div>
+                    <h3 className="text-base sm:text-lg font-bold text-white mb-2 line-clamp-2 h-12 leading-tight">{course.title}</h3>
+                    <p className="text-xs text-slate-300 mb-6 line-clamp-3 leading-relaxed">{course.overview}</p>
+                    
+                    {/* Tech Stack Badges */}
+                    {course.techStack && (
+                      <div className="flex flex-wrap gap-1.5 mb-6">
+                        {course.techStack.map((tech, tIdx) => (
+                          <span key={tIdx} className="inline-flex items-center space-x-1 px-2 py-0.5 rounded bg-white/10 border border-white/10 text-[10px] text-slate-200 font-medium hover:bg-white/20 transition-all">
+                            <TechIcon name={tech} className="w-3.5 h-3.5" />
+                            <span>{tech}</span>
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                  <Link to={`/courses?id=${course.id}`} className="bg-brand-purple hover:bg-brand-purple/90 text-black font-bold text-xs uppercase tracking-wider px-4 py-2.5 rounded-lg transition-colors">
-                    View Syllabus
-                  </Link>
+                  
+                  <div>
+                    <div className="flex items-center space-x-1 mb-4 text-brand-cyan">
+                      <Star className="w-3.5 h-3.5 fill-current" />
+                      <span className="text-xs font-bold text-white">{course.rating}</span>
+                      <span className="text-[10px] text-slate-300">({course.enrollments} learners)</span>
+                    </div>
+                    
+                    <div className="border-t border-white/10 pt-4 flex items-center justify-between">
+                      <div>
+                        <span className="text-[10px] text-slate-400 block">Syllabus Fee</span>
+                        <span className="text-base font-bold text-white">₹{course.fee.toLocaleString()}</span>
+                      </div>
+                      <button 
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setBrochureCourse(course);
+                          setIsBrochureOpen(true);
+                        }}
+                        className="bg-brand-purple hover:bg-brand-purple/90 text-black font-bold text-xs uppercase tracking-wider px-4 py-2.5 rounded-lg transition-colors cursor-pointer"
+                      >
+                        Brochure
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          )})}
+            )})}
         </div>
 
         <div className="text-center mt-12">
@@ -674,6 +704,13 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* Lead Capture Brochure Download Modal */}
+      <BrochureModal 
+        isOpen={isBrochureOpen} 
+        onClose={() => setIsBrochureOpen(false)} 
+        course={brochureCourse} 
+      />
 
     </div>
   );
