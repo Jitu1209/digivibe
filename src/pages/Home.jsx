@@ -4,6 +4,7 @@ import { ArrowRight, Code, Megaphone, CheckCircle, Star, Users, Briefcase, Award
 import TechIcon from '../components/TechIcon';
 import { COURSES, MENTORS, STUDENT_TESTIMONIALS, CLIENT_TESTIMONIALS, getDbItem, setDbItem } from '../utils/mockDb';
 import PartnerLogo from '../components/PartnerLogo';
+import Curved3DCarousel from '../components/Curved3DCarousel';
 
 import startupIndiaLogo from '../assets/startup_india.png';
 import isoCertifiedLogo from '../assets/iso_certified.png';
@@ -235,6 +236,9 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* 2.8 3D Curved Creative Carousel (Dribbble Style) */}
+      <Curved3DCarousel />
 
       {/* 3. Company Highlights Metrics */}
       <section className="relative py-12 z-10">
