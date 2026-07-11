@@ -151,55 +151,8 @@ export default function Home() {
         </p>
       </section>
 
-      {/* 2. Infinite Scrolling Logo Bar */}
-      <div className="w-full bg-slate-100 border-y border-slate-200 py-6 overflow-hidden relative z-10">
-        <div 
-          className="flex w-[250%] sm:w-[200%] animate-infinite-scroll items-center justify-around gap-8"
-          style={{ animationDuration: '14s' }}
-        >
-          {[
-            { display: 'Google Cloud', key: 'Google Cloud Partner' },
-            { display: 'Meta Ads', key: 'Meta Ads Agency Partner' },
-            { display: 'AWS Cloud', key: 'AWS Cloud Architect' },
-            { display: 'Microsoft Hub', key: 'Microsoft Hub Member' },
-            { display: 'Razorpay', key: 'Razorpay Integrated Gateway' },
-            { display: 'HubSpot', key: 'HubSpot Partner' },
-            { display: 'Vercel', key: 'Vercel Partner System' },
-            { display: 'Shopify', key: 'Shopify Experts Team' }
-          ].map((partner, idx) => (
-            <div 
-              key={idx} 
-              className="w-28 h-28 rounded-full bg-white shadow-md border border-slate-200/60 flex flex-col items-center justify-center p-3 text-center space-y-1.5 transition-all duration-300 hover:scale-110 flex-shrink-0 select-none cursor-pointer hover:border-brand-purple/40 hover:shadow-brand-purple/5"
-            >
-              <PartnerLogo name={partner.key} className="w-7 h-7 flex-shrink-0" />
-              <span className="text-[9px] font-extrabold text-slate-800 uppercase tracking-tight leading-tight max-w-[85px] line-clamp-2">
-                {partner.display}
-              </span>
-            </div>
-          ))}
-          {/* Duplicate for infinite loop */}
-          {[
-            { display: 'Google Cloud', key: 'Google Cloud Partner' },
-            { display: 'Meta Ads', key: 'Meta Ads Agency Partner' },
-            { display: 'AWS Cloud', key: 'AWS Cloud Architect' },
-            { display: 'Microsoft Hub', key: 'Microsoft Hub Member' },
-            { display: 'Razorpay', key: 'Razorpay Integrated Gateway' },
-            { display: 'HubSpot', key: 'HubSpot Partner' },
-            { display: 'Vercel', key: 'Vercel Partner System' },
-            { display: 'Shopify', key: 'Shopify Experts Team' }
-          ].map((partner, idx) => (
-            <div 
-              key={`dup-${idx}`} 
-              className="w-28 h-28 rounded-full bg-white shadow-md border border-slate-200/60 flex flex-col items-center justify-center p-3 text-center space-y-1.5 transition-all duration-300 hover:scale-110 flex-shrink-0 select-none cursor-pointer hover:border-brand-purple/40 hover:shadow-brand-purple/5"
-            >
-              <PartnerLogo name={partner.key} className="w-7 h-7 flex-shrink-0" />
-              <span className="text-[9px] font-extrabold text-slate-800 uppercase tracking-tight leading-tight max-w-[85px] line-clamp-2">
-                {partner.display}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
+      {/* 2. 3D Curved Partner Logo Slider (Dribbble Style) */}
+      <Curved3DCarousel />
 
       {/* 2.5 Trust Badges & Accreditations Banner */}
       <div className="w-full py-8 relative z-10">
@@ -237,8 +190,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* 2.8 3D Curved Creative Carousel (Dribbble Style) */}
-      <Curved3DCarousel />
 
       {/* 3. Company Highlights Metrics */}
       <section className="relative py-12 z-10">
