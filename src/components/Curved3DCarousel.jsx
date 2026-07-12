@@ -60,17 +60,10 @@ export default function Curved3DCarousel() {
 
   return (
     <section 
-      className="relative w-full bg-[#FCE7F3]/70 py-12 md:py-16 overflow-hidden z-10 select-none border-y border-pink-200/40"
+      className="relative w-full bg-transparent py-8 md:py-12 overflow-hidden z-10 select-none"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Top Curved Cutout Overlay */}
-      <div className="absolute top-0 left-0 w-full overflow-hidden pointer-events-none z-20">
-        <svg viewBox="0 0 1440 100" className="w-full h-auto fill-white scale-y-[1.1] origin-top">
-          <path d="M0,0 L1440,0 L1440,20 Q720,80 0,20 Z" />
-        </svg>
-      </div>
-
       {/* Main 3D Slider Area */}
       <div 
         className="relative w-full h-[180px] md:h-[220px] flex items-center justify-center"
@@ -95,7 +88,7 @@ export default function Curved3DCarousel() {
               onClick={() => {
                 if (offset !== 0) setActiveIndex(idx);
               }}
-              className={`absolute w-24 h-24 md:w-32 md:h-32 rounded-full bg-white shadow-xl shadow-pink-900/10 border border-slate-200/60 flex flex-col items-center justify-center p-3 text-center space-y-1 md:space-y-1.5 cursor-pointer hover:border-brand-purple/40`}
+              className={`absolute w-24 h-24 md:w-32 md:h-32 rounded-full bg-white shadow-lg shadow-slate-900/5 border border-slate-200/60 flex flex-col items-center justify-center p-3 text-center space-y-1 md:space-y-1.5 cursor-pointer hover:border-brand-purple/40`}
               style={{
                 transform: `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,
                 zIndex: 10 - absOffset,
@@ -129,13 +122,6 @@ export default function Curved3DCarousel() {
         >
           <ArrowRight className="w-4.5 h-4.5" />
         </button>
-      </div>
-
-      {/* Bottom Curved Cutout Overlay */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none z-20">
-        <svg viewBox="0 0 1440 100" className="w-full h-auto fill-white scale-y-[1.1] origin-bottom">
-          <path d="M0,100 L1440,100 L1440,80 Q720,20 0,80 Z" />
-        </svg>
       </div>
     </section>
   );

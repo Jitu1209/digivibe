@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-purple: #8B5CF6;
-  --color-brand-blue: #3B82F6;
-  --color-brand-cyan: #0EA5E9;
-  --color-brand-indigo: #6366F1;
+  --color-brand-purple: #2A4BFF; /* Electric neon blue theme color */
+  --color-brand-blue: #1B2A8A;   /* Deep royal blue theme color */
+  --color-brand-cyan: #0EA5E9;   /* Bright cyan */
+  --color-brand-indigo: #0A0E35; /* Deep navy */
   --color-brand-dark: #0A0A0A;
   --color-brand-darker: #050505;
   --color-brand-gray: #1F1F1F;
   --color-brand-peach: #EEF2F6;
 
-  /* Aliases for safety and backward-compatibility with orange theme classes */
-  --color-brand-orange: #8B5CF6;
-  --color-brand-red: #3B82F6;
+  /* Aliases for safety and backward-compatibility */
+  --color-brand-orange: #2A4BFF;
+  --color-brand-red: #1B2A8A;
   --color-brand-yellow: #0EA5E9;
 
   --font-sans: 'Outfit', sans-serif;
@@ -21,8 +21,8 @@
 
 @layer base {
   body {
-    background: radial-gradient(circle at 50% 50%, #06091d 0%, #020309 100%) !important;
-    color: #e2e8f0 !important;
+    background-color: #FFFFFF !important;
+    color: #0F172A !important;
     font-family: 'Outfit', sans-serif;
   }
 }
@@ -34,13 +34,13 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #060814;
+  background: #F1F5F9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1b203e;
+  background: #CBD5E1;
   border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(15, 23, 42, 0.05);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -95,7 +95,12 @@
   letter-spacing: -0.02em;
 }
 
-/* Grid background pattern with interactive black grid tracking */
+/* Ensure clean solid white background */
+#glow-bg-container {
+  background-color: #FFFFFF !important;
+}
+
+/* Grid background pattern with smaller size and dark blue lines */
 .bg-grid-pattern {
   position: fixed;
   inset: 0;
@@ -108,11 +113,11 @@
   position: absolute;
   inset: 0;
   
-  /* Soft black grid lines always visible across the whole page */
-  background-size: 40px 40px;
+  /* Smaller, dark blue grid lines visible across the whole page */
+  background-size: 26px 26px;
   background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.35) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 1px, transparent 1px);
+    linear-gradient(to right, rgba(27, 42, 138, 0.14) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(27, 42, 138, 0.14) 1px, transparent 1px);
 }
 
 .bg-grid-pattern::after {
@@ -120,187 +125,70 @@
   position: absolute;
   inset: 0;
   
-  /* Rich dark black grid that pops near the cursor */
-  background-size: 40px 40px;
+  /* Darker interactive blue grid that pops near the cursor */
+  background-size: 26px 26px;
   background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.6) 1.5px, transparent 1.5px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 1.5px, transparent 1.5px);
+    linear-gradient(to right, rgba(10, 14, 53, 0.35) 1.2px, transparent 1.2px),
+    linear-gradient(to bottom, rgba(10, 14, 53, 0.35) 1.2px, transparent 1.2px);
   /* Mask it with radial gradient at mouse coordinates */
-  -webkit-mask-image: radial-gradient(circle 220px at var(--mouse-x, -1000px) var(--mouse-y, -1000px), black 30%, transparent 100%);
-  mask-image: radial-gradient(circle 220px at var(--mouse-x, -1000px) var(--mouse-y, -1000px), black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle 180px at var(--mouse-x, -1000px) var(--mouse-y, -1000px), black 30%, transparent 100%);
+  mask-image: radial-gradient(circle 180px at var(--mouse-x, -1000px) var(--mouse-y, -1000px), black 30%, transparent 100%);
   transition: opacity 0.3s ease;
 }
 
-/* Dynamic glow spotlight behind the grid */
+/* Subtle spotlight glow behind the grid using brand blue/cyan */
 .bg-grid-glow {
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background: radial-gradient(circle 280px at var(--mouse-x, -1000px) var(--mouse-y, -1000px), rgba(59, 130, 246, 0.12), rgba(139, 92, 246, 0.05), transparent 100%) !important;
+  background: radial-gradient(circle 240px at var(--mouse-x, -1000px) var(--mouse-y, -1000px), rgba(42, 75, 255, 0.05), rgba(27, 42, 138, 0.02), transparent 100%);
 }
 
-
-/* Glassmorphism panel (for headers, dropdowns, etc) */
+/* Glassmorphism panel (for cards, headers, etc) */
 .glass-panel {
-  background: rgba(8, 11, 30, 0.8) !important;
-  backdrop-filter: blur(16px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(15, 23, 42, 0.08);
 }
 
-/* Premium Glass Cards with glows on hover */
+/* Premium Glass Cards with blue/cyan glows on hover */
 .glass-card {
-  background: rgba(12, 17, 42, 0.55) !important;
-  backdrop-filter: blur(12px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.06) !important;
-  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(15, 23, 42, 0.06);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
-  border-color: rgba(139, 92, 246, 0.45) !important;
-  background: rgba(16, 23, 58, 0.85) !important;
+  border-color: rgba(42, 75, 255, 0.35);
+  background: rgba(255, 255, 255, 0.95);
   box-shadow: 
-    0 20px 40px -15px rgba(0, 0, 0, 0.3),
-    0 0 50px -10px rgba(139, 92, 246, 0.2);
+    0 20px 40px -15px rgba(15, 23, 42, 0.08),
+    0 0 50px -10px rgba(42, 75, 255, 0.12);
   transform: translateY(-4px);
 }
 
 /* Accent border highlights for dashboards */
 .glow-border-purple {
-  border: 1px solid rgba(139, 92, 246, 0.3);
-  box-shadow: 0 0 20px -5px rgba(139, 92, 246, 0.3);
+  border: 1px solid rgba(42, 75, 255, 0.2);
+  box-shadow: 0 0 20px -5px rgba(27, 42, 138, 0.5);
 }
 
 .glow-border-blue {
-  border: 1px solid rgba(59, 130, 246, 0.3);
-  box-shadow: 0 0 20px -5px rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(27, 42, 138, 0.2);
+  box-shadow: 0 0 20px -5px rgba(27, 42, 138, 0.15);
 }
 
 /* Legacy aliases for orange & yellow glows */
 .glow-border-orange {
-  border: 1px solid rgba(139, 92, 246, 0.3);
-  box-shadow: 0 0 20px -5px rgba(139, 92, 246, 0.3);
+  border: 1px solid rgba(42, 75, 255, 0.2);
+  box-shadow: 0 0 20px -5px rgba(27, 42, 138, 0.5);
 }
 
 .glow-border-yellow {
-  border: 1px solid rgba(59, 130, 246, 0.3);
-  box-shadow: 0 0 20px -5px rgba(59, 130, 246, 0.2);
-}
-
-/* Global utility overrides for light-themed classes */
-.bg-white {
-  background-color: rgba(9, 13, 35, 0.75) !important;
-  backdrop-filter: blur(12px) !important;
-  border-color: rgba(255, 255, 255, 0.08) !important;
-}
-
-.bg-slate-50 {
-  background-color: rgba(6, 8, 24, 0.85) !important;
-  border-color: rgba(255, 255, 255, 0.06) !important;
-}
-
-.bg-slate-100 {
-  background-color: rgba(13, 17, 44, 0.85) !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
-}
-
-.bg-gray-50 {
-  background-color: rgba(6, 8, 24, 0.85) !important;
-  border-color: rgba(255, 255, 255, 0.06) !important;
-}
-
-.bg-gray-100 {
-  background-color: rgba(13, 17, 44, 0.85) !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
-}
-
-/* Text color adaptations */
-.text-slate-900 {
-  color: #ffffff !important;
-}
-
-.text-slate-800 {
-  color: #f1f5f9 !important;
-}
-
-.text-slate-700 {
-  color: #e2e8f0 !important;
-}
-
-.text-slate-600 {
-  color: #cbd5e1 !important;
-}
-
-.text-slate-500 {
-  color: #94a3b8 !important;
-}
-
-.text-gray-900 {
-  color: #ffffff !important;
-}
-
-.text-gray-800 {
-  color: #f1f5f9 !important;
-}
-
-.text-gray-700 {
-  color: #e2e8f0 !important;
-}
-
-.text-gray-600 {
-  color: #cbd5e1 !important;
-}
-
-.text-gray-500 {
-  color: #94a3b8 !important;
-}
-
-/* Border overrides */
-.border-slate-200 {
-  border-color: rgba(255, 255, 255, 0.1) !important;
-}
-
-.border-slate-100 {
-  border-color: rgba(255, 255, 255, 0.05) !important;
-}
-
-.border-slate-300 {
-  border-color: rgba(255, 255, 255, 0.15) !important;
-}
-
-.border-slate-200\/80 {
-  border-color: rgba(255, 255, 255, 0.08) !important;
-}
-
-/* Nav capsule bar */
-nav.hidden.lg\:flex {
-  background-color: rgba(8, 11, 33, 0.85) !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
-}
-
-/* Form controls styling */
-input, select, textarea {
-  background-color: rgba(6, 8, 24, 0.9) !important;
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
-  color: #ffffff !important;
-}
-
-input:focus, select:focus, textarea:focus {
-  border-color: #8b5cf6 !important;
-  box-shadow: 0 0 0 1px #8b5cf6 !important;
-}
-
-input::placeholder, textarea::placeholder {
-  color: rgba(255, 255, 255, 0.4) !important;
-}
-
-/* Footer border */
-footer {
-  background-color: #020309 !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(27, 42, 138, 0.2);
+  box-shadow: 0 0 20px -5px rgba(27, 42, 138, 0.15);
 }
 
 /* Infinite slider marquee animations */
@@ -320,3 +208,123 @@ footer {
 .animate-infinite-scroll:hover {
   animation-play-state: paused;
 }
+
+/* Dark header styles to keep top navbar dark while body is white */
+header {
+  background: rgba(10, 14, 53, 0.96) !important; /* deep navy blue background */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(12px) !important;
+  color: #ffffff !important;
+}
+
+header .logo-font.text-slate-900 {
+  color: #ffffff !important;
+}
+
+header .logo-font.text-slate-900:hover {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+header span.text-slate-500 {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Nav capsule bar inside header */
+header nav {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Links inside nav capsule */
+header nav a.text-slate-600, 
+header nav button.text-slate-600 {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+header nav a.text-slate-600:hover, 
+header nav button.text-slate-600:hover {
+  color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Active links in nav capsule */
+header nav a.text-white, 
+header nav button.text-white {
+  color: #ffffff !important;
+  background-color: var(--color-brand-purple) !important;
+}
+
+/* Verify Certificate link */
+header .text-slate-500.hover\:text-slate-950 {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+header .text-slate-500.hover\:text-slate-950:hover {
+  color: #ffffff !important;
+}
+
+/* Student ID badge */
+header .font-mono.bg-slate-100 {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Dropdown menus under header */
+header .absolute.bg-white {
+  background-color: rgba(10, 14, 53, 0.98) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Title divider inside courses dropdown */
+header .border-slate-200\/60 {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Dropdown links hover styles */
+header .absolute a {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+header .absolute a:hover {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  color: #ffffff !important;
+}
+
+header .absolute a .text-slate-900 {
+  color: #ffffff !important;
+}
+
+header .absolute a .text-slate-500 {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Mobile hamburger button */
+header button.text-slate-500 {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+header button.text-slate-500:hover {
+  color: #ffffff !important;
+}
+
+/* Mobile drawer menu */
+header .lg\:hidden {
+  background-color: rgba(10, 14, 53, 0.98) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+header .lg\:hidden a, 
+header .lg\:hidden button {
+  color: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+header .lg\:hidden a:hover, 
+header .lg\:hidden button:hover {
+  color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.04) !important;
+}
+
