@@ -114,7 +114,7 @@ export default function Header() {
                     <GraduationCap className="w-5 h-5 text-brand-purple mt-0.5" />
                     <div>
                       <p className="text-xs font-semibold text-slate-900">All Courses</p>
-                      <p className="text-[11px] text-slate-500">Browse academy programs</p>
+                      <p className="text-[11px] text-slate-500">Browse upskilling programs</p>
                     </div>
                   </Link>
                   <Link to="/courses?cat=AI/ML/DS/DA" className="block px-3 py-1.5 text-xs text-slate-700 hover:text-brand-purple rounded hover:bg-slate-100">

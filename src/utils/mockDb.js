@@ -15,10 +15,10 @@ export const COURSES = [
     enrollments: '1,800+',
     overview: 'Master the fundamentals of Python, machine learning algorithms, deep learning models, computer vision, and Large Language Models (LLMs) with hands-on projects.',
     curriculum: [
-      { week: 'Weeks 1-4', title: 'Python Programming & Core Machine Learning (Scikit-Learn)' },
-      { week: 'Weeks 5-8', title: 'Deep Learning, Neural Networks & Computer Vision (TensorFlow/Keras)' },
-      { week: 'Weeks 9-10', title: 'Introduction to Natural Language Processing & Large Language Models (LLMs)' },
-      { week: 'Weeks 11-12', title: 'Generative AI Capstone Project & Industry Mentorship' }
+      { week: 'Weeks 1-3', title: 'Python Programming, Data Structures, & Exploratory Data Analysis (NumPy, Pandas, Matplotlib, Seaborn)' },
+      { week: 'Weeks 4-6', title: 'Statistical Foundations, IQR Outlier Detection, Data Preprocessing, & Standardization/Normalization' },
+      { week: 'Weeks 7-9', title: 'Supervised & Unsupervised Machine Learning (Linear/Logistic Regression, Decision Trees, Random Forests, Boosting)' },
+      { week: 'Weeks 10-12', title: 'Neural Networks, Natural Language Processing (NLTK, SpaCy), & Generative AI (LLMs, HuggingFace, ChatGPT)' }
     ],
     mentors: [
       { name: 'Dr. Aris Rawat', role: 'Ex-Data Scientist at Microsoft', experience: '8+ Years' },

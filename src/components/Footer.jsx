@@ -40,7 +40,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm text-slate-400 mb-5 leading-relaxed">
-              Accelerating digital growth for brands through our cutting-edge Agency services while equipping developers, marketers, and leaders of tomorrow with industry-focused upskilling.
+              Accelerating digital growth for brands through our cutting-edge digital services while equipping developers, marketers, and leaders of tomorrow with industry-focused upskilling.
             </p>
             <p className="text-xs font-bold text-brand-blue uppercase tracking-wider mb-5">
               We don't just follow the future. <br />
@@ -59,7 +59,7 @@ export default function Footer() {
           {/* Column 2: Agency & Services */}
           <div>
             <h3 className="text-slate-200 font-bold text-sm tracking-widest uppercase mb-6 border-l-2 border-brand-purple pl-3">
-              Agency Services
+            Tech Services
             </h3>
             <ul className="space-y-4 text-sm text-slate-400">
               <li>
@@ -141,13 +141,13 @@ export default function Footer() {
           <div>
             <h5 className="font-bold text-slate-300 uppercase tracking-wider mb-2">EDUCATIONAL SCOPE & POLICIES</h5>
             <p>
-              All academic certifications and learning materials provided by BeyondSkills Academy are designed for Basic to Intermediate levels of industry education. The programs are structured to deliver project-based knowledge, code repositories development, and guided support. Completion of course requirements signifies participation, syllabus coverage, and passing standard test templates, and does not certify professional expertise or licensing.
+              All academic certifications and learning materials provided by BeyondSkills are designed for Basic to Intermediate levels of industry education. The programs are structured to deliver project-based knowledge, code repositories development, and guided support. Completion of course requirements signifies participation, syllabus coverage, and passing standard test templates, and does not certify professional expertise or licensing.
             </p>
           </div>
           <div>
             <h5 className="font-bold text-slate-300 uppercase tracking-wider mb-2">BUSINESS VERTICAL SEPARATION</h5>
             <p>
-              The Digital Marketing & Web Development Agency and the Upskilling Academy operate as distinct commercial business verticals. Agency services (custom programming, digital strategy campaigns, ads placement) are governed by specific corporate agreements and deliverables SLA. Educational classes, recorded video lessons, student login workspace access, and assessments are governed exclusively by candidate enrollment terms.
+              The Digital Marketing & Web Development Services and the Upskilling Programs operate as distinct commercial business verticals. Services (custom programming, digital strategy campaigns, ads placement) are governed by specific corporate agreements and deliverables SLA. Educational classes, recorded video lessons, student login workspace access, and assessments are governed exclusively by candidate enrollment terms.
             </p>
           </div>
         </div>

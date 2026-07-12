@@ -254,7 +254,7 @@ export default function Courses() {
                   <span>Educational Scope Policy</span>
                 </h4>
                 <p className="text-[11px] text-slate-500 leading-relaxed">
-                  BeyondSkills Academy courses are built to provide Basic to Intermediate level coding and operation practices. Completion of course programs signifies syllabus study completion and passing standard test templates, but does not imply advanced competency or corporate licensing.
+                  BeyondSkills courses are built to provide Basic to Intermediate level coding and operation practices. Completion of course programs signifies syllabus study completion and passing standard test templates, but does not imply advanced competency or corporate licensing.
                 </p>
               </div>
 
@@ -294,10 +294,10 @@ export default function Courses() {
         {/* Title */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-bold tracking-widest text-brand-purple uppercase border border-brand-purple/30 px-3 py-1 rounded bg-brand-purple/5">
-            BeyondSkills Academy
+            BeyondSkills
           </span>
           <h1 className="logo-font text-4xl sm:text-6xl font-extrabold mt-6">
-            Academy Course Catalog
+            Upskilling Course Catalog
           </h1>
           <p className="mt-4 text-slate-500 text-sm sm:text-base">
             Recorded learning modules combined with weekly live mentor reviews and digital certificates.

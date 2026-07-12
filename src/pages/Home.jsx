@@ -128,7 +128,7 @@ export default function Home() {
         {/* Animated Glow Pill */}
         <span className="inline-flex items-center space-x-2 bg-slate-100 border border-slate-200/80 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-brand-purple mb-8 shadow-md shadow-brand-purple/5">
           <Sparkles className="w-4 h-4 animate-spin-slow text-brand-purple" />
-          <span>Agency Vertical & Academic Certification Center</span>
+          <span>Upskilling & Professional Certification Center</span>
         </span>
         
         {/* Heading */}
@@ -154,10 +154,10 @@ export default function Home() {
         {/* CTAs */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto sm:max-w-none">
           <Link to="/courses" className="w-full sm:w-auto bg-gradient-to-r from-[#1B2A8A] to-[#2563EB] hover:brightness-110 text-white font-bold px-8 py-4 rounded-xl shadow-xl shadow-brand-purple/20 hover:scale-[1.03] transition-all text-xs uppercase tracking-widest">
-            Browse Academy Programs
+            Browse Programs
           </Link>
           <a href="#contact-forms" className="w-full sm:w-auto bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-800 font-bold px-8 py-4 rounded-xl hover:scale-[1.03] transition-all text-xs uppercase tracking-widest">
-            Partner with Our Agency
+            Start Upskilling
           </a>
         </div>
 
@@ -234,7 +234,7 @@ export default function Home() {
             Core Ecosystem
           </span>
           <h2 className="logo-font text-3xl sm:text-4xl font-bold text-slate-900 mt-4 mb-4">
-            Unified Digital Services & Academy
+            Unified Digital Services & Upskilling
           </h2>
           <p className="text-slate-500 text-sm max-w-xl mx-auto">
             Providing end-to-end digital solutions for businesses while running industry-focused practical upskilling programs.
@@ -243,25 +243,34 @@ export default function Home() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
           {[
-            { title: 'AI-Powered Learning', desc: 'Next-gen cognitive training', icon: Sparkles },
-            { title: 'Web Development Solutions', desc: 'Custom enterprise software', icon: Code },
-            { title: 'Digital Marketing Services', desc: 'Performance ads & optimization', icon: Megaphone },
-            { title: 'Industry Focused Upskilling', desc: 'Practical projects & mentorship', icon: Users },
-            { title: 'Professional Certifications', desc: 'Verified secure credentials', icon: Award },
-            { title: 'Corporate Training & Transformation', desc: 'Team scaling & consulting', icon: Briefcase }
+            { title: 'AI-Powered Learning', desc: 'Next-gen cognitive training', icon: Sparkles, bg: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?w=400&auto=format&fit=crop&q=80' },
+            { title: 'Web Development Solutions', desc: 'Custom enterprise software', icon: Code, bg: 'https://images.unsplash.com/photo-1547082299-de196ea013d6?w=400&auto=format&fit=crop&q=80' },
+            { title: 'Digital Marketing Services', desc: 'Performance ads & optimization', icon: Megaphone, bg: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&auto=format&fit=crop&q=80' },
+            { title: 'Industry Focused Upskilling', desc: 'Practical projects & mentorship', icon: Users, bg: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&auto=format&fit=crop&q=80' },
+            { title: 'Professional Certifications', desc: 'Verified secure credentials', icon: Award, bg: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&auto=format&fit=crop&q=80' },
+            { title: 'Corporate Training & Transformation', desc: 'Team scaling & consulting', icon: Briefcase, bg: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=400&auto=format&fit=crop&q=80' }
           ].map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div key={idx} className="glass-card p-6 rounded-2xl flex flex-col items-center text-center relative overflow-hidden group hover:border-brand-purple/40">
-                <div className="bg-brand-purple/10 border border-brand-purple/20 p-3 rounded-xl text-brand-purple mb-4 group-hover:bg-brand-purple/20 transition-all duration-300">
-                  <Icon className="w-6 h-6" />
+              <div key={idx} className="relative overflow-hidden p-6 rounded-2xl flex flex-col items-center text-center group hover:border-brand-purple/40 min-h-[200px] justify-between">
+                {/* Background Image with Dark Overlay */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center z-0 transition-transform duration-500 group-hover:scale-105"
+                  style={{ backgroundImage: `url('${item.bg}')` }}
+                />
+                <div className="absolute inset-0 bg-slate-950/85 backdrop-blur-[0.5px] z-0" />
+                
+                <div className="relative z-10 flex flex-col items-center justify-between h-full text-white w-full">
+                  <div className="bg-brand-purple/10 border border-brand-purple/20 p-3 rounded-xl text-brand-purple mb-4 group-hover:bg-brand-purple/20 transition-all duration-300">
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <h4 className="text-xs font-extrabold text-white uppercase tracking-wider mb-2 leading-tight h-8 flex items-center justify-center">
+                    {item.title}
+                  </h4>
+                  <p className="text-[10px] text-slate-300 leading-normal">
+                    {item.desc}
+                  </p>
                 </div>
-                <h4 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider mb-2 leading-tight h-8 flex items-center justify-center">
-                  {item.title}
-                </h4>
-                <p className="text-[10px] text-slate-500 leading-normal">
-                  {item.desc}
-                </p>
               </div>
             );
           })}
@@ -275,7 +284,7 @@ export default function Home() {
             Enterprise Solutions
           </span>
           <h2 className="logo-font text-3xl sm:text-4xl font-bold text-slate-900 mt-4 mb-4">
-            Digital Transformation Agency
+            Digital Transformation & Services
           </h2>
           <p className="text-slate-500 text-sm">
             We architect clean software and design conversion-first performance marketing systems.
@@ -285,41 +294,51 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((svc) => {
             const isSelected = selectedServiceId === svc.id;
+            const bgImage = svc.id === 'website-development' 
+              ? 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&auto=format&fit=crop&q=80'
+              : 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80';
             return (
               <div 
                 key={svc.id} 
                 onClick={() => setSelectedServiceId(svc.id)}
-                className={`glass-card p-8 rounded-2xl flex flex-col justify-between relative group overflow-hidden cursor-pointer transition-all duration-300 ${
+                className={`relative overflow-hidden p-8 rounded-2xl flex flex-col justify-between group cursor-pointer transition-all duration-300 min-h-[350px] ${
                   isSelected 
                     ? 'border-brand-purple ring-2 ring-brand-purple/20 shadow-[0_0_25px_rgba(139,92,246,0.45)] scale-[1.01]' 
-                    : 'hover:scale-[1.01]'
+                    : 'border border-slate-200/20 hover:scale-[1.01]'
                 }`}
               >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-brand-purple/5 rounded-full blur-2xl group-hover:bg-brand-purple/10 transition-colors"></div>
-              
-              <div>
-                <div className="bg-brand-purple/10 border border-brand-purple/20 p-4 rounded-xl w-14 h-14 flex items-center justify-center text-brand-purple mb-6">
-                  <svc.icon className="w-7 h-7" />
+                {/* Background Image with Dark Overlay */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center z-0 transition-transform duration-500 group-hover:scale-105"
+                  style={{ backgroundImage: `url('${bgImage}')` }}
+                />
+                <div className="absolute inset-0 bg-slate-950/85 backdrop-blur-[0.5px] z-0" />
+
+                <div className="relative z-10 flex flex-col justify-between h-full text-white w-full">
+                  <div>
+                    <div className="bg-brand-purple/10 border border-brand-purple/20 p-4 rounded-xl w-14 h-14 flex items-center justify-center text-brand-purple mb-6">
+                      <svc.icon className="w-7 h-7" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-4">{svc.title}</h3>
+                    <p className="text-slate-300 text-sm leading-relaxed mb-6">{svc.desc}</p>
+                  </div>
+                  
+                  <div>
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {svc.tech.map((t, i) => (
+                        <span key={i} className="text-[10px] bg-white/10 border border-white/10 px-2.5 py-1 rounded text-slate-200 font-mono hover:bg-white/20 transition-all">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                    <Link to={`/services/${svc.id}`} className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-brand-purple hover:text-white transition-colors">
+                      <span>Explore Process & Outcomes</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-4">{svc.title}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed mb-6">{svc.desc}</p>
               </div>
-              
-              <div>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {svc.tech.map((t, i) => (
-                    <span key={i} className="text-[10px] bg-slate-100 border border-slate-200 px-2.5 py-1 rounded text-slate-700 font-mono">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                <Link to={`/services/${svc.id}`} className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-brand-purple hover:text-slate-900 transition-colors">
-                  <span>Explore Process & Outcomes</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-          )})}
+            )})}
         </div>
       </section>
 
@@ -459,7 +478,7 @@ export default function Home() {
             
             <h4 className="text-lg font-bold text-slate-900 mb-4">Resume Evaluations & ATS Screening</h4>
             <p className="text-xs text-slate-500 leading-relaxed mb-6">
-              Academy students receive detailed resume reviews. Industry recruitment specialists analyze your code layout, project presentation, and align formatting with ATS algorithms.
+              Upskilling program students receive detailed resume reviews. Industry recruitment specialists analyze your code layout, project presentation, and align formatting with ATS algorithms.
             </p>
             
             <div className="bg-slate-100 border border-slate-200/60 rounded-xl p-4 flex items-center space-x-3">
@@ -484,7 +503,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <h4 className="text-xs font-bold text-brand-purple tracking-widest uppercase mb-6 pl-2 border-l-2 border-brand-purple">
-              Academy Graduates
+              Upskilling Graduates
             </h4>
             <div className="space-y-6">
               {STUDENT_TESTIMONIALS.map((t, idx) => (
@@ -545,10 +564,10 @@ export default function Home() {
         {/* Tab Headers */}
         <div className="flex justify-center space-x-4 mb-8">
           <button onClick={() => { setActiveTab('agency'); setSubmitStatus(null); }} className={`px-6 py-2.5 rounded-full font-bold text-xs uppercase tracking-widest transition-all ${activeTab === 'agency' ? 'bg-brand-purple text-black font-semibold' : 'bg-slate-100 border border-slate-200 text-slate-700 hover:text-slate-900'}`}>
-            Hire Our Agency
+            Request Services
           </button>
           <button onClick={() => { setActiveTab('academy'); setSubmitStatus(null); }} className={`px-6 py-2.5 rounded-full font-bold text-xs uppercase tracking-widest transition-all ${activeTab === 'academy' ? 'bg-brand-purple text-black font-semibold' : 'bg-slate-100 border border-slate-200 text-slate-700 hover:text-slate-900'}`}>
-            Ask Academy Advisors
+            Ask Advisors
           </button>
         </div>
 
@@ -557,13 +576,13 @@ export default function Home() {
 
           {submitStatus === 'agency_success' && (
             <div className="bg-brand-purple/15 border border-brand-purple/30 text-slate-900 p-4 rounded-xl mb-6 text-xs sm:text-sm">
-              🚀 Agency Request Logged! A mock client receipt confirmation has been dispatched to your email.
+              🚀 Request Logged! A confirmation has been dispatched to your email.
             </div>
           )}
           
           {submitStatus === 'academy_success' && (
             <div className="bg-brand-purple/15 border border-brand-purple/30 text-slate-900 p-4 rounded-xl mb-6 text-xs sm:text-sm">
-              📚 Academic Request Logged! Check your active mock alerts box for admissions receipt details.
+              📚 Consultation Request Logged! Check your active mock alerts box for details.
             </div>
           )}
 
@@ -618,7 +637,7 @@ export default function Home() {
 
               <button type="submit" className="w-full bg-brand-purple hover:bg-brand-purple/90 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-widest transition-colors flex items-center justify-center space-x-2">
                 <Send className="w-4 h-4" />
-                <span>Submit Agency Inquiry</span>
+                <span>Submit Inquiry</span>
               </button>
             </form>
           ) : (
@@ -674,7 +693,7 @@ export default function Home() {
 
               <button type="submit" className="w-full bg-brand-purple hover:bg-brand-purple/90 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-widest transition-colors flex items-center justify-center space-x-2">
                 <Send className="w-4 h-4" />
-                <span>Submit Academy Inquiry</span>
+                <span>Submit Inquiry</span>
               </button>
             </form>
           )}
@@ -686,7 +705,7 @@ export default function Home() {
         
         <div className="text-center mb-16">
           <h2 className="logo-font text-3xl font-bold text-slate-900 mb-2">Frequently Asked Questions</h2>
-          <p className="text-xs text-slate-500 uppercase tracking-widest">Learn more about our verticals & academy guidelines.</p>
+          <p className="text-xs text-slate-500 uppercase tracking-widest">Learn more about our verticals & upskilling guidelines.</p>
         </div>
 
         <div className="space-y-4">

@@ -62,7 +62,7 @@ export default function Contact() {
             Let's Start a Conversation
           </h1>
           <p className="mt-4 text-slate-500 text-sm sm:text-base">
-            Reach our digital agency for software & ads projects, or contact our academy advisors to plan your upskilling catalog.
+            Reach our team for software & ads projects, or contact our advisors to plan your upskilling catalog.
           </p>
         </div>
 
@@ -116,11 +116,11 @@ export default function Contact() {
           <div className="lg:col-span-2 space-y-8">
             <div className="flex border-b border-slate-200 space-x-6 pb-2">
               <button onClick={() => { setActiveForm('agency'); setStatus(null); }} className={`pb-4 font-bold text-sm uppercase tracking-wider transition-colors relative ${activeForm === 'agency' ? 'text-brand-purple' : 'text-slate-500 hover:text-slate-900'}`}>
-                <span>Agency Request</span>
+                <span>Service Request</span>
                 {activeForm === 'agency' && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-purple"></div>}
               </button>
               <button onClick={() => { setActiveForm('academy'); setStatus(null); }} className={`pb-4 font-bold text-sm uppercase tracking-wider transition-colors relative ${activeForm === 'academy' ? 'text-brand-purple' : 'text-slate-500 hover:text-slate-900'}`}>
-                <span>Academy Program Consultation</span>
+                <span>Program Consultation</span>
                 {activeForm === 'academy' && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-purple"></div>}
               </button>
             </div>
@@ -128,13 +128,13 @@ export default function Contact() {
             <div className="glass-panel p-8 rounded-2xl border border-slate-200">
               {status === 'agency_success' && (
                 <div className="bg-brand-purple/15 border border-brand-purple/30 text-slate-900 p-4 rounded-xl mb-6 text-xs">
-                  🚀 Agency Request Received! An acknowledgement letter has been dispatched to your email (simulated SLA toast triggered).
+                  🚀 Service Request Received! An acknowledgement letter has been dispatched to your email (simulated SLA toast triggered).
                 </div>
               )}
               
               {status === 'academy_success' && (
                 <div className="bg-brand-purple/15 border border-brand-purple/30 text-slate-900 p-4 rounded-xl mb-6 text-xs">
-                  📚 Admissions Request Logged! An advisor notification has been dispatched (simulated SLA toast triggered).
+                  📚 Consultation Request Logged! An advisor notification has been dispatched (simulated SLA toast triggered).
                 </div>
               )}
 
@@ -189,7 +189,7 @@ export default function Contact() {
 
                   <button type="submit" className="w-full bg-brand-purple hover:bg-brand-purple/90 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-widest transition-colors flex items-center justify-center space-x-2">
                     <Send className="w-4 h-4" />
-                    <span>Submit Agency Request</span>
+                    <span>Submit Request</span>
                   </button>
                 </form>
               ) : (
@@ -245,7 +245,7 @@ export default function Contact() {
 
                   <button type="submit" className="w-full bg-brand-purple hover:bg-brand-purple/90 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-widest transition-colors flex items-center justify-center space-x-2">
                     <Send className="w-4 h-4" />
-                    <span>Submit Academy Request</span>
+                    <span>Submit Request</span>
                   </button>
                 </form>
               )}
