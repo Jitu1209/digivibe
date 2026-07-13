@@ -79,7 +79,7 @@ export default function Contact() {
                 <div>
                   <h4 className="text-xs font-bold text-slate-700 uppercase tracking-wider">Office Location</h4>
                   <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                    Plot No. 747, Udyog Vihar, Phase 5, Gurugram, Haryana
+                    Udyog Vihar, Gurugram, Haryana
                   </p>
                 </div>
               </div>

@@ -122,7 +122,7 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-slate-400">
               <li className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-brand-purple flex-shrink-0 mt-0.5" />
-                <span>Plot No. 747, Udyog Vihar, Phase 5, Gurugram, Haryana</span>
+                <span>Udyog Vihar, Gurugram, Haryana</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-brand-purple flex-shrink-0" />

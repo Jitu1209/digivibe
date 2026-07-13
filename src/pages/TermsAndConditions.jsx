@@ -183,7 +183,7 @@ export default function TermsAndConditions() {
             <ul className="space-y-1">
               <li>Email: <a href="mailto:support@wayspire.in" className="text-brand-purple hover:underline">support@wayspire.in</a></li>
               <li>Call Support: +91 81309 27999</li>
-              <li>Address: Lower Ground Floor, Plot No. 747, Udyog Vihar Phase V, Gurugram, Haryana 122016</li>
+              <li>Address: Udyog Vihar, Gurugram, Haryana</li>
             </ul>
           </div>
 
