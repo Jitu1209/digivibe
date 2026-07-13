@@ -121,10 +121,10 @@ export default function Home() {
   const partnersRow1 = [
     { name: 'Cisco', url: 'https://cdn.simpleicons.org/cisco/005073' },
     { name: 'Intuit', url: 'https://cdn.simpleicons.org/intuit/3F4EBF' },
-    { name: 'Microsoft', url: 'https://cdn.simpleicons.org/microsoft/F25022' },
+    { name: 'Microsoft', type: 'text', render: <div className="flex items-center space-x-2"><svg className="w-5.5 h-5.5 flex-shrink-0" viewBox="0 0 23 23"><rect x="0" y="0" width="10.5" height="10.5" fill="#F25022"/><rect x="11.5" y="0" width="10.5" height="10.5" fill="#7FBA00"/><rect x="0" y="11.5" width="10.5" height="10.5" fill="#00A4EF"/><rect x="11.5" y="11.5" width="10.5" height="10.5" fill="#FFB900"/></svg><span className="font-semibold text-slate-800 text-[15px] font-sans tracking-tight">Microsoft</span></div> },
     { name: 'Meta', url: 'https://cdn.simpleicons.org/meta/0668E1' },
-    { name: 'Adobe', url: 'https://cdn.simpleicons.org/adobe/FF0000' },
-    { name: 'IBM', url: 'https://cdn.simpleicons.org/ibm/052FAD' },
+    { name: 'Adobe', type: 'text', render: <div className="flex items-center space-x-2"><svg className="w-5.5 h-5.5 text-[#FF0000] flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M13.966 2.033v20.016l6.634-16.748zM0 22.049h6.634L13.268 5.301zm11.966-10.742l5.367-11.307h-5.367z"/></svg><span className="font-bold text-slate-900 text-[15px] tracking-tight">Adobe</span></div> },
+    { name: 'IBM', type: 'text', render: <div className="relative font-mono font-black text-[#052FAD] text-2xl tracking-tighter" style={{ letterSpacing: '-0.08em', fontWeight: 900 }}>IBM<div className="absolute inset-0 flex flex-col justify-between pointer-events-none py-0.5"><div className="h-0.5 w-full bg-white/90"></div><div className="h-0.5 w-full bg-white/90"></div><div className="h-0.5 w-full bg-white/90"></div><div className="h-0.5 w-full bg-white/90"></div><div className="h-0.5 w-full bg-white/90"></div></div></div> },
     { name: 'PMI', type: 'text', render: <span className="font-serif font-black text-slate-800 text-sm uppercase tracking-tight">Project Management Institute</span> },
     { name: 'Autodesk', url: 'https://cdn.simpleicons.org/autodesk/0696D7' },
     { name: 'Apple', url: 'https://cdn.simpleicons.org/apple/000000' },
@@ -157,7 +157,7 @@ export default function Home() {
         {/* Animated Glow Pill */}
         <span className="inline-flex items-center space-x-2 bg-slate-100 border border-slate-200/80 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-brand-purple mb-8 shadow-md shadow-brand-purple/5">
           <Sparkles className="w-4 h-4 animate-spin-slow text-brand-purple" />
-          <span>Digital Services & Professional Certification Center</span>
+          <span>Digital Services & Upskilling Hub</span>
         </span>
         
         {/* Heading */}
@@ -339,7 +339,7 @@ export default function Home() {
       </section>
 
       {/* Core Ecosystem Section from Banner */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10 border-t border-slate-200/60">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10 border-t border-slate-200/60">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-bold tracking-widest text-brand-cyan uppercase border border-brand-cyan/30 px-3 py-1 rounded bg-brand-cyan/5">
             Core Ecosystem
@@ -389,7 +389,7 @@ export default function Home() {
       </section>
 
       {/* 4. Agency Verticals Summary */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-bold tracking-widest text-brand-purple uppercase border border-brand-purple/30 px-3 py-1 rounded bg-brand-purple/5">
             Enterprise Solutions
@@ -520,7 +520,13 @@ export default function Home() {
                     <div className="border-t border-white/10 pt-4 flex items-center justify-between">
                       <div>
                         <span className="text-[10px] text-slate-400 block">Syllabus Fee</span>
-                        <span className="text-base font-bold text-white">₹{course.fee.toLocaleString()}</span>
+                        <div className="flex items-center space-x-2 mt-0.5">
+                          <span className="text-base font-bold text-white">₹{course.fee.toLocaleString()}</span>
+                          <span className="text-[11px] text-slate-400 line-through">₹{course.originalFee.toLocaleString()}</span>
+                          <span className="text-[9px] text-emerald-400 font-extrabold bg-emerald-500/10 border border-emerald-500/20 px-1.5 py-0.5 rounded">
+                            {Math.round(((course.originalFee - course.fee) / course.originalFee) * 100)}% OFF
+                          </span>
+                        </div>
                       </div>
                       <button 
                         onClick={(e) => {
@@ -548,7 +554,7 @@ export default function Home() {
       </section>
 
       {/* 6. Key Value Propositions (Why Choose Us) */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <span className="text-brand-purple text-xs font-bold tracking-widest uppercase">
@@ -566,7 +572,7 @@ export default function Home() {
                 'Dual Model: High-quality Recorded + Weekly Live Mentor Sessions',
                 'Instructed by 50+ Mentors with 5+ Years Industry Experience',
                 'Internship Completion Certificate upon passing project metrics',
-                'Detailed Resume Evaluations by corporate recruitment teams',
+                'Weekly Live Mock Interview Prep & Coding Labs',
                 'Instant Student ID and automated workspace provisioning'
               ].map((item, idx) => (
                 <div key={idx} className="flex items-start space-x-3">
@@ -579,19 +585,19 @@ export default function Home() {
 
           <div className="glass-panel p-8 rounded-2xl border border-slate-200 relative">
             <div className="absolute -top-4 -left-4 bg-brand-purple text-black font-extrabold uppercase px-3 py-1 rounded text-[9px] tracking-wider">
-              Resume Services
+              Mentorship Support
             </div>
             
-            <h4 className="text-lg font-bold text-slate-900 mb-4">Resume Evaluations & ATS Screening</h4>
+            <h4 className="text-lg font-bold text-slate-900 mb-4">Live Mentorship & SLA Support</h4>
             <p className="text-xs text-slate-500 leading-relaxed mb-6">
-              Professional program students receive detailed resume reviews. Industry recruitment specialists analyze your code layout, project presentation, and align formatting with ATS algorithms.
+              Connect with active software engineering and performance marketing leads. Ask technical queries, review code repositories, and receive structured feedback within our simulated SLA frameworks.
             </p>
             
             <div className="bg-slate-100 border border-slate-200/60 rounded-xl p-4 flex items-center space-x-3">
               <Star className="w-8 h-8 text-brand-cyan flex-shrink-0" />
               <div>
-                <p className="text-xs font-bold text-slate-900">4.6 / 5 Score Rating</p>
-                <p className="text-[10px] text-slate-500">Calculated average student reviews across 10,000+ graduates since 2022.</p>
+                <p className="text-xs font-bold text-slate-900">4.8 / 5 Satisfaction</p>
+                <p className="text-[10px] text-slate-500">Calculated average mentor query satisfaction score across our professional programs.</p>
               </div>
             </div>
           </div>
@@ -599,7 +605,7 @@ export default function Home() {
       </section>
 
       {/* 7. Testimonials */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10 border-t border-slate-200">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10 border-t border-slate-200">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="logo-font text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
             Alumni Success Stories & Client Reviews
@@ -658,7 +664,7 @@ export default function Home() {
       </section>
 
       {/* 8. Contact & Lead Generation Forms */}
-      <section id="contact-forms" className="py-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto relative z-10 border-t border-slate-200">
+      <section id="contact-forms" className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto relative z-10 border-t border-slate-200">
         
         <div className="text-center mb-12">
           <h2 className="logo-font text-3xl font-bold text-slate-900 mb-2">Get In Touch</h2>
@@ -807,7 +813,7 @@ export default function Home() {
       </section>
 
       {/* 9. FAQs Section */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto relative z-10 border-t border-slate-200">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto relative z-10 border-t border-slate-200">
         
         <div className="text-center mb-16">
           <h2 className="logo-font text-3xl font-bold text-slate-900 mb-2">Frequently Asked Questions</h2>

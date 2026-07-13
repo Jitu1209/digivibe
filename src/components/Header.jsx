@@ -77,21 +77,23 @@ export default function Header() {
               </button>
               
               {agencyDropdown && (
-                <div className="absolute left-0 w-64 mt-2 bg-white border border-slate-200 rounded-xl shadow-xl p-2 animate-fade-in backdrop-blur-xl">
-                  <Link to="/services/website-development" className="flex items-start space-x-3 p-3 rounded-lg hover:bg-slate-50 transition-colors text-slate-700">
-                    <Code className="w-5 h-5 text-brand-purple mt-0.5" />
-                    <div>
-                      <p className="text-sm font-semibold text-slate-900">Website Development</p>
-                      <p className="text-xs text-slate-500">Custom web apps & ecommerce</p>
-                    </div>
-                  </Link>
-                  <Link to="/services/digital-marketing" className="flex items-start space-x-3 p-3 rounded-lg hover:bg-slate-50 transition-colors text-slate-700">
-                    <Megaphone className="w-5 h-5 text-brand-purple mt-0.5" />
-                    <div>
-                      <p className="text-sm font-semibold text-slate-900">Digital Marketing</p>
-                      <p className="text-xs text-slate-500">Google, Meta Ads & Strategy</p>
-                    </div>
-                  </Link>
+                <div className="absolute left-0 top-full w-64 pt-2 z-50">
+                  <div className="bg-white border border-slate-200 rounded-xl shadow-xl p-2 animate-fade-in backdrop-blur-xl">
+                    <Link to="/services/website-development" className="flex items-start space-x-3 p-3 rounded-lg hover:bg-slate-50 transition-colors text-slate-700">
+                      <Code className="w-5 h-5 text-brand-purple mt-0.5" />
+                      <div>
+                        <p className="text-sm font-semibold text-slate-900">Website Development</p>
+                        <p className="text-xs text-slate-500">Custom web apps & ecommerce</p>
+                      </div>
+                    </Link>
+                    <Link to="/services/digital-marketing" className="flex items-start space-x-3 p-3 rounded-lg hover:bg-slate-50 transition-colors text-slate-700">
+                      <Megaphone className="w-5 h-5 text-brand-purple mt-0.5" />
+                      <div>
+                        <p className="text-sm font-semibold text-slate-900">Digital Marketing</p>
+                        <p className="text-xs text-slate-500">Google, Meta Ads & Strategy</p>
+                      </div>
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
@@ -104,38 +106,39 @@ export default function Header() {
                 <span>Career Accelerator Program</span>
                 <ChevronDown className="w-3.5 h-3.5" />
               </button>
-              
-              {coursesDropdown && (
-                <div className="absolute left-0 w-72 mt-2 bg-white border border-slate-200 rounded-xl shadow-xl p-2 animate-fade-in backdrop-blur-xl">
-                  <div className="px-3 py-1 text-[10px] font-bold text-brand-purple tracking-widest uppercase border-b border-slate-200/60 mb-1 pb-1">
-                    Certification Programs
-                  </div>
-                  <Link to="/courses" className="flex items-start space-x-3 p-2.5 rounded-lg hover:bg-slate-50 transition-colors text-slate-700">
-                    <GraduationCap className="w-5 h-5 text-brand-purple mt-0.5" />
-                    <div>
-                      <p className="text-xs font-semibold text-slate-900">All Courses</p>
-                      <p className="text-[11px] text-slate-500">Browse upskilling programs</p>
+                          {coursesDropdown && (
+                <div className="absolute left-0 top-full w-72 pt-2 z-50">
+                  <div className="bg-white border border-slate-200 rounded-xl shadow-xl p-2 animate-fade-in backdrop-blur-xl">
+                    <div className="px-3 py-1 text-[10px] font-bold text-brand-purple tracking-widest uppercase border-b border-slate-200/60 mb-1 pb-1">
+                      Certification Programs
                     </div>
-                  </Link>
-                  <Link to="/courses?cat=AI/ML/DS/DA" className="block px-3 py-1.5 text-xs text-slate-700 hover:text-brand-purple rounded hover:bg-slate-100">
-                    Artificial Intelligence & Data Science
-                  </Link>
-                  <Link to="/courses?cat=Full Stack Development" className="block px-3 py-1.5 text-xs text-slate-700 hover:text-brand-purple rounded hover:bg-slate-100">
-                    Full Stack Web Dev (MERN)
-                  </Link>
-                  <Link to="/courses?cat=Digital Marketing" className="block px-3 py-1.5 text-xs text-slate-700 hover:text-brand-purple rounded hover:bg-slate-100">
-                    Performance Ads & SEO
-                  </Link>
-                  <Link to="/courses?cat=HR" className="block px-3 py-1.5 text-xs text-slate-700 hover:text-brand-purple rounded hover:bg-slate-100">
-                    HR Management
-                  </Link>
+                    <Link to="/courses" className="flex items-start space-x-3 p-2.5 rounded-lg hover:bg-slate-50 transition-colors text-slate-700">
+                      <GraduationCap className="w-5 h-5 text-brand-purple mt-0.5" />
+                      <div>
+                        <p className="text-xs font-semibold text-slate-900">All Courses</p>
+                        <p className="text-[11px] text-slate-500">Browse upskilling programs</p>
+                      </div>
+                    </Link>
+                    <Link to="/courses?cat=AI/ML/DS/DA" className="block px-3 py-1.5 text-xs text-slate-700 hover:text-brand-purple rounded hover:bg-slate-100">
+                      Artificial Intelligence & Data Science
+                    </Link>
+                    <Link to="/courses?cat=Full Stack Development" className="block px-3 py-1.5 text-xs text-slate-700 hover:text-brand-purple rounded hover:bg-slate-100">
+                      Full Stack Web Dev (MERN)
+                    </Link>
+                    <Link to="/courses?cat=Digital Marketing" className="block px-3 py-1.5 text-xs text-slate-700 hover:text-brand-purple rounded hover:bg-slate-100">
+                      Performance Ads & SEO
+                    </Link>
+                    <Link to="/courses?cat=HR" className="block px-3 py-1.5 text-xs text-slate-700 hover:text-brand-purple rounded hover:bg-slate-100">
+                      HR Management
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
 
             {/* 3.5. Campus Ambassador */}
-            <Link to="/ambassador" className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 hover:scale-105 active:scale-95 ${location.pathname === '/ambassador' ? 'text-white bg-brand-purple shadow-md shadow-brand-purple/20' : 'text-slate-600 hover:text-slate-950 hover:bg-slate-100/60'}`}>
-              Ambassador
+            <Link to="/ambassador" className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 hover:scale-105 active:scale-95 ${location.pathname === '/ambassador' ? 'text-white bg-brand-purple shadow-md shadow-brand-purple/20' : 'text-slate-600 hover:text-slate-955 hover:bg-slate-100/60'}`}>
+              Campus Ambassador Program
             </Link>
 
             {/* 4. Blog */}
@@ -220,7 +223,7 @@ export default function Header() {
           </Link>
 
           <Link to="/ambassador" className="block px-3 py-2 text-base font-semibold text-slate-800 hover:text-brand-purple border-b border-slate-100">
-            Campus Ambassador
+            Campus Ambassador Program
           </Link>
 
           <Link to="/blog" className="block px-3 py-2 text-base font-semibold text-slate-800 hover:text-brand-purple border-b border-slate-100">

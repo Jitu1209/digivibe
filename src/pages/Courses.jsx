@@ -156,7 +156,13 @@ export default function Courses() {
                     <div className="border-t border-white/10 pt-4 flex items-center justify-between">
                       <div>
                         <span className="text-[10px] text-slate-400 block">Syllabus Fee</span>
-                        <span className="text-base font-bold text-white">₹{c.fee.toLocaleString()}</span>
+                        <div className="flex items-center space-x-2 mt-0.5">
+                          <span className="text-base font-bold text-white">₹{c.fee.toLocaleString()}</span>
+                          <span className="text-[11px] text-slate-400 line-through">₹{c.originalFee.toLocaleString()}</span>
+                          <span className="text-[9px] text-emerald-400 font-extrabold bg-emerald-500/10 border border-emerald-500/20 px-1.5 py-0.5 rounded">
+                            {Math.round(((c.originalFee - c.fee) / c.originalFee) * 100)}% OFF
+                          </span>
+                        </div>
                       </div>
                       <div className="flex space-x-2">
                         <button 

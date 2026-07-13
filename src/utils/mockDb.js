@@ -115,72 +115,6 @@ export const COURSES = [
     ]
   },
   {
-    id: 'data-science-analytics',
-    techStack: ['Python', 'SQL', 'Excel', 'Pandas', 'NumPy', 'PowerBI', 'Tableau'],
-    title: 'Data Science & Analytics',
-    category: 'AI/ML/DS/DA',
-    level: 'Basic to Intermediate',
-    duration: '3 Months',
-    fee: 15000,
-    originalFee: 18000,
-    delivery: 'Recorded + Live Mentor Sessions',
-    certificate: 'Yes',
-    rating: 4.7,
-    enrollments: '1,400+',
-    overview: 'Master data cleaning, advanced SQL querying, relational databases, statistical modelling, and interactive dashboard creation in PowerBI and Tableau to extract insights and drive business decisions.',
-    curriculum: [
-      { 
-        week: 'Weeks 1-4', 
-        title: 'Relational Databases, SQL Querying, & Data Extraction',
-        topics: ['Database Fundamentals & ER Diagrams', 'SQL Basics: SELECT, WHERE, ORDER BY', 'Aggregations: GROUP BY, HAVING', 'JOINS (Inner, Left, Right, Full Outer)', 'Subqueries & Common Table Expressions (CTEs)', 'SQL Window Functions (ROW_NUMBER, RANK, LEAD, LAG)', 'Python for SQL Connections (sqlite3, SQLAlchemy)', 'Pandas for initial data loading & filtering']
-      },
-      { 
-        week: 'Weeks 5-8', 
-        title: 'Data Visualization & Dashboard Design (PowerBI & Tableau)',
-        topics: ['Introduction to Data Visualization Principles', 'PowerBI Desktop Interface & Workspace', 'Data Modelling in PowerBI (Star & Snowflake Schemas)', 'Writing DAX (Data Analysis Expressions) Measures', 'Designing Interactive Dashboards in PowerBI', 'Tableau Desktop: Connections, Worksheets, & Stories', 'Creating Calculated Fields & Parameters in Tableau', 'Dashboard Publishing & Security Best Practices']
-      },
-      { 
-        week: 'Weeks 9-10', 
-        title: 'Statistical Analysis & Exploratory Analytics',
-        topics: ['Descriptive Statistics: Mean, Median, Mode, Variance', 'Correlation & Covariance', 'Hypothesis Testing: T-tests, ANOVA, Chi-Square', 'Exploratory Data Analysis (EDA) Workflow', 'Data Storytelling: Structuring Reports for Business Stakeholders', 'Linear Regression for Trend Analysis & Forecasting']
-      },
-      { 
-        week: 'Weeks 11-12', 
-        title: 'Data Storytelling Capstone & Project Presentation',
-        topics: ['Formulating Business Questions from Raw Data', 'Building end-to-end analytical pipelines', 'Designing a Executive-Level Summary Dashboard', 'Creating a compelling presentation of insights', 'Final Project Review & Portfolio Setup']
-      }
-    ],
-    projects: [
-      {
-        title: 'E-commerce Sales Performance Dashboard',
-        description: 'An interactive multi-page dashboard built in PowerBI visualizing user retention, product category sales, monthly revenue trends, and geo-analytics.',
-        techUsed: ['PowerBI', 'SQL', 'Pandas', 'Python']
-      },
-      {
-        title: 'Global Cohort Retention & Churn Profiler',
-        description: 'An analytical pipeline extracting relational database tables via SQL, performing cohort analysis in Python, and modeling future client churn patterns.',
-        techUsed: ['SQL', 'Python', 'Pandas', 'Tableau']
-      }
-    ],
-    mentors: [
-      { name: 'Dr. Aris Rawat', role: 'Ex-Data Scientist at Microsoft', experience: '8+ Years' },
-      { name: 'Riddhima Das', role: 'Growth Hacker & Ex-Consultant', experience: '5+ Years' }
-    ],
-    outcomes: [
-      'Write optimized SQL queries for extracting and transforming large datasets.',
-      'Clean, preprocess, and analyze unstructured raw data using Python.',
-      'Design and deploy production-grade corporate dashboards in PowerBI and Tableau.',
-      'Present analytical findings through compelling data stories and dashboards.'
-    ],
-    faqs: [
-      { q: 'Do I need a mathematical background?', a: 'Basic math and logic are sufficient. We teach all statistical concepts step-by-step from scratch.' },
-      { q: 'Will I learn database management?', a: 'Yes, relational database querying via SQL is covered extensively.' }
-    ],
-    reviews: [
-      { user: 'Karthik S.', rating: 5, comment: 'Excellent dashboarding sessions. Learned Tableau from absolute scratch.', date: 'May 2026' }
-    ]
-  },
-  {
     id: 'full-stack-web',
     techStack: ['HTML5', 'CSS3', 'JavaScript', 'React', 'Node.js', 'Express', 'MongoDB'],
     title: 'Full Stack Web Development (MERN)',
@@ -308,7 +242,72 @@ export const COURSES = [
     ]
   },
   {
-    id: 'hr-mgmt',
+    id: 'data-science-analytics',
+    techStack: ['Python', 'SQL', 'Excel', 'Pandas', 'NumPy', 'PowerBI', 'Tableau'],
+    title: 'Data Science & Analytics',
+    category: 'AI/ML/DS/DA',
+    level: 'Basic to Intermediate',
+    duration: '3 Months',
+    fee: 15000,
+    originalFee: 18000,
+    delivery: 'Recorded + Live Mentor Sessions',
+    certificate: 'Yes',
+    rating: 4.7,
+    enrollments: '1,400+',
+    overview: 'Master data cleaning, advanced SQL querying, relational databases, statistical modelling, and interactive dashboard creation in PowerBI and Tableau to extract insights and drive business decisions.',
+    curriculum: [
+      { 
+        week: 'Weeks 1-4', 
+        title: 'Relational Databases, SQL Querying, & Data Extraction',
+        topics: ['Database Fundamentals & ER Diagrams', 'SQL Basics: SELECT, WHERE, ORDER BY', 'Aggregations: GROUP BY, HAVING', 'JOINS (Inner, Left, Right, Full Outer)', 'Subqueries & Common Table Expressions (CTEs)', 'SQL Window Functions (ROW_NUMBER, RANK, LEAD, LAG)', 'Python for SQL Connections (sqlite3, SQLAlchemy)', 'Pandas for initial data loading & filtering']
+      },
+      { 
+        week: 'Weeks 5-8', 
+        title: 'Data Visualization & Dashboard Design (PowerBI & Tableau)',
+        topics: ['Introduction to Data Visualization Principles', 'PowerBI Desktop Interface & Workspace', 'Data Modelling in PowerBI (Star & Snowflake Schemas)', 'Writing DAX (Data Analysis Expressions) Measures', 'Designing Interactive Dashboards in PowerBI', 'Tableau Desktop: Connections, Worksheets, & Stories', 'Creating Calculated Fields & Parameters in Tableau', 'Dashboard Publishing & Security Best Practices']
+      },
+      { 
+        week: 'Weeks 9-10', 
+        title: 'Statistical Analysis & Exploratory Analytics',
+        topics: ['Descriptive Statistics: Mean, Variance, Mode, Median', 'Correlation & Covariance', 'Hypothesis Testing: T-tests, ANOVA, Chi-Square', 'Exploratory Data Analysis (EDA) Workflow', 'Data Storytelling: Structuring Reports for Business Stakeholders', 'Linear Regression for Trend Analysis & Forecasting']
+      },
+      { 
+        week: 'Weeks 11-12', 
+        title: 'Data Storytelling Capstone & Project Presentation',
+        topics: ['Formulating Business Questions from Raw Data', 'Building end-to-end analytical pipelines', 'Designing a Executive-Level Summary Dashboard', 'Creating a compelling presentation of insights', 'Final Project Review & Portfolio Setup']
+      }
+    ],
+    projects: [
+      {
+        title: 'E-commerce Sales Performance Dashboard',
+        description: 'An interactive multi-page dashboard built in PowerBI visualizing user retention, product category sales, monthly revenue trends, and geo-analytics.',
+        techUsed: ['PowerBI', 'SQL', 'Pandas', 'Python']
+      },
+      {
+        title: 'Global Cohort Retention & Churn Profiler',
+        description: 'An analytical pipeline extracting relational database tables via SQL, performing cohort analysis in Python, and modeling future client churn patterns.',
+        techUsed: ['SQL', 'Python', 'Pandas', 'Tableau']
+      }
+    ],
+    mentors: [
+      { name: 'Dr. Aris Rawat', role: 'Ex-Data Scientist at Microsoft', experience: '8+ Years' },
+      { name: 'Riddhima Das', role: 'Growth Hacker & Ex-Consultant', experience: '5+ Years' }
+    ],
+    outcomes: [
+      'Write optimized SQL queries for extracting and transforming large datasets.',
+      'Clean, preprocess, and analyze unstructured raw data using Python.',
+      'Design and deploy production-grade corporate dashboards in PowerBI and Tableau.',
+      'Present analytical findings through compelling data stories and dashboards.'
+    ],
+    faqs: [
+      { q: 'Do I need a mathematical background?', a: 'Basic math and logic are sufficient. We teach all statistical concepts step-by-step from scratch.' },
+      { q: 'Will I learn database management?', a: 'Yes, relational database querying via SQL is covered extensively.' }
+    ],
+    reviews: [
+      { user: 'Karthik S.', rating: 5, comment: 'Excellent dashboarding sessions. Learned Tableau from absolute scratch.', date: 'May 2026' }
+    ]
+  },
+  {
     techStack: ['ATS Systems', 'Payroll Tools', 'HR Analytics', 'Excel'],
     title: 'Human Resource Management & Operations',
     category: 'HR',

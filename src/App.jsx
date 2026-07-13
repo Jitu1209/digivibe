@@ -16,6 +16,9 @@ import Verification from './pages/Verification';
 import AdminDashboard from './pages/AdminDashboard';
 import CourseDetails from './pages/CourseDetails';
 import CampusAmbassador from './pages/CampusAmbassador';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsAndConditions from './pages/TermsAndConditions';
+import ReturnRefundPolicy from './pages/ReturnRefundPolicy';
 import { Mail, Sparkles, X } from 'lucide-react';
 
 // Scroll to top on navigation change
@@ -161,6 +164,9 @@ export default function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/verify" element={<Verification />} />
           <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+          <Route path="/return-refund-policy" element={<ReturnRefundPolicy />} />
         </Routes>
       </LayoutWrapper>
     </Router>

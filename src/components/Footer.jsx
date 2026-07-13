@@ -152,9 +152,9 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-slate-900/60 flex flex-col md:flex-row items-center justify-between text-xs text-slate-400">
           <p>© {new Date().getFullYear()} BeyondSkills. All rights reserved. Registered 2022.</p>
           <div className="flex space-x-6 mt-4 md:mt-0 text-slate-400">
-            <a href="#" className="hover:text-brand-purple transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-brand-purple transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-brand-purple transition-colors">Refund Policy</a>
+            <Link to="/terms-and-conditions" className="hover:text-brand-purple transition-colors">Terms of Service</Link>
+            <Link to="/privacy-policy" className="hover:text-brand-purple transition-colors">Privacy Policy</Link>
+            <Link to="/return-refund-policy" className="hover:text-brand-purple transition-colors">Refund Policy</Link>
           </div>
         </div>
 
