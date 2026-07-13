@@ -196,6 +196,91 @@ export default function Home() {
         </p>
       </section>
 
+      {/* Double Logo Marquee Ticker */}
+      <section className="py-16 overflow-hidden relative z-10 bg-slate-50 border-t border-b border-slate-200/50">
+        <style dangerouslySetInnerHTML={{__html: `
+          @keyframes marquee-forward {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          @keyframes marquee-backward {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+          }
+          .animate-marquee-forward {
+            animation: marquee-forward 30s linear infinite;
+          }
+          .animate-marquee-backward {
+            animation: marquee-backward 30s linear infinite;
+          }
+          .logo-item {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 150px;
+            height: 48px;
+            padding: 0 25px;
+          }
+        `}} />
+
+        {/* Row 1: UPSKILLING & TRAINING PARTNERS - Scrolling Left to Right (backward animation) */}
+        <div className="mb-10">
+          <div className="text-center mb-6">
+            <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-[0.2em] font-mono">
+              Upskilling & Training Partners
+            </span>
+          </div>
+          
+          <div className="w-full flex overflow-hidden select-none relative">
+            {/* Fade overlays */}
+            <div className="absolute top-0 bottom-0 left-0 w-24 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none" />
+            <div className="absolute top-0 bottom-0 right-0 w-24 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none" />
+            
+            <div className="flex whitespace-nowrap animate-marquee-backward items-center py-2">
+              {[...partnersRow1, ...partnersRow1].map((logo, idx) => (
+                <div key={idx} className="logo-item hover:scale-105 transition-transform duration-300">
+                  {logo.type === 'text' ? (
+                    logo.render
+                  ) : (
+                    <img src={logo.url} alt={logo.name} className="h-8 object-contain" />
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Divider line */}
+        <div className="max-w-5xl mx-auto border-t border-slate-200/50 my-2" />
+
+        {/* Row 2: OUR ALUMNI WORK AT - Scrolling Right to Left (forward animation) */}
+        <div className="mt-8">
+          <div className="text-center mb-6">
+            <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-[0.2em] font-mono">
+              Our Alumni Work At
+            </span>
+          </div>
+
+          <div className="w-full flex overflow-hidden select-none relative">
+            {/* Fade overlays */}
+            <div className="absolute top-0 bottom-0 left-0 w-24 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none" />
+            <div className="absolute top-0 bottom-0 right-0 w-24 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none" />
+
+            <div className="flex whitespace-nowrap animate-marquee-forward items-center py-2">
+              {[...alumniRow2, ...alumniRow2].map((logo, idx) => (
+                <div key={idx} className="logo-item hover:scale-105 transition-transform duration-300">
+                  {logo.type === 'text' ? (
+                    logo.render
+                  ) : (
+                    <img src={logo.url} alt={logo.name} className="h-6 object-contain" />
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 2.5 Trust Badges & Accreditations Banner */}
       <div className="w-full py-8 relative z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -459,91 +544,6 @@ export default function Home() {
             <span>Browse All 7 Academic Programs</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
-        </div>
-      </section>
-
-      {/* Double Logo Marquee Ticker */}
-      <section className="py-16 overflow-hidden relative z-10 bg-slate-50 border-t border-b border-slate-200/50">
-        <style dangerouslySetInnerHTML={{__html: `
-          @keyframes marquee-forward {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-          @keyframes marquee-backward {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0); }
-          }
-          .animate-marquee-forward {
-            animation: marquee-forward 30s linear infinite;
-          }
-          .animate-marquee-backward {
-            animation: marquee-backward 30s linear infinite;
-          }
-          .logo-item {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 150px;
-            height: 48px;
-            padding: 0 25px;
-          }
-        `}} />
-
-        {/* Row 1: UPSKILLING & TRAINING PARTNERS - Scrolling Left to Right (backward animation) */}
-        <div className="mb-10">
-          <div className="text-center mb-6">
-            <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-[0.2em] font-mono">
-              Upskilling & Training Partners
-            </span>
-          </div>
-          
-          <div className="w-full flex overflow-hidden select-none relative">
-            {/* Fade overlays */}
-            <div className="absolute top-0 bottom-0 left-0 w-24 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none" />
-            <div className="absolute top-0 bottom-0 right-0 w-24 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none" />
-            
-            <div className="flex whitespace-nowrap animate-marquee-backward items-center py-2">
-              {[...partnersRow1, ...partnersRow1].map((logo, idx) => (
-                <div key={idx} className="logo-item grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
-                  {logo.type === 'text' ? (
-                    logo.render
-                  ) : (
-                    <img src={logo.url} alt={logo.name} className="h-8 object-contain" />
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Divider line */}
-        <div className="max-w-5xl mx-auto border-t border-slate-200/50 my-2" />
-
-        {/* Row 2: OUR ALUMNI WORK AT - Scrolling Right to Left (forward animation) */}
-        <div className="mt-8">
-          <div className="text-center mb-6">
-            <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-[0.2em] font-mono">
-              Our Alumni Work At
-            </span>
-          </div>
-
-          <div className="w-full flex overflow-hidden select-none relative">
-            {/* Fade overlays */}
-            <div className="absolute top-0 bottom-0 left-0 w-24 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none" />
-            <div className="absolute top-0 bottom-0 right-0 w-24 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none" />
-
-            <div className="flex whitespace-nowrap animate-marquee-forward items-center py-2">
-              {[...alumniRow2, ...alumniRow2].map((logo, idx) => (
-                <div key={idx} className="logo-item grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
-                  {logo.type === 'text' ? (
-                    logo.render
-                  ) : (
-                    <img src={logo.url} alt={logo.name} className="h-6 object-contain" />
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
