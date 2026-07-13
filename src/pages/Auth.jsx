@@ -44,7 +44,7 @@ export default function Auth() {
         navigate('/courses');
       }
     } else {
-      setError('Invalid email or password. Use student@beyondskills.in / password for testing.');
+      setError('Invalid email or password.');
     }
   };
 
@@ -165,7 +165,7 @@ export default function Auth() {
               <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Email Address</label>
               <div className="relative">
                 <Mail className="absolute left-3 top-3 w-4 h-4 text-slate-500" />
-                <input type="email" required value={loginForm.email} onChange={(e) => setLoginForm({...loginForm, email: e.target.value})} className="w-full bg-white border border-slate-200/80 shadow-sm border border-slate-200 rounded-lg pl-10 pr-4 py-2.5 text-xs text-slate-900 focus:border-brand-purple outline-none" placeholder="student@beyondskills.in" />
+                <input type="email" required value={loginForm.email} onChange={(e) => setLoginForm({...loginForm, email: e.target.value})} className="w-full bg-white border border-slate-200/80 shadow-sm border border-slate-200 rounded-lg pl-10 pr-4 py-2.5 text-xs text-slate-900 focus:border-brand-purple outline-none" placeholder="enteremail@gmail.com" />
               </div>
             </div>
             
@@ -176,7 +176,7 @@ export default function Auth() {
               </div>
               <div className="relative">
                 <Lock className="absolute left-3 top-3 w-4 h-4 text-slate-500" />
-                <input type="password" required value={loginForm.password} onChange={(e) => setLoginForm({...loginForm, password: e.target.value})} className="w-full bg-white border border-slate-200/80 shadow-sm border border-slate-200 rounded-lg pl-10 pr-4 py-2.5 text-xs text-slate-900 focus:border-brand-purple outline-none" placeholder="password" />
+                <input type="password" required value={loginForm.password} onChange={(e) => setLoginForm({...loginForm, password: e.target.value})} className="w-full bg-white border border-slate-200/80 shadow-sm border border-slate-200 rounded-lg pl-10 pr-4 py-2.5 text-xs text-slate-900 focus:border-brand-purple outline-none" placeholder="Password" />
               </div>
             </div>
 
@@ -184,12 +184,6 @@ export default function Auth() {
               <span>Sign In</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
-
-            <div className="text-[10px] text-slate-500 text-center mt-6">
-              Test accounts:<br />
-              Student: <span className="text-slate-700 font-mono">student@beyondskills.in / password</span><br />
-              Admin: <span className="text-slate-700 font-mono">admin@beyondskills.in / admin123</span>
-            </div>
           </form>
         )}
 

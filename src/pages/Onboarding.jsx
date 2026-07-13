@@ -93,8 +93,8 @@ export default function Onboarding() {
               <div className="flex items-start space-x-3 bg-slate-100 p-3 rounded-lg border border-slate-200/60">
                 <CheckCircle className="w-5 h-5 text-brand-purple mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="font-bold text-slate-900">Temporary Credentials Issued</p>
-                  <p className="text-slate-500 mt-0.5">Use your checkout email and temporary password <strong>"password"</strong> to login.</p>
+                  <p className="font-bold text-slate-900">Credentials Generation In-Progress</p>
+                  <p className="text-slate-500 mt-0.5">Your official course access credentials (login ID & password) will be sent to your registered email address shortly.</p>
                 </div>
               </div>
 
@@ -117,15 +117,10 @@ export default function Onboarding() {
           </div>
 
           {/* Actions */}
-          <div className="border-t border-slate-200/60 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="border-t border-slate-200/60 pt-6 flex justify-center">
             <button onClick={() => setInvoiceOpen(true)} className="w-full sm:w-auto bg-slate-100 hover:bg-white/10 border border-slate-200 text-white font-bold px-6 py-3 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center space-x-2">
               <FileText className="w-4.5 h-4.5 text-brand-purple" />
               <span>Generate PDF Invoice</span>
-            </button>
-
-            <button onClick={handleGoToDashboard} className="w-full sm:w-auto bg-gradient-to-r from-[#1B2A8A] to-[#2563EB] hover:brightness-110 text-white font-bold px-6 py-3 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center space-x-2 shadow-lg shadow-brand-purple/15 hover:scale-105 transition-all">
-              <span>Go to Study Dashboard</span>
-              <ArrowRight className="w-4.5 h-4.5" />
             </button>
           </div>
 

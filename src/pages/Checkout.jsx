@@ -94,7 +94,7 @@ export default function Checkout() {
     window.dispatchEvent(new CustomEvent('beyondskills_toast', {
       detail: {
         subject: `Enrollment Success & Onboarding Checklist`,
-        body: `Hi ${form.name},\n\nPayment successful (Ref ID: ${paymentId}). Your student ID is ${targetUser.studentId || newStudentId}.\n\nWelcome to your learning platform! Registered login details:\nEmail: ${form.email}\nTemp Password: password\n\nYour dashboard workspace is active. Let's start!`,
+        body: `Hi ${form.name},\n\nPayment successful (Ref ID: ${paymentId}). Your student ID is ${targetUser.studentId || newStudentId}.\n\nWelcome to your learning platform! Your official course access credentials (login ID & password) will be sent to your registered email address shortly.`,
       }
     }));
 
