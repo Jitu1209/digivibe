@@ -134,9 +134,9 @@ export default function Checkout() {
       key: import.meta.env.VITE_RAZORPAY_KEY_ID || 'rzp_test_defaultKey123',
       amount: course.fee * 100, // amount in paise
       currency: 'INR',
-      name: 'BeyondSkills Academy',
+      name: 'BeyondSkills - Upskilling Hub',
       description: `Enrollment fee for ${course.title}`,
-      image: '/favicon.svg',
+      image: window.location.origin + '/logo.png',
       prefill: {
         name: form.name,
         email: form.email,
