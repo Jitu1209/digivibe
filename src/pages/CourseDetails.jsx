@@ -344,11 +344,15 @@ export default function CourseDetails() {
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {course.outcomes.map((outcome, idx) => (
-                  <div key={idx} className="bg-slate-50 border border-slate-100 p-5 rounded-2xl flex items-start space-x-3.5 hover:bg-white hover:shadow-md hover:border-slate-200/60 transition-all group">
-                    <div className="bg-brand-purple/10 p-2 rounded-xl text-brand-purple group-hover:scale-105 transition-transform flex-shrink-0">
+                  <div key={idx} className="bg-slate-50/60 backdrop-blur-sm border border-slate-100 p-5 rounded-2xl flex items-start space-x-3.5 hover:bg-white hover:shadow-md hover:border-brand-purple/35 transition-all group relative overflow-hidden">
+                    {/* Glowing background circles */}
+                    <div className="absolute -bottom-6 -right-6 w-16 h-16 bg-brand-purple/5 rounded-full blur-xl group-hover:bg-brand-purple/12 transition-colors z-0"></div>
+                    <div className="absolute -top-6 -left-6 w-12 h-12 bg-brand-cyan/5 rounded-full blur-lg group-hover:bg-brand-cyan/10 transition-colors z-0"></div>
+                    
+                    <div className="bg-brand-purple/10 p-2 rounded-xl text-brand-purple group-hover:scale-105 transition-transform flex-shrink-0 relative z-10">
                       <CheckCircle className="w-5 h-5" />
                     </div>
-                    <div>
+                    <div className="relative z-10">
                       <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
                         {outcome}
                       </p>
@@ -380,7 +384,7 @@ export default function CourseDetails() {
                 {course.curriculum.map((module, idx) => {
                   const isExpanded = expandedWeeks[idx];
                   return (
-                    <div key={idx} className={`border rounded-2xl overflow-hidden transition-all ${isExpanded ? 'border-slate-300 shadow-md bg-white' : 'border-slate-200 hover:border-slate-300 bg-slate-50/30'}`}>
+                    <div key={idx} className={`border rounded-2xl overflow-hidden transition-all ${isExpanded ? 'border-slate-300 shadow-md bg-white' : 'border-slate-200/80 hover:border-slate-300 hover:shadow-sm bg-slate-50 hover:bg-slate-100/50'}`}>
                       {/* Accordion Header */}
                       <button 
                         onClick={() => toggleWeek(idx)}
@@ -551,7 +555,7 @@ export default function CourseDetails() {
                 <span>Student Feedback</span>
               </h4>
               
-              <div className="space-y-4 mt-2">
+              <div className="space-y-4 mt-2 max-h-[260px] overflow-y-auto pr-1">
                 {course.reviews.map((rev, idx) => (
                   <div key={idx} className="border-b border-slate-200/60 pb-4 last:border-b-0 last:pb-0 space-y-2">
                     <div className="flex items-center justify-between text-[11px] font-mono">

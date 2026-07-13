@@ -139,7 +139,7 @@ export default function Home() {
     { name: 'L&T', type: 'text', render: <span className="font-extrabold text-[#0B2545] tracking-wider text-xl font-sans">L&T</span> },
     { name: 'Shemaroo', type: 'text', render: <span className="font-black text-orange-600 tracking-wide text-lg font-serif italic">shemaroo</span> },
     { name: 'Infosys', url: 'https://cdn.simpleicons.org/infosys/007CC3' },
-    { name: 'PwC', url: 'https://cdn.simpleicons.org/pwc/D04A02' },
+    { name: 'PwC', type: 'text', render: <div className="flex items-center space-x-1.5"><svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 32 32"><rect x="2" y="2" width="12" height="12" fill="#D04A02"/><rect x="16" y="2" width="12" height="12" fill="#E0301E"/><rect x="2" y="16" width="12" height="12" fill="#FFB612"/><rect x="16" y="16" width="12" height="12" fill="#EB8C00"/></svg><span className="font-extrabold text-slate-800 text-[18px] tracking-tighter leading-none font-sans">pwc</span></div> },
     { name: 'Grant Thornton', type: 'text', render: <span className="font-extrabold text-[#4B2F7E] tracking-tight text-base font-serif">Grant Thornton</span> },
     { name: 'Sony', url: 'https://cdn.simpleicons.org/sony/000000' }
   ];
